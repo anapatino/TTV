@@ -138,7 +138,8 @@ namespace InterfazGrafica4._7
 
         private void btnHistorialPagoMulta_Click(object sender, EventArgs e)
         {
-
+            OpenFormHijo(new FrmHistorialPagoMulta());
+            hideSubmenu();
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)

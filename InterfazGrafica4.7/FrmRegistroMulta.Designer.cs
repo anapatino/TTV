@@ -30,6 +30,7 @@ namespace InterfazGrafica4._7
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroMulta));
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,15 +38,21 @@ namespace InterfazGrafica4._7
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lbMulta = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cmCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtPlaca = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtValor = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmTipoVehiculo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.bnRegistrar = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmDescripcion = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtBusqueda = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.errorTipo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPlaca = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorTipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPlaca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescripcion)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -115,85 +122,90 @@ namespace InterfazGrafica4._7
             this.label1.TabIndex = 26;
             this.label1.Text = "REGISTRAR";
             // 
-            // txtDireccion
+            // txtPlaca
             // 
-            this.txtDireccion.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccion.BorderRadius = 15;
-            this.txtDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDireccion.DefaultText = "";
-            this.txtDireccion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDireccion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDireccion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDireccion.DisabledState.Parent = this.txtDireccion;
-            this.txtDireccion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDireccion.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDireccion.FocusedState.Parent = this.txtDireccion;
-            this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.ForeColor = System.Drawing.Color.DimGray;
-            this.txtDireccion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDireccion.HoverState.Parent = this.txtDireccion;
-            this.txtDireccion.Location = new System.Drawing.Point(172, 194);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.PasswordChar = '\0';
-            this.txtDireccion.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccion.PlaceholderText = "";
-            this.txtDireccion.SelectedText = "";
-            this.txtDireccion.ShadowDecoration.Parent = this.txtDireccion;
-            this.txtDireccion.Size = new System.Drawing.Size(221, 36);
-            this.txtDireccion.TabIndex = 34;
+            this.txtPlaca.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPlaca.BorderRadius = 15;
+            this.txtPlaca.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPlaca.DefaultText = "";
+            this.txtPlaca.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPlaca.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPlaca.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPlaca.DisabledState.Parent = this.txtPlaca;
+            this.txtPlaca.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPlaca.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPlaca.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPlaca.FocusedState.Parent = this.txtPlaca;
+            this.txtPlaca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPlaca.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPlaca.HoverState.Parent = this.txtPlaca;
+            this.txtPlaca.Location = new System.Drawing.Point(172, 194);
+            this.txtPlaca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.PasswordChar = '\0';
+            this.txtPlaca.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPlaca.PlaceholderText = "";
+            this.txtPlaca.SelectedText = "";
+            this.txtPlaca.ShadowDecoration.Parent = this.txtPlaca;
+            this.txtPlaca.Size = new System.Drawing.Size(221, 36);
+            this.txtPlaca.TabIndex = 34;
+            this.txtPlaca.Validating += new System.ComponentModel.CancelEventHandler(this.txtPlaca_Validating);
             // 
-            // guna2TextBox2
+            // txtValor
             // 
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox2.BorderRadius = 15;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(172, 314);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(221, 36);
-            this.guna2TextBox2.TabIndex = 36;
+            this.txtValor.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtValor.BorderRadius = 15;
+            this.txtValor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtValor.DefaultText = "";
+            this.txtValor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtValor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtValor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValor.DisabledState.Parent = this.txtValor;
+            this.txtValor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValor.Enabled = false;
+            this.txtValor.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtValor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtValor.FocusedState.Parent = this.txtValor;
+            this.txtValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.ForeColor = System.Drawing.Color.DimGray;
+            this.txtValor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtValor.HoverState.Parent = this.txtValor;
+            this.txtValor.Location = new System.Drawing.Point(172, 314);
+            this.txtValor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.PasswordChar = '\0';
+            this.txtValor.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtValor.PlaceholderText = "";
+            this.txtValor.SelectedText = "";
+            this.txtValor.ShadowDecoration.Parent = this.txtValor;
+            this.txtValor.Size = new System.Drawing.Size(221, 36);
+            this.txtValor.TabIndex = 36;
             // 
-            // cmCategoria
+            // cmTipoVehiculo
             // 
-            this.cmCategoria.BackColor = System.Drawing.Color.Transparent;
-            this.cmCategoria.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.cmCategoria.BorderRadius = 15;
-            this.cmCategoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmCategoria.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cmCategoria.FocusedColor = System.Drawing.Color.Empty;
-            this.cmCategoria.FocusedState.Parent = this.cmCategoria;
-            this.cmCategoria.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmCategoria.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.cmCategoria.FormattingEnabled = true;
-            this.cmCategoria.HoverState.Parent = this.cmCategoria;
-            this.cmCategoria.ItemHeight = 30;
-            this.cmCategoria.ItemsAppearance.Parent = this.cmCategoria;
-            this.cmCategoria.Location = new System.Drawing.Point(175, 138);
-            this.cmCategoria.Name = "cmCategoria";
-            this.cmCategoria.ShadowDecoration.Parent = this.cmCategoria;
-            this.cmCategoria.Size = new System.Drawing.Size(218, 36);
-            this.cmCategoria.TabIndex = 37;
+            this.cmTipoVehiculo.BackColor = System.Drawing.Color.Transparent;
+            this.cmTipoVehiculo.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmTipoVehiculo.BorderRadius = 15;
+            this.cmTipoVehiculo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmTipoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmTipoVehiculo.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmTipoVehiculo.FocusedColor = System.Drawing.Color.Empty;
+            this.cmTipoVehiculo.FocusedState.Parent = this.cmTipoVehiculo;
+            this.cmTipoVehiculo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmTipoVehiculo.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cmTipoVehiculo.FormattingEnabled = true;
+            this.cmTipoVehiculo.HoverState.Parent = this.cmTipoVehiculo;
+            this.cmTipoVehiculo.ItemHeight = 30;
+            this.cmTipoVehiculo.Items.AddRange(new object[] {
+            "Ninguno"});
+            this.cmTipoVehiculo.ItemsAppearance.Parent = this.cmTipoVehiculo;
+            this.cmTipoVehiculo.Location = new System.Drawing.Point(175, 138);
+            this.cmTipoVehiculo.Name = "cmTipoVehiculo";
+            this.cmTipoVehiculo.ShadowDecoration.Parent = this.cmTipoVehiculo;
+            this.cmTipoVehiculo.Size = new System.Drawing.Size(218, 36);
+            this.cmTipoVehiculo.TabIndex = 37;
+            this.cmTipoVehiculo.Validating += new System.ComponentModel.CancelEventHandler(this.cmTipoVehiculo_Validating);
             // 
             // bnLimpiar
             // 
@@ -210,6 +222,7 @@ namespace InterfazGrafica4._7
             this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
             this.bnLimpiar.TabIndex = 39;
             this.bnLimpiar.Text = "Limpiar";
+            this.bnLimpiar.Click += new System.EventHandler(this.bnLimpiar_Click);
             // 
             // bnRegistrar
             // 
@@ -228,56 +241,59 @@ namespace InterfazGrafica4._7
             this.bnRegistrar.Text = "Registrar";
             this.bnRegistrar.Click += new System.EventHandler(this.bnRegistrar_Click);
             // 
-            // guna2ComboBox1
+            // cmDescripcion
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ComboBox1.BorderRadius = 15;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2ComboBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(172, 256);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(218, 36);
-            this.guna2ComboBox1.TabIndex = 40;
+            this.cmDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.cmDescripcion.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmDescripcion.BorderRadius = 15;
+            this.cmDescripcion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmDescripcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmDescripcion.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmDescripcion.FocusedColor = System.Drawing.Color.Empty;
+            this.cmDescripcion.FocusedState.Parent = this.cmDescripcion;
+            this.cmDescripcion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmDescripcion.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cmDescripcion.FormattingEnabled = true;
+            this.cmDescripcion.HoverState.Parent = this.cmDescripcion;
+            this.cmDescripcion.ItemHeight = 30;
+            this.cmDescripcion.Items.AddRange(new object[] {
+            "Ninguno"});
+            this.cmDescripcion.ItemsAppearance.Parent = this.cmDescripcion;
+            this.cmDescripcion.Location = new System.Drawing.Point(172, 256);
+            this.cmDescripcion.Name = "cmDescripcion";
+            this.cmDescripcion.ShadowDecoration.Parent = this.cmDescripcion;
+            this.cmDescripcion.Size = new System.Drawing.Size(218, 36);
+            this.cmDescripcion.TabIndex = 40;
+            this.cmDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.cmDescripcion_Validating);
             // 
-            // guna2TextBox1
+            // txtBusqueda
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(397, 256);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(221, 36);
-            this.guna2TextBox1.TabIndex = 41;
+            this.txtBusqueda.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.BorderRadius = 15;
+            this.txtBusqueda.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBusqueda.DefaultText = "";
+            this.txtBusqueda.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBusqueda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBusqueda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBusqueda.DisabledState.Parent = this.txtBusqueda;
+            this.txtBusqueda.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBusqueda.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBusqueda.FocusedState.Parent = this.txtBusqueda;
+            this.txtBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.ForeColor = System.Drawing.Color.DimGray;
+            this.txtBusqueda.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBusqueda.HoverState.Parent = this.txtBusqueda;
+            this.txtBusqueda.Location = new System.Drawing.Point(425, 256);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.PasswordChar = '\0';
+            this.txtBusqueda.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.PlaceholderText = "";
+            this.txtBusqueda.SelectedText = "";
+            this.txtBusqueda.ShadowDecoration.Parent = this.txtBusqueda;
+            this.txtBusqueda.Size = new System.Drawing.Size(221, 36);
+            this.txtBusqueda.TabIndex = 41;
             // 
             // label6
             // 
@@ -304,6 +320,21 @@ namespace InterfazGrafica4._7
             this.guna2DateTimePicker1.TabIndex = 47;
             this.guna2DateTimePicker1.Value = new System.DateTime(2021, 11, 14, 21, 54, 38, 545);
             // 
+            // errorTipo
+            // 
+            this.errorTipo.ContainerControl = this;
+            this.errorTipo.Icon = ((System.Drawing.Icon)(resources.GetObject("errorTipo.Icon")));
+            // 
+            // errorPlaca
+            // 
+            this.errorPlaca.ContainerControl = this;
+            this.errorPlaca.Icon = ((System.Drawing.Icon)(resources.GetObject("errorPlaca.Icon")));
+            // 
+            // errorDescripcion
+            // 
+            this.errorDescripcion.ContainerControl = this;
+            this.errorDescripcion.Icon = ((System.Drawing.Icon)(resources.GetObject("errorDescripcion.Icon")));
+            // 
             // FrmRegistroMulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,13 +343,13 @@ namespace InterfazGrafica4._7
             this.ClientSize = new System.Drawing.Size(780, 614);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.guna2DateTimePicker1);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.txtBusqueda);
+            this.Controls.Add(this.cmDescripcion);
             this.Controls.Add(this.bnLimpiar);
             this.Controls.Add(this.bnRegistrar);
-            this.Controls.Add(this.cmCategoria);
-            this.Controls.Add(this.guna2TextBox2);
-            this.Controls.Add(this.txtDireccion);
+            this.Controls.Add(this.cmTipoVehiculo);
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.lbMulta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
@@ -328,6 +359,9 @@ namespace InterfazGrafica4._7
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistroMulta";
             this.Text = "FrmRegistroMulta";
+            ((System.ComponentModel.ISupportInitialize)(this.errorTipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPlaca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescripcion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,14 +375,17 @@ namespace InterfazGrafica4._7
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lbMulta;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2TextBox txtDireccion;
-        private Guna.UI2.WinForms.Guna2ComboBox cmCategoria;
+        private Guna.UI2.WinForms.Guna2TextBox txtValor;
+        private Guna.UI2.WinForms.Guna2TextBox txtPlaca;
+        private Guna.UI2.WinForms.Guna2ComboBox cmTipoVehiculo;
         private Guna.UI2.WinForms.Guna2Button bnLimpiar;
         private Guna.UI2.WinForms.Guna2Button bnRegistrar;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtBusqueda;
+        private Guna.UI2.WinForms.Guna2ComboBox cmDescripcion;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private System.Windows.Forms.ErrorProvider errorTipo;
+        private System.Windows.Forms.ErrorProvider errorPlaca;
+        private System.Windows.Forms.ErrorProvider errorDescripcion;
     }
 }
