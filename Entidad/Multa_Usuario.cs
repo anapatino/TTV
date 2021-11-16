@@ -14,21 +14,21 @@ namespace Entidad
    
         }
 
-        public Multa_Usuario(string usu_cod_fk,string pri_nombre, string pri_apellido,string mul_id_fk,string mul_descripcion,  string estado)
+        public Multa_Usuario(string codigo,string pri_nombre, string pri_apellido,string multa_id,string multa_descripcion,  string estado)
         {
-            Usu_cod_fk = usu_cod_fk;
+            Codigo = codigo;
             Pri_nombre = pri_nombre;
             Pri_Apellido = pri_apellido;
-            Mul_id_fk = mul_id_fk;
-            Mul_descripcion = mul_descripcion;
+            Multa_id = multa_id;
+            Multa_descripcion = multa_descripcion;
             Estado = estado;
         }
 
-        public string Usu_cod_fk { get; set; }
+        public string Codigo { get; set; }
         public string Pri_nombre { get; set; }
         public string Pri_Apellido { get; set; }
-        public string Mul_id_fk { get; set; }
-        public string Mul_descripcion { get; set; }
+        public string Multa_id { get; set; }
+        public string Multa_descripcion { get; set; }
         public string Estado { get; set; }
 
         
