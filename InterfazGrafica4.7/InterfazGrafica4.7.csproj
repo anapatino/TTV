@@ -219,11 +219,11 @@
     <Compile Include="FrmRecategorizar.Designer.cs">
       <DependentUpon>FrmRecategorizar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegistroLicencia.cs">
+    <Compile Include="FrmInformacionLicencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistroLicencia.Designer.cs">
-      <DependentUpon>FrmRegistroLicencia.cs</DependentUpon>
+    <Compile Include="FrmInformacionLicencia.Designer.cs">
+      <DependentUpon>FrmInformacionLicencia.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistroLicenciaa.cs">
       <SubType>Form</SubType>
@@ -272,8 +272,8 @@
     <EmbeddedResource Include="FrmRecategorizar.resx">
       <DependentUpon>FrmRecategorizar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistroLicencia.resx">
-      <DependentUpon>FrmRegistroLicencia.cs</DependentUpon>
+    <EmbeddedResource Include="FrmInformacionLicencia.resx">
+      <DependentUpon>FrmInformacionLicencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroLicenciaa.resx">
       <DependentUpon>FrmRegistroLicenciaa.cs</DependentUpon>
