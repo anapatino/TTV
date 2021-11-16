@@ -13,7 +13,7 @@ namespace Entidad
 
         }
 
-        public HistorialPagoMulta(string his_id_pk, string usu_cod_fk, string pri_nombre, string pri_apellido, string mul_id_fk, string mul_descripcion, string estado, DateTime fechapago)
+        public HistorialPagoMulta(string his_id_pk, string usu_cod_fk, string pri_nombre, string pri_apellido, string mul_id_fk, string mul_descripcion, string estado, DateTime fechapago, decimal valor)
         {
             His_Id = his_id_pk;
             Usu_cod_fk = usu_cod_fk;
@@ -23,6 +23,7 @@ namespace Entidad
             Mul_descripcion = mul_descripcion;
             Estado = estado;
             FechaPago = fechapago;
+            Mul_valor = valor;
         }
 
         public string His_Id { get; set; }
@@ -33,5 +34,6 @@ namespace Entidad
         public string Mul_descripcion { get; set; }
         public string Estado { get; set; }
         public DateTime FechaPago { get; set; }
+        public decimal Mul_valor { get; set; }
     }
 }
