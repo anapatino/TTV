@@ -9,19 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace InterfazGrafica4._7
 {
-
-    public partial class FrmConsultaLicencia : Form
-    {   
-        public FrmConsultaLicencia()
+    public partial class FrmInformacionLicencia : Form
+    {
+        public FrmInformacionLicencia()
         {
             InitializeComponent();
         }
 
-        private void btnDetalles_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
-            new FrmInformacionLicencia().Show();
+            Hide();
         }
     }
 }

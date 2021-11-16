@@ -37,26 +37,25 @@ namespace InterfazGrafica4._7
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.dgvTabla = new System.Windows.Forms.DataGridView();
-            this.cmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnSuperior = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pcImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnCentral = new Bunifu.UI.WinForms.BunifuPanel();
+            this.cmFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
-            this.cmFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmCodigoLicencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmOrganismo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnFechaExpedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDetalles = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.pnSuperior.SuspendLayout();
             this.bunifuPanel1.SuspendLayout();
@@ -88,19 +87,17 @@ namespace InterfazGrafica4._7
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTabla.ColumnHeadersHeight = 26;
+            this.dgvTabla.ColumnHeadersHeight = 36;
             this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmCodigoLicencia,
             this.cmCedula,
             this.cmNombre,
             this.cmApellido,
             this.cmGrupo,
-            this.cmTelefono,
-            this.cmFecha,
-            this.cmDireccion,
-            this.cmTipo,
+            this.cmOrganismo,
             this.cmCategoria,
-            this.cmValor});
+            this.cnFechaExpedicion});
             this.dgvTabla.EnableHeadersVisualStyles = false;
             this.dgvTabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
             this.dgvTabla.Location = new System.Drawing.Point(45, 72);
@@ -123,56 +120,6 @@ namespace InterfazGrafica4._7
             this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTabla.Size = new System.Drawing.Size(678, 250);
             this.dgvTabla.TabIndex = 4;
-            // 
-            // cmCedula
-            // 
-            this.cmCedula.HeaderText = "Cedula";
-            this.cmCedula.Name = "cmCedula";
-            // 
-            // cmNombre
-            // 
-            this.cmNombre.HeaderText = "Nombre";
-            this.cmNombre.Name = "cmNombre";
-            // 
-            // cmApellido
-            // 
-            this.cmApellido.HeaderText = "Apellido";
-            this.cmApellido.Name = "cmApellido";
-            // 
-            // cmGrupo
-            // 
-            this.cmGrupo.HeaderText = "Grupo";
-            this.cmGrupo.Name = "cmGrupo";
-            // 
-            // cmTelefono
-            // 
-            this.cmTelefono.HeaderText = "Telefono";
-            this.cmTelefono.Name = "cmTelefono";
-            // 
-            // cmFecha
-            // 
-            this.cmFecha.HeaderText = "Fecha";
-            this.cmFecha.Name = "cmFecha";
-            // 
-            // cmDireccion
-            // 
-            this.cmDireccion.HeaderText = "Direccion";
-            this.cmDireccion.Name = "cmDireccion";
-            // 
-            // cmTipo
-            // 
-            this.cmTipo.HeaderText = "Tipo";
-            this.cmTipo.Name = "cmTipo";
-            // 
-            // cmCategoria
-            // 
-            this.cmCategoria.HeaderText = "Categoria";
-            this.cmCategoria.Name = "cmCategoria";
-            // 
-            // cmValor
-            // 
-            this.cmValor.HeaderText = "Valor";
-            this.cmValor.Name = "cmValor";
             // 
             // pnSuperior
             // 
@@ -260,8 +207,30 @@ namespace InterfazGrafica4._7
             this.pnCentral.Location = new System.Drawing.Point(0, 188);
             this.pnCentral.Name = "pnCentral";
             this.pnCentral.ShowBorders = true;
-            this.pnCentral.Size = new System.Drawing.Size(780, 400);
+            this.pnCentral.Size = new System.Drawing.Size(780, 349);
             this.pnCentral.TabIndex = 1;
+            // 
+            // cmFiltro
+            // 
+            this.cmFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.cmFiltro.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmFiltro.BorderRadius = 15;
+            this.cmFiltro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmFiltro.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmFiltro.FocusedColor = System.Drawing.Color.Empty;
+            this.cmFiltro.FocusedState.Parent = this.cmFiltro;
+            this.cmFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmFiltro.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cmFiltro.FormattingEnabled = true;
+            this.cmFiltro.HoverState.Parent = this.cmFiltro;
+            this.cmFiltro.ItemHeight = 30;
+            this.cmFiltro.ItemsAppearance.Parent = this.cmFiltro;
+            this.cmFiltro.Location = new System.Drawing.Point(140, 8);
+            this.cmFiltro.Name = "cmFiltro";
+            this.cmFiltro.ShadowDecoration.Parent = this.cmFiltro;
+            this.cmFiltro.Size = new System.Drawing.Size(174, 36);
+            this.cmFiltro.TabIndex = 41;
             // 
             // lbFiltro
             // 
@@ -320,27 +289,64 @@ namespace InterfazGrafica4._7
             this.btnBuscar.Size = new System.Drawing.Size(45, 35);
             this.btnBuscar.TabIndex = 18;
             // 
-            // cmFiltro
+            // cmCodigoLicencia
             // 
-            this.cmFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.cmFiltro.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.cmFiltro.BorderRadius = 15;
-            this.cmFiltro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmFiltro.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cmFiltro.FocusedColor = System.Drawing.Color.Empty;
-            this.cmFiltro.FocusedState.Parent = this.cmFiltro;
-            this.cmFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmFiltro.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.cmFiltro.FormattingEnabled = true;
-            this.cmFiltro.HoverState.Parent = this.cmFiltro;
-            this.cmFiltro.ItemHeight = 30;
-            this.cmFiltro.ItemsAppearance.Parent = this.cmFiltro;
-            this.cmFiltro.Location = new System.Drawing.Point(140, 8);
-            this.cmFiltro.Name = "cmFiltro";
-            this.cmFiltro.ShadowDecoration.Parent = this.cmFiltro;
-            this.cmFiltro.Size = new System.Drawing.Size(174, 36);
-            this.cmFiltro.TabIndex = 41;
+            this.cmCodigoLicencia.HeaderText = "Codigo Licencia";
+            this.cmCodigoLicencia.Name = "cmCodigoLicencia";
+            // 
+            // cmCedula
+            // 
+            this.cmCedula.HeaderText = "Cedula";
+            this.cmCedula.Name = "cmCedula";
+            // 
+            // cmNombre
+            // 
+            this.cmNombre.HeaderText = "Nombre";
+            this.cmNombre.Name = "cmNombre";
+            // 
+            // cmApellido
+            // 
+            this.cmApellido.HeaderText = "Apellido";
+            this.cmApellido.Name = "cmApellido";
+            // 
+            // cmGrupo
+            // 
+            this.cmGrupo.HeaderText = "Grupo";
+            this.cmGrupo.Name = "cmGrupo";
+            // 
+            // cmOrganismo
+            // 
+            this.cmOrganismo.HeaderText = "Organismo";
+            this.cmOrganismo.Name = "cmOrganismo";
+            // 
+            // cmCategoria
+            // 
+            this.cmCategoria.HeaderText = "Categoria";
+            this.cmCategoria.Name = "cmCategoria";
+            // 
+            // cnFechaExpedicion
+            // 
+            this.cnFechaExpedicion.HeaderText = "Fecha Expedicion";
+            this.cnFechaExpedicion.Name = "cnFechaExpedicion";
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Animated = true;
+            this.btnDetalles.BorderRadius = 17;
+            this.btnDetalles.CheckedState.Parent = this.btnDetalles;
+            this.btnDetalles.CustomImages.Parent = this.btnDetalles;
+            this.btnDetalles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            this.btnDetalles.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.HoverState.Parent = this.btnDetalles;
+            this.btnDetalles.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnDetalles.Location = new System.Drawing.Point(603, 553);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.ShadowDecoration.Parent = this.btnDetalles;
+            this.btnDetalles.Size = new System.Drawing.Size(139, 35);
+            this.btnDetalles.TabIndex = 19;
+            this.btnDetalles.Text = "Ver Detalles ";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // FrmConsultaLicencia
             // 
@@ -348,6 +354,7 @@ namespace InterfazGrafica4._7
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 614);
+            this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.pnCentral);
             this.Controls.Add(this.pnSuperior);
             this.DoubleBuffered = true;
@@ -375,19 +382,18 @@ namespace InterfazGrafica4._7
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
         private Bunifu.UI.WinForms.BunifuPanel pnCentral;
         private System.Windows.Forms.DataGridView dgvTabla;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmGrupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmValor;
         private System.Windows.Forms.Label lbFiltro;
         private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2ComboBox cmFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoLicencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmGrupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmOrganismo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnFechaExpedicion;
+        private Guna.UI2.WinForms.Guna2Button btnDetalles;
     }
 }
