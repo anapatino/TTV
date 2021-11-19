@@ -215,5 +215,20 @@ namespace InterfazGrafica4._7
                 errorOrganismo.SetError(txtOrganismo, null);
             }
         }
+
+        private void cmDepartamento_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmDepartamento.Text))
+            {
+                e.Cancel = true;
+                cmDepartamento.Focus();
+                errorDepartamento.SetError(cmDepartamento, "Seleccione un Departamento");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorDepartamento.SetError(cmDepartamento, null);
+            }
+        }
     }
 }

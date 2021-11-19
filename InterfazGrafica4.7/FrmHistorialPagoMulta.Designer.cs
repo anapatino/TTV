@@ -34,7 +34,6 @@ namespace InterfazGrafica4._7
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnSuperior = new Guna.UI2.WinForms.Guna2Panel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
@@ -48,10 +47,14 @@ namespace InterfazGrafica4._7
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.pnCentral = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvTabla = new System.Windows.Forms.DataGridView();
-            this.cmPlaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmCodigoHistorial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmIdentificacionU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmNombreU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmApellidoU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmCodigoMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmDescripcionMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmEstadoM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnSuperior.SuspendLayout();
             this.bunifuPanel1.SuspendLayout();
@@ -229,7 +232,7 @@ namespace InterfazGrafica4._7
             this.pnCentral.Location = new System.Drawing.Point(0, 240);
             this.pnCentral.Name = "pnCentral";
             this.pnCentral.ShadowDecoration.Parent = this.pnCentral;
-            this.pnCentral.Size = new System.Drawing.Size(780, 276);
+            this.pnCentral.Size = new System.Drawing.Size(780, 299);
             this.pnCentral.TabIndex = 2;
             // 
             // dgvTabla
@@ -246,64 +249,79 @@ namespace InterfazGrafica4._7
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTabla.ColumnHeadersHeight = 26;
+            this.dgvTabla.ColumnHeadersHeight = 38;
             this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmPlaca,
-            this.cmTipo,
-            this.cmDescripcion,
-            this.cmValor});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTabla.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cmCodigoHistorial,
+            this.cmIdentificacionU,
+            this.cmNombreU,
+            this.cmApellidoU,
+            this.cmCodigoMulta,
+            this.cmDescripcionMulta,
+            this.cmEstadoM,
+            this.cmFecha});
             this.dgvTabla.EnableHeadersVisualStyles = false;
             this.dgvTabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            this.dgvTabla.Location = new System.Drawing.Point(169, 24);
+            this.dgvTabla.Location = new System.Drawing.Point(47, 31);
             this.dgvTabla.Name = "dgvTabla";
             this.dgvTabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTabla.RowHeadersVisible = false;
-            this.dgvTabla.RowHeadersWidth = 48;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvTabla.Size = new System.Drawing.Size(396, 237);
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTabla.Size = new System.Drawing.Size(678, 250);
             this.dgvTabla.TabIndex = 5;
             // 
-            // cmPlaca
+            // cmCodigoHistorial
             // 
-            this.cmPlaca.HeaderText = "Placa";
-            this.cmPlaca.Name = "cmPlaca";
+            this.cmCodigoHistorial.HeaderText = "Codigo Historial";
+            this.cmCodigoHistorial.Name = "cmCodigoHistorial";
             // 
-            // cmTipo
+            // cmIdentificacionU
             // 
-            this.cmTipo.HeaderText = "Tipo";
-            this.cmTipo.Name = "cmTipo";
+            this.cmIdentificacionU.HeaderText = "Identificacion";
+            this.cmIdentificacionU.Name = "cmIdentificacionU";
             // 
-            // cmDescripcion
+            // cmNombreU
             // 
-            this.cmDescripcion.HeaderText = "Descripcion";
-            this.cmDescripcion.Name = "cmDescripcion";
+            this.cmNombreU.HeaderText = "Nombre";
+            this.cmNombreU.Name = "cmNombreU";
             // 
-            // cmValor
+            // cmApellidoU
             // 
-            this.cmValor.HeaderText = "Valor";
-            this.cmValor.Name = "cmValor";
+            this.cmApellidoU.HeaderText = "Apellido";
+            this.cmApellidoU.Name = "cmApellidoU";
+            // 
+            // cmCodigoMulta
+            // 
+            this.cmCodigoMulta.HeaderText = "Codigo Multa";
+            this.cmCodigoMulta.Name = "cmCodigoMulta";
+            // 
+            // cmDescripcionMulta
+            // 
+            this.cmDescripcionMulta.HeaderText = "Descripcion";
+            this.cmDescripcionMulta.Name = "cmDescripcionMulta";
+            // 
+            // cmEstadoM
+            // 
+            this.cmEstadoM.HeaderText = "Estado";
+            this.cmEstadoM.Name = "cmEstadoM";
+            // 
+            // cmFecha
+            // 
+            this.cmFecha.HeaderText = "Fecha";
+            this.cmFecha.Name = "cmFecha";
             // 
             // bunifuElipse2
             // 
@@ -347,11 +365,15 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2Panel pnCentral;
-        private System.Windows.Forms.DataGridView dgvTabla;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmPlaca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmValor;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private System.Windows.Forms.DataGridView dgvTabla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoHistorial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmIdentificacionU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmNombreU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmApellidoU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoMulta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmDescripcionMulta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmEstadoM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmFecha;
     }
 }
