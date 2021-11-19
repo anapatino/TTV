@@ -13,7 +13,7 @@ namespace Entidad
 
         }
 
-        public HistorialPagoMulta(string historialId, string codigo, string pri_nombre, string pri_apellido, string multaId, string multaDescripcion, string estado, DateTime fechapago)
+        public HistorialPagoMulta(string historialId, string codigo, string pri_nombre, string pri_apellido, string multaId, string multaDescripcion, string estado, DateTime fechapago,decimal valor)
         {
             HistoriaId = historialId;
             Codigo = codigo;
