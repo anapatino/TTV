@@ -23,6 +23,7 @@ namespace Entidad
             Multa_descripcion = multaDescripcion;
             Estado = estado;
             FechaPago = fechapago;
+            Mul_valor = valor;
         }
 
         public string HistoriaId { get; set; }
@@ -33,5 +34,6 @@ namespace Entidad
         public string Multa_descripcion { get; set; }
         public string Estado { get; set; }
         public DateTime FechaPago { get; set; }
+        public decimal Mul_valor { get; set; }
     }
 }
