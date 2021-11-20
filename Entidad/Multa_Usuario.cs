@@ -24,8 +24,8 @@ namespace Entidad
             Multa_id = multa_id;
             Multa_descripcion = multa_descripcion;
             Estado = estado;
-            Fecha_expedicion = fechaexpedicion;
-            Mul_valor = mul_valor;
+            //Fecha_expedicion = fechaexpedicion;
+            //Mul_valor = mul_valor;
         }
 
         public string Codigo { get; set; }

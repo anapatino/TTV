@@ -13,25 +13,14 @@ namespace Entidad
 
         }
 
-        public Usuario_Licencia(string codigo, string cedula,string nombre,string apellido,string grupoSang, string organismo, string categoria,DateTime fechaexpedicion)
+        public Usuario_Licencia(Usuario usuario ,Licencia licencia)
         {
-            Codigo = codigo;
-            Cedula = cedula;
-            Nombre = nombre;
-            Apellido = apellido;
-            GrupoSan = grupoSang;
-            Organismo = organismo;
-            Categoria = categoria;
-            FechaExpedicion = fechaexpedicion;
+            Usuario = usuario;
+            Licencia = licencia;
         }
 
-        public string Codigo { get; set; }
-        public string Cedula { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string GrupoSan { get; set; }
-        public string Organismo { get; set; }
-        public string Categoria { get; set; }
-        public DateTime FechaExpedicion { get; set; }
+        public Usuario Usuario { get; set; }
+
+        public Licencia Licencia { get; set; }
     }
 }

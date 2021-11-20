@@ -86,6 +86,7 @@ namespace InterfazGrafica4._7
             this.Progress.Value = 30;
             this.Progress.ValueByTransition = 30;
             this.Progress.ValueMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+          
             // 
             // timer1
             // 
