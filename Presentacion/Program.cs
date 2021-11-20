@@ -93,13 +93,13 @@ namespace Presentacion
             Usuario usuario = new Usuario(nombre, fecha, apellido, direccion, cedula, telefono, grupoSanguineo);
             return usuario;
         }
-        public static Licencia RegistrarLicencia(Usuario usuario)
+        public static Usuario_Licencia RegistrarLicencia(Usuario usuario)
         {
             Console.Write("Fecha Expedicion   :");
             string fecha = Console.ReadLine();
             Console.Write("Categoria          :");
             string categoria = Console.ReadLine();
-            Licencia lic = new Licencia(fecha, categoria, usuario);
+            Usuario_Licencia lic = new Licencia(fecha, categoria, usuario);
             lic.CalcularValorLicencia();
             return lic;
           
