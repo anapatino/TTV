@@ -15,27 +15,27 @@ namespace Entidad
         }
 
 
-        public Multa_Usuario(string codigo,string pri_nombre, string pri_apellido,string multa_id,string multa_descripcion,  string estado)
-
+        public Multa_Usuario(string codigoMulta, string descripcion, string cedula, string pri_nom, string pri_ape, decimal valor, DateTime fechaExp, string estado)
         {
-            Codigo = codigo;
-            Pri_nombre = pri_nombre;
-            Pri_Apellido = pri_apellido;
-            Multa_id = multa_id;
-            Multa_descripcion = multa_descripcion;
+            CodigoMulta = codigoMulta;
+            Multa_descripcion = descripcion;
+            Cedula = cedula;
+            Pri_nombre = pri_nom;
+            Pri_Apellido = Pri_Apellido;
+            ValorMulta = valor;
+            Fecha_expedicion = fechaExp;
             Estado = estado;
-            //Fecha_expedicion = fechaexpedicion;
-            //Mul_valor = mul_valor;
         }
 
-        public string Codigo { get; set; }
+        public string CodigoMulta { get; set; }
+        public string Multa_descripcion { get; set; }
+        public string Cedula { get; set; }
         public string Pri_nombre { get; set; }
         public string Pri_Apellido { get; set; }
-        public string Multa_id { get; set; }
-        public string Multa_descripcion { get; set; }
-        public string Estado { get; set; }
+        public decimal ValorMulta { get; set; }
         public DateTime Fecha_expedicion { get; set; }
-        public decimal Mul_valor { get; set; }
+        public string Estado { get; set; }
+      
 
 
     }
