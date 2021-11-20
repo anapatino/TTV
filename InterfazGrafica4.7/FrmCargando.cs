@@ -50,6 +50,6 @@ namespace InterfazGrafica4._7
             timer1.Start();
         }
 
-        
+      
     }
 }

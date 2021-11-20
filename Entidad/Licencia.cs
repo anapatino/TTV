@@ -22,9 +22,18 @@ namespace Entidad
         }
 
         public string Codigo { get; set; }
+
         public string Organismo { get; set; }
+
         public DateTime FechaExp { get; set; }
+
         public string CodCat { get; set; }
+
+        public int GenerarCodigo()
+        {
+            Random r = new Random();
+            return r.Next(1, 9999999);
+        }
 
     }
 }
