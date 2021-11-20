@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="ConnectionManager.cs" />
     <Compile Include="LicenciaRepository.cs" />
+    <Compile Include="Multa_UsuarioRepository.cs" />
     <Compile Include="Usuario_LicenciaRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
