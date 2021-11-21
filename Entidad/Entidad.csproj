@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="HistorialPagoMulta.cs" />
     <Compile Include="Licencia.cs" />
+    <Compile Include="Multa.cs" />
     <Compile Include="Usuario_Licencia.cs" />
     <Compile Include="Multa_Usuario.cs" />
     <Compile Include="Usuario.cs" />

@@ -73,7 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionManager.cs" />
+    <Compile Include="HistorialPagoMultaRepository.cs" />
     <Compile Include="LicenciaRepository.cs" />
+    <Compile Include="MultaRepository.cs" />
     <Compile Include="Multa_UsuarioRepository.cs" />
     <Compile Include="Usuario_LicenciaRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
