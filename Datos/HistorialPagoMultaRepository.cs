@@ -10,22 +10,22 @@ using Entidad;
 
 namespace Datos
 {
-    public class Multa_UsuarioRepository
+    public class HistorialPagoMultaRepository
     {
         DbConnection _connection;
 
-        public Multa_UsuarioRepository(DbConnection connection)
+        public HistorialPagoMultaRepository(DbConnection connection)
         {
             _connection = connection;
         }
 
-        public List<Multa_Usuario> ConsultarMultas()
+        public List<HistorialPagoMulta> ConsultarPagos()
         {
-            List<Multa_Usuario> multas = new List<Multa_Usuario>();
+            List<HistorialPagoMulta> pagos = new List<HistorialPagoMulta>();
 
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = " SELECT M.MUL_ID_PK,M.MUL_DESCRIPCION,U.usu_cod_pk,U.pri_nombre,U.PRI_APELLIDO,M.MUL_VALOR,T.fecha_expedicion,T.estado FROM MULTA_USUARIO T JOIN USUARIO U ON(T.USU_COD_FK = U.USU_COD_PK) JOIN MULTA M ON(T.MUL_ID_FK = M.MUL_ID_PK)";
+                command.CommandText = "";
                 var reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -53,40 +53,40 @@ namespace Datos
                         mul.Estado = reader.GetString(16);
                         mul.Vehiculo_Id = reader.GetString(17);
                         mul.VehiculoNombre = reader.GetString(18);
-                        Multa_Usuario multa =new Multa_Usuario(usuario,mul);
-                        multas.Add(multa);   
+                        DateTime fechaPago = reader.GetDateTime(19);
+                        HistorialPagoMulta pago = new HistorialPagoMulta(usuario, mul,fechaPago);
+                        pagos.Add(pago);
                     }
                 }
                 reader.Close();
             }
-            return multas; ;
+            return pagos; ;
         }
 
-        public Multa_Usuario BuscarUsuario(string identificacion)
+        public HistorialPagoMulta BuscarUsuario(string identificacion)
         {
-            return (Multa_Usuario)ConsultarMultas().FirstOrDefault(m => m.Usuario.Codigo.Equals(identificacion));
+            return (HistorialPagoMulta)ConsultarPagos().FirstOrDefault(m => m.Usuario.Codigo.Equals(identificacion));
         }
 
-        public List<Multa_Usuario> FiltroNombre(string nombre)
+        public List<HistorialPagoMulta> FiltroNombre(string nombre)
         {
-            return ConsultarMultas().Where(m => m.Usuario.Pri_nombre.Equals(nombre)).ToList();
+            return ConsultarPagos().Where(m => m.Usuario.Pri_nombre.Equals(nombre)).ToList();
         }
 
-        public List<Multa_Usuario> FiltroFecha(int fecha)
+        public List<HistorialPagoMulta> FiltroFecha(int fecha)
         {
-            return ConsultarMultas().Where(m => m.Multa.FechaExpedicion.Year == fecha).ToList();
+            return ConsultarPagos().Where(m => m.Multa.FechaExpedicion.Year == fecha).ToList();
         }
 
-        public List<Multa_Usuario> FiltroDescripcion(string descripcion)
+        public List<HistorialPagoMulta> FiltroDescripcion(string descripcion)
         {
-            return ConsultarMultas().Where(m => m.Multa.Descripcion.Equals(descripcion)).ToList();
+            return ConsultarPagos().Where(m => m.Multa.Descripcion.Equals(descripcion)).ToList();
         }
 
-        public List<Multa_Usuario> FiltroEstado(string estado)
+        public List<HistorialPagoMulta> FiltroEstado(string estado)
         {
-            return ConsultarMultas().Where(m => m.Multa.Estado.Equals(estado)).ToList();
+            return ConsultarPagos().Where(m => m.Multa.Estado.Equals(estado)).ToList();
         }
-
 
     }
 }
