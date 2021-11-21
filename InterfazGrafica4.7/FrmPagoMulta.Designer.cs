@@ -142,7 +142,6 @@ namespace InterfazGrafica4._7
             // 
             // pnBusqueda
             // 
-            this.pnBusqueda.Controls.Add(this.bnLimpiar);
             this.pnBusqueda.Controls.Add(this.cmFiltro);
             this.pnBusqueda.Controls.Add(this.lbFiltro);
             this.pnBusqueda.Controls.Add(this.txtFiltro);
@@ -164,10 +163,10 @@ namespace InterfazGrafica4._7
             this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnLimpiar.ForeColor = System.Drawing.Color.White;
             this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
-            this.bnLimpiar.Location = new System.Drawing.Point(634, 3);
+            this.bnLimpiar.Location = new System.Drawing.Point(615, 21);
             this.bnLimpiar.Name = "bnLimpiar";
             this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
-            this.bnLimpiar.Size = new System.Drawing.Size(114, 34);
+            this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
             this.bnLimpiar.TabIndex = 46;
             this.bnLimpiar.Text = "Limpiar";
             this.bnLimpiar.Visible = false;
@@ -386,6 +385,7 @@ namespace InterfazGrafica4._7
             // 
             // pnInferior
             // 
+            this.pnInferior.Controls.Add(this.bnLimpiar);
             this.pnInferior.Controls.Add(this.btnLimpiar);
             this.pnInferior.Controls.Add(this.btnPagar);
             this.pnInferior.Controls.Add(this.txtValor);
@@ -425,10 +425,10 @@ namespace InterfazGrafica4._7
             this.btnPagar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagar.ForeColor = System.Drawing.Color.White;
             this.btnPagar.HoverState.Parent = this.btnPagar;
-            this.btnPagar.Location = new System.Drawing.Point(645, 21);
+            this.btnPagar.Location = new System.Drawing.Point(495, 21);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.ShadowDecoration.Parent = this.btnPagar;
-            this.btnPagar.Size = new System.Drawing.Size(114, 34);
+            this.btnPagar.Size = new System.Drawing.Size(114, 30);
             this.btnPagar.TabIndex = 0;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.Visible = false;
@@ -454,7 +454,7 @@ namespace InterfazGrafica4._7
             this.txtValor.ForeColor = System.Drawing.Color.Black;
             this.txtValor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValor.HoverState.Parent = this.txtValor;
-            this.txtValor.Location = new System.Drawing.Point(420, 21);
+            this.txtValor.Location = new System.Drawing.Point(272, 21);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValor.Name = "txtValor";
             this.txtValor.PasswordChar = '\0';
@@ -470,7 +470,7 @@ namespace InterfazGrafica4._7
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbValor.ForeColor = System.Drawing.Color.DimGray;
-            this.lbValor.Location = new System.Drawing.Point(321, 30);
+            this.lbValor.Location = new System.Drawing.Point(170, 31);
             this.lbValor.Name = "lbValor";
             this.lbValor.Size = new System.Drawing.Size(95, 17);
             this.lbValor.TabIndex = 47;

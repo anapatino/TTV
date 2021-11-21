@@ -387,7 +387,7 @@ namespace InterfazGrafica4._7
             this.txtValor.ForeColor = System.Drawing.Color.Black;
             this.txtValor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValor.HoverState.Parent = this.txtValor;
-            this.txtValor.Location = new System.Drawing.Point(135, 557);
+            this.txtValor.Location = new System.Drawing.Point(370, 557);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValor.Name = "txtValor";
             this.txtValor.PasswordChar = '\0';
@@ -403,7 +403,7 @@ namespace InterfazGrafica4._7
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbValor.ForeColor = System.Drawing.Color.DimGray;
-            this.lbValor.Location = new System.Drawing.Point(36, 566);
+            this.lbValor.Location = new System.Drawing.Point(271, 566);
             this.lbValor.Name = "lbValor";
             this.lbValor.Size = new System.Drawing.Size(95, 17);
             this.lbValor.TabIndex = 49;
@@ -413,7 +413,7 @@ namespace InterfazGrafica4._7
             // bnLimpiar
             // 
             this.bnLimpiar.Animated = true;
-            this.bnLimpiar.BorderRadius = 17;
+            this.bnLimpiar.BorderRadius = 15;
             this.bnLimpiar.CheckedState.Parent = this.bnLimpiar;
             this.bnLimpiar.CustomImages.Parent = this.bnLimpiar;
             this.bnLimpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
@@ -424,7 +424,7 @@ namespace InterfazGrafica4._7
             this.bnLimpiar.Location = new System.Drawing.Point(598, 557);
             this.bnLimpiar.Name = "bnLimpiar";
             this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
-            this.bnLimpiar.Size = new System.Drawing.Size(139, 35);
+            this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
             this.bnLimpiar.TabIndex = 51;
             this.bnLimpiar.Text = "Limpiar";
             this.bnLimpiar.Visible = false;
