@@ -53,14 +53,11 @@ namespace InterfazGrafica4._7
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panelContenedor = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnBienvenida = new Guna.UI2.WinForms.Guna2Panel();
-            this.pcConsulta = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pcHome = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lbDescripcionConsulta = new System.Windows.Forms.Label();
-            this.lbDescripcionRegistro = new System.Windows.Forms.Label();
             this.lbDescripcionHome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
             this.panelSubMenuMulta.SuspendLayout();
@@ -70,9 +67,6 @@ namespace InterfazGrafica4._7
             ((System.ComponentModel.ISupportInitialize)(this.pcLogo)).BeginInit();
             this.panelContenedor.SuspendLayout();
             this.pnBienvenida.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcConsulta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -429,11 +423,8 @@ namespace InterfazGrafica4._7
             // pnBienvenida
             // 
             this.pnBienvenida.BackColor = System.Drawing.Color.Transparent;
-            this.pnBienvenida.Controls.Add(this.pcConsulta);
-            this.pnBienvenida.Controls.Add(this.guna2PictureBox3);
-            this.pnBienvenida.Controls.Add(this.pcHome);
-            this.pnBienvenida.Controls.Add(this.lbDescripcionConsulta);
-            this.pnBienvenida.Controls.Add(this.lbDescripcionRegistro);
+            this.pnBienvenida.Controls.Add(this.label3);
+            this.pnBienvenida.Controls.Add(this.label2);
             this.pnBienvenida.Controls.Add(this.lbDescripcionHome);
             this.pnBienvenida.Controls.Add(this.label1);
             this.pnBienvenida.Controls.Add(this.guna2PictureBox1);
@@ -443,65 +434,6 @@ namespace InterfazGrafica4._7
             this.pnBienvenida.Size = new System.Drawing.Size(665, 535);
             this.pnBienvenida.TabIndex = 0;
             // 
-            // pcConsulta
-            // 
-            this.pcConsulta.Image = global::InterfazGrafica4._7.Properties.Resources.android_search_icon_icons_com_50501;
-            this.pcConsulta.Location = new System.Drawing.Point(532, 453);
-            this.pcConsulta.Name = "pcConsulta";
-            this.pcConsulta.ShadowDecoration.Parent = this.pcConsulta;
-            this.pcConsulta.Size = new System.Drawing.Size(29, 17);
-            this.pcConsulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcConsulta.TabIndex = 14;
-            this.pcConsulta.TabStop = false;
-            // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.Image = global::InterfazGrafica4._7.Properties.Resources.pencil_writing_on_a_paper_sheet_icon_icons_com_70422;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(511, 423);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.ShadowDecoration.Parent = this.guna2PictureBox3;
-            this.guna2PictureBox3.Size = new System.Drawing.Size(29, 17);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox3.TabIndex = 13;
-            this.guna2PictureBox3.TabStop = false;
-            // 
-            // pcHome
-            // 
-            this.pcHome.Image = global::InterfazGrafica4._7.Properties.Resources.casa2;
-            this.pcHome.Location = new System.Drawing.Point(488, 395);
-            this.pcHome.Name = "pcHome";
-            this.pcHome.ShadowDecoration.Parent = this.pcHome;
-            this.pcHome.Size = new System.Drawing.Size(29, 17);
-            this.pcHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHome.TabIndex = 12;
-            this.pcHome.TabStop = false;
-            // 
-            // lbDescripcionConsulta
-            // 
-            this.lbDescripcionConsulta.AutoSize = true;
-            this.lbDescripcionConsulta.BackColor = System.Drawing.Color.Transparent;
-            this.lbDescripcionConsulta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescripcionConsulta.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbDescripcionConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbDescripcionConsulta.Location = new System.Drawing.Point(154, 453);
-            this.lbDescripcionConsulta.Name = "lbDescripcionConsulta";
-            this.lbDescripcionConsulta.Size = new System.Drawing.Size(372, 17);
-            this.lbDescripcionConsulta.TabIndex = 9;
-            this.lbDescripcionConsulta.Text = "Para Ingresar al bloque Multa Consultar haz clic en este icono";
-            // 
-            // lbDescripcionRegistro
-            // 
-            this.lbDescripcionRegistro.AutoSize = true;
-            this.lbDescripcionRegistro.BackColor = System.Drawing.Color.Transparent;
-            this.lbDescripcionRegistro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescripcionRegistro.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbDescripcionRegistro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbDescripcionRegistro.Location = new System.Drawing.Point(175, 423);
-            this.lbDescripcionRegistro.Name = "lbDescripcionRegistro";
-            this.lbDescripcionRegistro.Size = new System.Drawing.Size(330, 17);
-            this.lbDescripcionRegistro.TabIndex = 8;
-            this.lbDescripcionRegistro.Text = "Para Ingresar al bloque Licencia haz clic en este icono";
-            // 
             // lbDescripcionHome
             // 
             this.lbDescripcionHome.AutoSize = true;
@@ -509,11 +441,11 @@ namespace InterfazGrafica4._7
             this.lbDescripcionHome.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDescripcionHome.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbDescripcionHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbDescripcionHome.Location = new System.Drawing.Point(188, 395);
+            this.lbDescripcionHome.Location = new System.Drawing.Point(148, 403);
             this.lbDescripcionHome.Name = "lbDescripcionHome";
-            this.lbDescripcionHome.Size = new System.Drawing.Size(305, 17);
+            this.lbDescripcionHome.Size = new System.Drawing.Size(399, 17);
             this.lbDescripcionHome.TabIndex = 7;
-            this.lbDescripcionHome.Text = "Para ver Inicio de Seccion haz click en este icono ";
+            this.lbDescripcionHome.Text = "Ahora puedes llevar un control de tus registros de licencia y multa";
             // 
             // label1
             // 
@@ -538,6 +470,32 @@ namespace InterfazGrafica4._7
             this.guna2PictureBox1.TabIndex = 5;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(178, 420);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(339, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "ver el historial de pagos ,multas,licencias y enterarte de";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Location = new System.Drawing.Point(236, 437);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(223, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "los nuevos procesos que que hagan.";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,7 +509,7 @@ namespace InterfazGrafica4._7
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Principal";
             this.guna2Panel1.ResumeLayout(false);
             this.bunifuPanel2.ResumeLayout(false);
             this.panelSubMenuMulta.ResumeLayout(false);
@@ -562,9 +520,6 @@ namespace InterfazGrafica4._7
             this.panelContenedor.ResumeLayout(false);
             this.pnBienvenida.ResumeLayout(false);
             this.pnBienvenida.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcConsulta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -586,14 +541,9 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2PictureBox btSalir;
         private Guna.UI2.WinForms.Guna2PictureBox pcLogo;
         private Guna.UI2.WinForms.Guna2Panel pnBienvenida;
-        private Guna.UI2.WinForms.Guna2PictureBox pcHome;
-        private System.Windows.Forms.Label lbDescripcionConsulta;
-        private System.Windows.Forms.Label lbDescripcionRegistro;
         private System.Windows.Forms.Label lbDescripcionHome;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2PictureBox pcConsulta;
         private System.Windows.Forms.Panel panelSubMenuMulta;
         private Guna.UI2.WinForms.Guna2Button btnHistorialPagoMulta;
         private Guna.UI2.WinForms.Guna2Button btnPagoMulta;
@@ -601,6 +551,8 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2Button btnRegistrarMulta;
         private Guna.UI2.WinForms.Guna2Button bttMulta;
         private Guna.UI2.WinForms.Guna2Button btnRecategorizarLicencia;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

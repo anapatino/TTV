@@ -30,14 +30,16 @@ namespace InterfazGrafica4._7
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaMulta));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.dgvTabla = new System.Windows.Forms.DataGridView();
             this.cmCodigoMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmDescripcionMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnPlaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmIdentificacionU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmNombreU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmApellidoU = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +59,7 @@ namespace InterfazGrafica4._7
             this.pcImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtValor = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbValor = new System.Windows.Forms.Label();
+            this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.pnCentral.SuspendLayout();
             this.pnSuperior.SuspendLayout();
@@ -71,23 +74,27 @@ namespace InterfazGrafica4._7
             // 
             // dgvTabla
             // 
+            this.dgvTabla.AllowUserToAddRows = false;
+            this.dgvTabla.AllowUserToDeleteRows = false;
             this.dgvTabla.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvTabla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTabla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTabla.ColumnHeadersHeight = 38;
             this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmCodigoMulta,
             this.cmDescripcionMulta,
+            this.cnPlaca,
+            this.cnMarca,
             this.cmIdentificacionU,
             this.cmNombreU,
             this.cmApellidoU,
@@ -98,64 +105,86 @@ namespace InterfazGrafica4._7
             this.dgvTabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
             this.dgvTabla.Location = new System.Drawing.Point(51, 75);
             this.dgvTabla.Name = "dgvTabla";
+            this.dgvTabla.ReadOnly = true;
             this.dgvTabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTabla.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTabla.Size = new System.Drawing.Size(678, 250);
             this.dgvTabla.TabIndex = 46;
+            this.dgvTabla.Visible = false;
             // 
             // cmCodigoMulta
             // 
             this.cmCodigoMulta.HeaderText = "Codigo Multa";
             this.cmCodigoMulta.Name = "cmCodigoMulta";
+            this.cmCodigoMulta.ReadOnly = true;
             // 
             // cmDescripcionMulta
             // 
             this.cmDescripcionMulta.HeaderText = "Descripcion";
             this.cmDescripcionMulta.Name = "cmDescripcionMulta";
+            this.cmDescripcionMulta.ReadOnly = true;
+            // 
+            // cnPlaca
+            // 
+            this.cnPlaca.HeaderText = "Placa";
+            this.cnPlaca.Name = "cnPlaca";
+            this.cnPlaca.ReadOnly = true;
+            // 
+            // cnMarca
+            // 
+            this.cnMarca.HeaderText = "Marca";
+            this.cnMarca.Name = "cnMarca";
+            this.cnMarca.ReadOnly = true;
             // 
             // cmIdentificacionU
             // 
             this.cmIdentificacionU.HeaderText = "Identificacion";
             this.cmIdentificacionU.Name = "cmIdentificacionU";
+            this.cmIdentificacionU.ReadOnly = true;
             // 
             // cmNombreU
             // 
             this.cmNombreU.HeaderText = "Nombre";
             this.cmNombreU.Name = "cmNombreU";
+            this.cmNombreU.ReadOnly = true;
             // 
             // cmApellidoU
             // 
             this.cmApellidoU.HeaderText = "Apellido";
             this.cmApellidoU.Name = "cmApellidoU";
+            this.cmApellidoU.ReadOnly = true;
             // 
             // cnValorMulta
             // 
             this.cnValorMulta.HeaderText = "Valor";
             this.cnValorMulta.Name = "cnValorMulta";
+            this.cnValorMulta.ReadOnly = true;
             // 
             // cmFecha
             // 
             this.cmFecha.HeaderText = "Fecha";
             this.cmFecha.Name = "cmFecha";
+            this.cmFecha.ReadOnly = true;
             // 
             // cmEstadoM
             // 
             this.cmEstadoM.HeaderText = "Estado";
             this.cmEstadoM.Name = "cmEstadoM";
+            this.cmEstadoM.ReadOnly = true;
             // 
             // bunifuElipse2
             // 
@@ -197,6 +226,13 @@ namespace InterfazGrafica4._7
             this.cmFiltro.FormattingEnabled = true;
             this.cmFiltro.HoverState.Parent = this.cmFiltro;
             this.cmFiltro.ItemHeight = 30;
+            this.cmFiltro.Items.AddRange(new object[] {
+            "TODOS",
+            "IDENTIFICACION",
+            "NOMBRE",
+            "DESCRIPCION",
+            "ESTADO",
+            "ANIO"});
             this.cmFiltro.ItemsAppearance.Parent = this.cmFiltro;
             this.cmFiltro.Location = new System.Drawing.Point(135, 15);
             this.cmFiltro.Name = "cmFiltro";
@@ -230,7 +266,7 @@ namespace InterfazGrafica4._7
             this.txtFiltro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.FocusedState.Parent = this.txtFiltro;
             this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.ForeColor = System.Drawing.Color.LightGray;
+            this.txtFiltro.ForeColor = System.Drawing.Color.Black;
             this.txtFiltro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.HoverState.Parent = this.txtFiltro;
             this.txtFiltro.Location = new System.Drawing.Point(316, 16);
@@ -260,6 +296,7 @@ namespace InterfazGrafica4._7
             this.btnBuscar.ShadowDecoration.Parent = this.btnBuscar;
             this.btnBuscar.Size = new System.Drawing.Size(45, 35);
             this.btnBuscar.TabIndex = 42;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pnSuperior
             // 
@@ -350,7 +387,7 @@ namespace InterfazGrafica4._7
             this.txtValor.ForeColor = System.Drawing.Color.Black;
             this.txtValor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValor.HoverState.Parent = this.txtValor;
-            this.txtValor.Location = new System.Drawing.Point(534, 557);
+            this.txtValor.Location = new System.Drawing.Point(370, 557);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValor.Name = "txtValor";
             this.txtValor.PasswordChar = '\0';
@@ -359,17 +396,39 @@ namespace InterfazGrafica4._7
             this.txtValor.ShadowDecoration.Parent = this.txtValor;
             this.txtValor.Size = new System.Drawing.Size(205, 34);
             this.txtValor.TabIndex = 50;
+            this.txtValor.Visible = false;
             // 
             // lbValor
             // 
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbValor.ForeColor = System.Drawing.Color.DimGray;
-            this.lbValor.Location = new System.Drawing.Point(435, 566);
+            this.lbValor.Location = new System.Drawing.Point(271, 566);
             this.lbValor.Name = "lbValor";
             this.lbValor.Size = new System.Drawing.Size(95, 17);
             this.lbValor.TabIndex = 49;
             this.lbValor.Text = "Total a Pagar";
+            this.lbValor.Visible = false;
+            // 
+            // bnLimpiar
+            // 
+            this.bnLimpiar.Animated = true;
+            this.bnLimpiar.BorderRadius = 15;
+            this.bnLimpiar.CheckedState.Parent = this.bnLimpiar;
+            this.bnLimpiar.CustomImages.Parent = this.bnLimpiar;
+            this.bnLimpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
+            this.bnLimpiar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.bnLimpiar.Location = new System.Drawing.Point(598, 557);
+            this.bnLimpiar.Name = "bnLimpiar";
+            this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
+            this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
+            this.bnLimpiar.TabIndex = 51;
+            this.bnLimpiar.Text = "Limpiar";
+            this.bnLimpiar.Visible = false;
+            this.bnLimpiar.Click += new System.EventHandler(this.bnLimpiar_Click);
             // 
             // FrmConsultaMulta
             // 
@@ -377,6 +436,7 @@ namespace InterfazGrafica4._7
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 614);
+            this.Controls.Add(this.bnLimpiar);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.lbValor);
             this.Controls.Add(this.pnCentral);
@@ -410,15 +470,18 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvTabla;
+        private Guna.UI2.WinForms.Guna2TextBox txtValor;
+        private System.Windows.Forms.Label lbValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoMulta;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmDescripcionMulta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnPlaca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmIdentificacionU;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmNombreU;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmApellidoU;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnValorMulta;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmEstadoM;
-        private Guna.UI2.WinForms.Guna2TextBox txtValor;
-        private System.Windows.Forms.Label lbValor;
+        private Guna.UI2.WinForms.Guna2Button bnLimpiar;
     }
 }

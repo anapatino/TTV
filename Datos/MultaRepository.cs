@@ -23,13 +23,13 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "CALL PK1INSERTAR.REGISTRAR_MULTA(:Cedula,:MultaId,:Estado,:FechaExp,:VehiculoId);";
-                command.Parameters.Add(new OracleParameter("Cedula", multa.Cedula));
-                command.Parameters.Add(new OracleParameter("MultaId", multa.Mul_Id));
-                command.Parameters.Add(new OracleParameter("Estado", multa.Estado));
-                command.Parameters.Add(new OracleParameter("FechaExp", multa.FechaExpedicion));
-                command.Parameters.Add(new OracleParameter("VehiculoId", multa.Vehiculo_Id));
-                command.ExecuteNonQuery();
+                //command.CommandText = "CALL PK1INSERTAR.REGISTRAR_MULTA(:Cedula,:MultaId,:Estado,:FechaExp,:VehiculoId);";
+                //command.Parameters.Add(new OracleParameter("Cedula", multa.Cedula));
+                //command.Parameters.Add(new OracleParameter("MultaId", multa.Mul_Id));
+                //command.Parameters.Add(new OracleParameter("Estado", multa.Estado));
+                //command.Parameters.Add(new OracleParameter("FechaExp", multa.FechaExpedicion));
+                //command.Parameters.Add(new OracleParameter("VehiculoId", multa.Vehiculo_Id));
+                //command.ExecuteNonQuery();
             }
         }
     }

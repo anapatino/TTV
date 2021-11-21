@@ -25,7 +25,8 @@ namespace Datos
 
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "";
+                command.CommandText = "SELECT U.usu_cod_pk,U.pri_nombre,U.SEGUN_NOMBRE,U.PRI_APELLIDO,U.SEGUN_APELLIDO,U.USU_FECHANACIMIENTO,U.USU_TELEFONO,U.USU_GRUPOSANGUINEO,U.LI_CODIGO_FK,C.CIUD_NOMBRE,B.BARR_NOMBRE,R.RES_DESCRIPCION,M.MUL_ID_PK,M.MUL_DESCRIPCION,M.MUL_VALOR,T.HIST_COD_PK,T.FECHAPAGO,T.ESTADO,V.VEH_ID_PK,V.VEH_NOMBRE FROM HISTORIALPAGOMULTA T JOIN USUARIO U ON(T.USU_COD_FK = U.USU_COD_PK) JOIN MULTA M ON(T.MUL_ID_FK = M.MUL_ID_PK) JOIN BARRIO B ON(U.BARR_CODIGO_FK= B.BARR_CODIGO_PK) JOIN CIUDAD C ON(U.CIUD_CODIGO_FK = C.CIUD_CODIGO_PK) JOIN RESTRICCION R ON(R.RES_COD_PK= U.RES_COD_FK) JOIN VEHICULO V ON(T.VEH_ID_FK= V.VEH_ID_PK)";
+
                 var reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -45,16 +46,15 @@ namespace Datos
                         usuario.CiudadCodigo = reader.GetString(9);
                         usuario.BarrioCodigo = reader.GetString(10);
                         usuario.RestriccionCodigo = reader.GetString(11);
-                        mul.Cedula = reader.GetString(0);
                         mul.Mul_Id = reader.GetString(12);
                         mul.Descripcion = reader.GetString(13);
                         mul.Valor = reader.GetDecimal(14);
-                        mul.FechaExpedicion = reader.GetDateTime(15);
-                        mul.Estado = reader.GetString(16);
-                        mul.Vehiculo_Id = reader.GetString(17);
-                        mul.VehiculoNombre = reader.GetString(18);
-                        DateTime fechaPago = reader.GetDateTime(19);
-                        HistorialPagoMulta pago = new HistorialPagoMulta(usuario, mul,fechaPago);
+                        string codigo = reader.GetString(15);
+                        DateTime fechaPago = reader.GetDateTime(16);
+                        string estado = reader.GetString(17);
+                        string idVehiculo = reader.GetString(18);
+                        string nombreVehiculo = reader.GetString(19);
+                        HistorialPagoMulta pago = new HistorialPagoMulta(usuario, mul, codigo, idVehiculo,  nombreVehiculo, estado, fechaPago);
                         pagos.Add(pago);
                     }
                 }
@@ -75,7 +75,7 @@ namespace Datos
 
         public List<HistorialPagoMulta> FiltroFecha(int fecha)
         {
-            return ConsultarPagos().Where(m => m.Multa.FechaExpedicion.Year == fecha).ToList();
+            return ConsultarPagos().Where(m => m.FechaPago.Year == fecha).ToList();
         }
 
         public List<HistorialPagoMulta> FiltroDescripcion(string descripcion)
@@ -85,7 +85,7 @@ namespace Datos
 
         public List<HistorialPagoMulta> FiltroEstado(string estado)
         {
-            return ConsultarPagos().Where(m => m.Multa.Estado.Equals(estado)).ToList();
+            return ConsultarPagos().Where(m => m.Estado.Equals(estado)).ToList();
         }
 
     }

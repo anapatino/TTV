@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HistorialPagoMultaConsultaResponse.cs" />
     <Compile Include="LicenciaUsuarioConsultaResponse.cs" />
+    <Compile Include="MultaUsuarioConsultaResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HistorialPagoMultaService.cs" />
+    <Compile Include="UsuarioMultaService.cs" />
     <Compile Include="UsuarioLicenciaService.cs" />
   </ItemGroup>
   <ItemGroup>
