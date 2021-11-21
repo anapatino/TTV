@@ -318,7 +318,7 @@ namespace InterfazGrafica4._7
             this.txtFiltro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.FocusedState.Parent = this.txtFiltro;
             this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.ForeColor = System.Drawing.Color.LightGray;
+            this.txtFiltro.ForeColor = System.Drawing.Color.Black;
             this.txtFiltro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.HoverState.Parent = this.txtFiltro;
             this.txtFiltro.Location = new System.Drawing.Point(321, 9);

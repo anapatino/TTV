@@ -40,8 +40,8 @@ namespace InterfazGrafica4._7
             this.lbLogin = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.pnIzquierdo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenLogin)).BeginInit();
             this.pnSuperior.SuspendLayout();
@@ -215,6 +215,18 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.Size = new System.Drawing.Size(333, 428);
             this.bunifuPanel1.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
+            this.label1.Location = new System.Drawing.Point(64, 301);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Open Section";
+            // 
             // bunifuCheckBox1
             // 
             this.bunifuCheckBox1.AllowBindingControlAnimation = true;
@@ -268,18 +280,6 @@ namespace InterfazGrafica4._7
             this.bunifuCheckBox1.ThreeState = false;
             this.bunifuCheckBox1.ToolTipText = null;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(64, 301);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Open Section";
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +291,7 @@ namespace InterfazGrafica4._7
             this.Controls.Add(this.pnIzquierdo);
             this.ForeColor = System.Drawing.SystemColors.Menu;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmIngresar";

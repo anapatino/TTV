@@ -57,8 +57,6 @@ namespace InterfazGrafica4._7
             this.lbNombrePri = new System.Windows.Forms.Label();
             this.DatosLicencia = new System.Windows.Forms.TabPage();
             this.txtOrganismo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cmbRestriccion = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.cmCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbPrecio = new System.Windows.Forms.Label();
@@ -79,11 +77,14 @@ namespace InterfazGrafica4._7
             this.errorTelefono = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorGrupo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorCategoria = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorRestriccion = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorOrganismo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDepartamento = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorCiudad = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorBarrio = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbRestriccion = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.errorOrganismo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorRestriccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.PanelRegistro.SuspendLayout();
             this.DatosPersonales.SuspendLayout();
             this.DatosLicencia.SuspendLayout();
@@ -95,11 +96,12 @@ namespace InterfazGrafica4._7
             ((System.ComponentModel.ISupportInitialize)(this.errorTelefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorGrupo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCategoria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorRestriccion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorOrganismo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorBarrio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorOrganismo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRestriccion)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelRegistro
@@ -115,6 +117,8 @@ namespace InterfazGrafica4._7
             // 
             // DatosPersonales
             // 
+            this.DatosPersonales.Controls.Add(this.cmbRestriccion);
+            this.DatosPersonales.Controls.Add(this.label4);
             this.DatosPersonales.Controls.Add(this.cmDepartamento);
             this.DatosPersonales.Controls.Add(this.lbDepartamento);
             this.DatosPersonales.Controls.Add(this.cmbBarrio);
@@ -558,8 +562,6 @@ namespace InterfazGrafica4._7
             // DatosLicencia
             // 
             this.DatosLicencia.Controls.Add(this.txtOrganismo);
-            this.DatosLicencia.Controls.Add(this.cmbRestriccion);
-            this.DatosLicencia.Controls.Add(this.label4);
             this.DatosLicencia.Controls.Add(this.cmCategoria);
             this.DatosLicencia.Controls.Add(this.txtPrecio);
             this.DatosLicencia.Controls.Add(this.lbPrecio);
@@ -595,7 +597,7 @@ namespace InterfazGrafica4._7
             this.txtOrganismo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOrganismo.HoverState.Parent = this.txtOrganismo;
             this.txtOrganismo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txtOrganismo.Location = new System.Drawing.Point(162, 197);
+            this.txtOrganismo.Location = new System.Drawing.Point(160, 146);
             this.txtOrganismo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOrganismo.Name = "txtOrganismo";
             this.txtOrganismo.PasswordChar = '\0';
@@ -606,41 +608,6 @@ namespace InterfazGrafica4._7
             this.txtOrganismo.Size = new System.Drawing.Size(258, 30);
             this.txtOrganismo.TabIndex = 55;
             this.txtOrganismo.Validating += new System.ComponentModel.CancelEventHandler(this.txtOrganismo_Validating);
-            // 
-            // cmbRestriccion
-            // 
-            this.cmbRestriccion.BackColor = System.Drawing.Color.Transparent;
-            this.cmbRestriccion.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.cmbRestriccion.BorderRadius = 15;
-            this.cmbRestriccion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbRestriccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRestriccion.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cmbRestriccion.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbRestriccion.FocusedState.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbRestriccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbRestriccion.FormattingEnabled = true;
-            this.cmbRestriccion.HoverState.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.ItemHeight = 30;
-            this.cmbRestriccion.Items.AddRange(new object[] {
-            "Ninguno"});
-            this.cmbRestriccion.ItemsAppearance.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.Location = new System.Drawing.Point(162, 138);
-            this.cmbRestriccion.Name = "cmbRestriccion";
-            this.cmbRestriccion.ShadowDecoration.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.Size = new System.Drawing.Size(253, 36);
-            this.cmbRestriccion.TabIndex = 54;
-            this.cmbRestriccion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbRestriccion_Validating);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 17);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Restriccion";
             // 
             // cmCategoria
             // 
@@ -730,7 +697,7 @@ namespace InterfazGrafica4._7
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(25, 255);
+            this.label6.Location = new System.Drawing.Point(23, 204);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 17);
             this.label6.TabIndex = 46;
@@ -742,7 +709,7 @@ namespace InterfazGrafica4._7
             this.guna2DateTimePicker1.CheckedState.Parent = this.guna2DateTimePicker1;
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(162, 255);
+            this.guna2DateTimePicker1.Location = new System.Drawing.Point(160, 204);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -755,7 +722,7 @@ namespace InterfazGrafica4._7
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 197);
+            this.label5.Location = new System.Drawing.Point(65, 146);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 17);
             this.label5.TabIndex = 38;
@@ -861,16 +828,6 @@ namespace InterfazGrafica4._7
             this.errorCategoria.ContainerControl = this;
             this.errorCategoria.Icon = ((System.Drawing.Icon)(resources.GetObject("errorCategoria.Icon")));
             // 
-            // errorRestriccion
-            // 
-            this.errorRestriccion.ContainerControl = this;
-            this.errorRestriccion.Icon = ((System.Drawing.Icon)(resources.GetObject("errorRestriccion.Icon")));
-            // 
-            // errorOrganismo
-            // 
-            this.errorOrganismo.ContainerControl = this;
-            this.errorOrganismo.Icon = ((System.Drawing.Icon)(resources.GetObject("errorOrganismo.Icon")));
-            // 
             // errorDepartamento
             // 
             this.errorDepartamento.ContainerControl = this;
@@ -885,6 +842,54 @@ namespace InterfazGrafica4._7
             // 
             this.errorBarrio.ContainerControl = this;
             this.errorBarrio.Icon = ((System.Drawing.Icon)(resources.GetObject("errorBarrio.Icon")));
+            // 
+            // cmbRestriccion
+            // 
+            this.cmbRestriccion.BackColor = System.Drawing.Color.Transparent;
+            this.cmbRestriccion.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbRestriccion.BorderRadius = 15;
+            this.cmbRestriccion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbRestriccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRestriccion.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbRestriccion.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbRestriccion.FocusedState.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbRestriccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbRestriccion.FormattingEnabled = true;
+            this.cmbRestriccion.HoverState.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.ItemHeight = 30;
+            this.cmbRestriccion.Items.AddRange(new object[] {
+            "Ninguno"});
+            this.cmbRestriccion.ItemsAppearance.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.Location = new System.Drawing.Point(462, 296);
+            this.cmbRestriccion.Name = "cmbRestriccion";
+            this.cmbRestriccion.ShadowDecoration.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.Size = new System.Drawing.Size(142, 36);
+            this.cmbRestriccion.TabIndex = 60;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(369, 304);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "Restriccion";
+            // 
+            // errorOrganismo
+            // 
+            this.errorOrganismo.ContainerControl = this;
+            this.errorOrganismo.Icon = ((System.Drawing.Icon)(resources.GetObject("errorOrganismo.Icon")));
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorRestriccion
+            // 
+            this.errorRestriccion.ContainerControl = this;
+            this.errorRestriccion.Icon = ((System.Drawing.Icon)(resources.GetObject("errorRestriccion.Icon")));
             // 
             // FrmRegistroLicenciaa
             // 
@@ -913,11 +918,12 @@ namespace InterfazGrafica4._7
             ((System.ComponentModel.ISupportInitialize)(this.errorTelefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorGrupo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCategoria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorRestriccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorOrganismo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCiudad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorBarrio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorOrganismo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRestriccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -952,8 +958,6 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbRestriccion;
-        private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2ComboBox cmCategoria;
         protected Guna.UI2.WinForms.Guna2TextBox txtPrecio;
         private System.Windows.Forms.Label lbPrecio;
@@ -971,12 +975,15 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.ErrorProvider errorTelefono;
         private System.Windows.Forms.ErrorProvider errorGrupo;
         private System.Windows.Forms.ErrorProvider errorCategoria;
-        private System.Windows.Forms.ErrorProvider errorRestriccion;
-        private System.Windows.Forms.ErrorProvider errorOrganismo;
         private Guna.UI2.WinForms.Guna2ComboBox cmDepartamento;
         private System.Windows.Forms.Label lbDepartamento;
         private System.Windows.Forms.ErrorProvider errorDepartamento;
         private System.Windows.Forms.ErrorProvider errorCiudad;
         private System.Windows.Forms.ErrorProvider errorBarrio;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbRestriccion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorOrganismo;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorRestriccion;
     }
 }
