@@ -27,7 +27,6 @@ namespace InterfazGrafica4._7
            ValidarFiltro();
         }
 
-
         private void bnLimpiar_Click(object sender, EventArgs e)
         {
            LimpiarComponentes();
