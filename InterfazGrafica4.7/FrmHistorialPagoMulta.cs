@@ -134,20 +134,24 @@ namespace InterfazGrafica4._7
                 ActivarComponentes();
                 foreach (var i in respuesta.UsuarioMulta)
                 {
-                    dgvTabla.Rows.Add
-                    (
-                      i.CodigoHistorial,
-                      i.Usuario.Codigo,
-                      i.Usuario.Pri_nombre,
-                      i.Usuario.Pri_apellido,
-                      i.Multa.Mul_Id,
-                      i.Multa.Descripcion,
-                      i.Multa.Valor,
-                      i.VehiculoId,
-                      i.VehiculoNombre,
-                      i.Estado,
-                      i.FechaPago
-                    );
+                    if (i.Estado.Equals("PAGADO"))
+                    {
+                        dgvTabla.Rows.Add
+                         (
+                            i.CodigoHistorial,
+                            i.Usuario.Codigo,
+                            i.Usuario.Pri_nombre,
+                            i.Usuario.Pri_apellido,
+                            i.CodigoMultaUsuario,
+                            i.Multa.Descripcion,
+                            i.Multa.Valor,
+                            i.VehiculoId,
+                            i.VehiculoNombre,
+                            i.Estado,
+                            i.FechaPago
+                         );
+                    }
+                    
                 }
             }
         }
@@ -155,20 +159,23 @@ namespace InterfazGrafica4._7
         public void AgregarRegistroTabla(HistorialPagoMulta i)
         {
             ActivarComponentes();
-            dgvTabla.Rows.Add
-                     (
-                       i.CodigoHistorial,
-                       i.Usuario.Codigo,
-                       i.Usuario.Pri_nombre,
-                       i.Usuario.Pri_apellido,
-                       i.Multa.Mul_Id,
-                       i.Multa.Descripcion,
-                       i.Multa.Valor,
-                       i.VehiculoId,
-                       i.VehiculoNombre,
-                       i.Estado,
-                       i.FechaPago
-                     );
+            if (i.Estado.Equals("PAGADO"))
+            {
+                dgvTabla.Rows.Add
+                 (
+                    i.CodigoHistorial,
+                    i.Usuario.Codigo,
+                    i.Usuario.Pri_nombre,
+                    i.Usuario.Pri_apellido,
+                    i.CodigoMultaUsuario,
+                    i.Multa.Descripcion,
+                    i.Multa.Valor,
+                    i.VehiculoId,
+                    i.VehiculoNombre,
+                    i.Estado,
+                    i.FechaPago
+                 );
+            }
         }
 
 

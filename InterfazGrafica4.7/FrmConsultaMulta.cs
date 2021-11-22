@@ -140,7 +140,7 @@ namespace InterfazGrafica4._7
                 {
                     dgvTabla.Rows.Add
                     (
-                      i.Multa.Mul_Id,
+                      i.CodigoMultaUsuario,
                       i.Multa.Descripcion,
                       i.Vehiculo_Id,
                       i.VehiculoNombre,
@@ -160,7 +160,7 @@ namespace InterfazGrafica4._7
             ActivarComponentes();
             dgvTabla.Rows.Add
                     (
-                      i.Multa.Mul_Id,
+                      i.CodigoMultaUsuario,
                       i.Multa.Descripcion,
                       i.Vehiculo_Id,
                       i.VehiculoNombre,
