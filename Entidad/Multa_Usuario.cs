@@ -15,10 +15,11 @@ namespace Entidad
         }
 
 
-        public Multa_Usuario(Usuario usuario, Multa multa,string idVehiculo,string nombreVehiculo,string estado,DateTime fecha)
+        public Multa_Usuario(Usuario usuario, Multa multa,string codigo, string idVehiculo,string nombreVehiculo,string estado,DateTime fecha)
         {
             Usuario = usuario;
             Multa = multa;
+            CodigoMultaUsuario = codigo;
             Vehiculo_Id = idVehiculo;
             VehiculoNombre = nombreVehiculo;
             Estado = estado;
@@ -30,6 +31,7 @@ namespace Entidad
 
         public Multa Multa { get; set; }
 
+        public string CodigoMultaUsuario { get; set; }
         public string Vehiculo_Id { get; set; }
 
         public string VehiculoNombre { get; set; }

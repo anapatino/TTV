@@ -37,6 +37,29 @@ namespace Logica
             }
         }
 
+        public string ModificiarEstado(string codigo)
+        {
+            try
+            {
+                connectionManager.Open();
+                if (usuarioMultaRepository.BuscarCodigoMultaUsuario(codigo) == null)
+                {
+                    return $"No es posible realizar la Modificación del Pago, la persona con Nro Multa {codigo} no existe";
+                }
+   
+                usuarioMultaRepository.ModificarEstado(codigo);
+                return "Se realizó la Modificación Satisfactoriamente";
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Modificar el Pago: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
 
         public (string mensaje, Multa_Usuario usuario) ConsultarPorIdentificacion(string identificacion)
         {

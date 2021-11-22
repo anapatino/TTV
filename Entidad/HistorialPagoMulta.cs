@@ -13,11 +13,12 @@ namespace Entidad
 
         }
 
-        public HistorialPagoMulta(Usuario usuario, Multa multa,string codigo,string idVehiculo,string nombreVehiculo,string estado,DateTime fechaPago)
+        public HistorialPagoMulta(Usuario usuario, Multa multa,string codigo,string codigoMultaUsuario,string idVehiculo,string nombreVehiculo,string estado,DateTime fechaPago)
         {
             Usuario = usuario;
             Multa = multa;
             CodigoHistorial = codigo;
+            CodigoMultaUsuario = codigoMultaUsuario;
             VehiculoId = idVehiculo;
             VehiculoNombre = nombreVehiculo;
             Estado = estado;
@@ -29,6 +30,8 @@ namespace Entidad
         public Multa Multa { get; set; }
 
         public string CodigoHistorial { get; set; }
+
+        public string CodigoMultaUsuario { get; set; }
 
         public string VehiculoId { get; set; }
 

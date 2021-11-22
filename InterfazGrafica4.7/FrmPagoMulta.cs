@@ -30,8 +30,8 @@ namespace InterfazGrafica4._7
             cmFiltro.Text = null;
             txtFiltro.Text = null;
             lbValor.Visible = false;
-            txtValor.Visible = false;
-            txtValor.Text = null;
+            txtCodigoMultaPagar.Visible = false;
+            txtCodigoMultaPagar.Text = null;
             bnLimpiar.Visible = false;
         }
 
@@ -39,7 +39,7 @@ namespace InterfazGrafica4._7
         {
             dgvTabla.Visible = true;
             lbValor.Visible = true;
-            txtValor.Visible = true;
+            txtCodigoMultaPagar.Visible = true;
             bnLimpiar.Visible = true;
         }
 
@@ -131,7 +131,7 @@ namespace InterfazGrafica4._7
                 {
                     dgvTabla.Rows.Add
                     (
-                      i.Multa.Mul_Id,
+                      i.CodigoMultaUsuario,
                       i.Multa.Descripcion,
                       i.Vehiculo_Id,
                       i.VehiculoNombre,
@@ -151,7 +151,7 @@ namespace InterfazGrafica4._7
             ActivarComponentes();
             dgvTabla.Rows.Add
                     (
-                      i.Multa.Mul_Id,
+                      i.CodigoMultaUsuario,
                       i.Multa.Descripcion,
                       i.Vehiculo_Id,
                       i.VehiculoNombre,
@@ -173,6 +173,18 @@ namespace InterfazGrafica4._7
         private void bnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarComponentes();
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            PagarMulta();
+        }
+
+        public void PagarMulta()
+        {
+            string codigoMulta = txtCodigoMultaPagar.Text;
+            var respuesta = usuarioPagoMultaService.ModificiarEstado(codigoMulta);
+
         }
     }
 }

@@ -40,11 +40,11 @@ namespace InterfazGrafica4._7
             this.label1 = new System.Windows.Forms.Label();
             this.pcImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnBusqueda = new Guna.UI2.WinForms.Guna2Panel();
-            this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.cmFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
+            this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.pnCentral = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvTabla = new System.Windows.Forms.DataGridView();
             this.cmCodigoMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +60,7 @@ namespace InterfazGrafica4._7
             this.pnInferior = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagar = new Guna.UI2.WinForms.Guna2Button();
-            this.txtValor = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCodigoMultaPagar = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbValor = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -153,25 +153,6 @@ namespace InterfazGrafica4._7
             this.pnBusqueda.Size = new System.Drawing.Size(780, 46);
             this.pnBusqueda.TabIndex = 0;
             // 
-            // bnLimpiar
-            // 
-            this.bnLimpiar.Animated = true;
-            this.bnLimpiar.BorderRadius = 15;
-            this.bnLimpiar.CheckedState.Parent = this.bnLimpiar;
-            this.bnLimpiar.CustomImages.Parent = this.bnLimpiar;
-            this.bnLimpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
-            this.bnLimpiar.Location = new System.Drawing.Point(615, 21);
-            this.bnLimpiar.Name = "bnLimpiar";
-            this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
-            this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
-            this.bnLimpiar.TabIndex = 46;
-            this.bnLimpiar.Text = "Limpiar";
-            this.bnLimpiar.Visible = false;
-            this.bnLimpiar.Click += new System.EventHandler(this.bnLimpiar_Click);
-            // 
             // cmFiltro
             // 
             this.cmFiltro.BackColor = System.Drawing.Color.Transparent;
@@ -258,6 +239,25 @@ namespace InterfazGrafica4._7
             this.btnBuscar.Size = new System.Drawing.Size(45, 35);
             this.btnBuscar.TabIndex = 42;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // bnLimpiar
+            // 
+            this.bnLimpiar.Animated = true;
+            this.bnLimpiar.BorderRadius = 15;
+            this.bnLimpiar.CheckedState.Parent = this.bnLimpiar;
+            this.bnLimpiar.CustomImages.Parent = this.bnLimpiar;
+            this.bnLimpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
+            this.bnLimpiar.Location = new System.Drawing.Point(615, 21);
+            this.bnLimpiar.Name = "bnLimpiar";
+            this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
+            this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
+            this.bnLimpiar.TabIndex = 46;
+            this.bnLimpiar.Text = "Limpiar";
+            this.bnLimpiar.Visible = false;
+            this.bnLimpiar.Click += new System.EventHandler(this.bnLimpiar_Click);
             // 
             // pnCentral
             // 
@@ -388,7 +388,7 @@ namespace InterfazGrafica4._7
             this.pnInferior.Controls.Add(this.bnLimpiar);
             this.pnInferior.Controls.Add(this.btnLimpiar);
             this.pnInferior.Controls.Add(this.btnPagar);
-            this.pnInferior.Controls.Add(this.txtValor);
+            this.pnInferior.Controls.Add(this.txtCodigoMultaPagar);
             this.pnInferior.Controls.Add(this.lbValor);
             this.pnInferior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnInferior.Location = new System.Drawing.Point(0, 534);
@@ -432,49 +432,49 @@ namespace InterfazGrafica4._7
             this.btnPagar.TabIndex = 0;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.Visible = false;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
-            // txtValor
+            // txtCodigoMultaPagar
             // 
-            this.txtValor.BackColor = System.Drawing.Color.Transparent;
-            this.txtValor.BorderColor = System.Drawing.Color.LightGray;
-            this.txtValor.BorderRadius = 15;
-            this.txtValor.BorderThickness = 2;
-            this.txtValor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtValor.DefaultText = "";
-            this.txtValor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtValor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtValor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtValor.DisabledState.Parent = this.txtValor;
-            this.txtValor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtValor.Enabled = false;
-            this.txtValor.FillColor = System.Drawing.Color.LightGray;
-            this.txtValor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtValor.FocusedState.Parent = this.txtValor;
-            this.txtValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.ForeColor = System.Drawing.Color.Black;
-            this.txtValor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtValor.HoverState.Parent = this.txtValor;
-            this.txtValor.Location = new System.Drawing.Point(272, 21);
-            this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.PasswordChar = '\0';
-            this.txtValor.PlaceholderText = "";
-            this.txtValor.SelectedText = "";
-            this.txtValor.ShadowDecoration.Parent = this.txtValor;
-            this.txtValor.Size = new System.Drawing.Size(205, 34);
-            this.txtValor.TabIndex = 48;
-            this.txtValor.Visible = false;
+            this.txtCodigoMultaPagar.BackColor = System.Drawing.Color.Transparent;
+            this.txtCodigoMultaPagar.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigoMultaPagar.BorderRadius = 15;
+            this.txtCodigoMultaPagar.BorderThickness = 2;
+            this.txtCodigoMultaPagar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodigoMultaPagar.DefaultText = "";
+            this.txtCodigoMultaPagar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCodigoMultaPagar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCodigoMultaPagar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCodigoMultaPagar.DisabledState.Parent = this.txtCodigoMultaPagar;
+            this.txtCodigoMultaPagar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCodigoMultaPagar.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigoMultaPagar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCodigoMultaPagar.FocusedState.Parent = this.txtCodigoMultaPagar;
+            this.txtCodigoMultaPagar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoMultaPagar.ForeColor = System.Drawing.Color.Black;
+            this.txtCodigoMultaPagar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCodigoMultaPagar.HoverState.Parent = this.txtCodigoMultaPagar;
+            this.txtCodigoMultaPagar.Location = new System.Drawing.Point(295, 21);
+            this.txtCodigoMultaPagar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCodigoMultaPagar.Name = "txtCodigoMultaPagar";
+            this.txtCodigoMultaPagar.PasswordChar = '\0';
+            this.txtCodigoMultaPagar.PlaceholderText = "";
+            this.txtCodigoMultaPagar.SelectedText = "";
+            this.txtCodigoMultaPagar.ShadowDecoration.Parent = this.txtCodigoMultaPagar;
+            this.txtCodigoMultaPagar.Size = new System.Drawing.Size(174, 36);
+            this.txtCodigoMultaPagar.TabIndex = 48;
+            this.txtCodigoMultaPagar.Visible = false;
             // 
             // lbValor
             // 
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbValor.ForeColor = System.Drawing.Color.DimGray;
-            this.lbValor.Location = new System.Drawing.Point(170, 31);
+            this.lbValor.Location = new System.Drawing.Point(130, 30);
             this.lbValor.Name = "lbValor";
-            this.lbValor.Size = new System.Drawing.Size(95, 17);
+            this.lbValor.Size = new System.Drawing.Size(158, 17);
             this.lbValor.TabIndex = 47;
-            this.lbValor.Text = "Total a Pagar";
+            this.lbValor.Text = "Codigo Multa  A Pagar";
             this.lbValor.Visible = false;
             // 
             // guna2Panel2
@@ -563,7 +563,7 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label lbFiltro;
         private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
-        private Guna.UI2.WinForms.Guna2TextBox txtValor;
+        private Guna.UI2.WinForms.Guna2TextBox txtCodigoMultaPagar;
         private System.Windows.Forms.Label lbValor;
         private System.Windows.Forms.DataGridView dgvTabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoMulta;
