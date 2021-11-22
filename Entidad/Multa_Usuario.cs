@@ -15,14 +15,14 @@ namespace Entidad
         }
 
 
-        public Multa_Usuario(Usuario usuario, Multa multa,string codigo, string idVehiculo,string nombreVehiculo,DateTime fecha)
+        public Multa_Usuario(Usuario usuario, Multa multa,string codigo, string idVehiculo,string nombreVehiculo,string estado,DateTime fecha)
         {
             Usuario = usuario;
             Multa = multa;
             CodigoMultaUsuario = codigo;
             Vehiculo_Id = idVehiculo;
             VehiculoNombre = nombreVehiculo;
-            Estado = "PENDIENTE";
+            Estado = estado;
             FechaExpedicion = fecha;
         }
 

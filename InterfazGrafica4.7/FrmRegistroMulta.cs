@@ -325,6 +325,7 @@ namespace InterfazGrafica4._7
             multa.CodigoMultaUsuario = codgio;
             multa.Vehiculo_Id = txtPlaca.Text;
             multa.VehiculoNombre = txtMarca.Text;
+            multa.Estado = "PENDIENTE";
             multa.FechaExpedicion = dtpFechaExp.Value.Date;
             string mensaje3 = multaService.Guardar(multa);
             MessageBox.Show(mensaje3);
