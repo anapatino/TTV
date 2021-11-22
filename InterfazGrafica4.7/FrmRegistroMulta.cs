@@ -329,6 +329,7 @@ namespace InterfazGrafica4._7
             multa.FechaExpedicion = dtpFechaExp.Value.Date;
             string mensaje3 = multaService.Guardar(multa);
             MessageBox.Show(mensaje3);
+            LimpiarComponentes();
         }
 
 

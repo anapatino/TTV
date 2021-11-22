@@ -31,13 +31,69 @@ namespace InterfazGrafica4._7
         {
             string codigoLicencia = txtCodigoLicencia.Text;
             string codigoCategoria = cmbCategoria.Text;
+            codigoCategoria = AsignarCodigoCategoria(codigoCategoria);
             var respuesta = recategorizarLicenciaService.ModificiarCategoria(codigoCategoria,codigoLicencia);
             MessageBox.Show(respuesta);
         }
 
-        public void LlenarComboCategoria()
+        public string AsignarCodigoCategoria(string codigoCategoria)
         {
-            
+            if (codigoCategoria.Equals("A1"))
+            {
+                return "0101"; 
+            }
+            else if (codigoCategoria.Equals("A2"))
+            {
+                return "0102";
+            }
+            else if (codigoCategoria.Equals("A3"))
+            {
+                return "0103";
+            }
+            else
+            {
+                return AsignarCodigoCategoriaB(codigoCategoria);
+            }
+            return null;
+        }
+
+        public string AsignarCodigoCategoriaB(string codigoCategoria)
+        {
+            if (codigoCategoria.Equals("B1"))
+            {
+                return "0104";
+            }
+            else if (codigoCategoria.Equals("B2"))
+            {
+                return "0105";
+            }
+            else if (codigoCategoria.Equals("B3"))
+            {
+                return "0106";
+            }
+            else
+            {
+                return AsignarCodigoCategoriaC(codigoCategoria);
+            }
+            return null;
+        }
+
+        public string AsignarCodigoCategoriaC(string codigoCategoria)
+        {
+            if (codigoCategoria.Equals("C1"))
+            {
+                return "0107";
+            }
+            else if (codigoCategoria.Equals("C2"))
+            {
+                return "0108";
+            }
+            else if (codigoCategoria.Equals("C3"))
+            {
+                return "0109";
+            }
+         
+            return null;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -176,6 +232,7 @@ namespace InterfazGrafica4._7
             bnGuardar.Visible = false;
             lbCodigo.Visible =false;
             txtCodigoLicencia.Visible =false;
+            txtCodigoLicencia.Text = null;
         }
 
         public void ActivarComponentes()
