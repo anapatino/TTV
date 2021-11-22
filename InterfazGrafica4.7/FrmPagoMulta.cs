@@ -33,6 +33,7 @@ namespace InterfazGrafica4._7
             txtCodigoMultaPagar.Visible = false;
             txtCodigoMultaPagar.Text = null;
             bnLimpiar.Visible = false;
+            btnPagar.Visible = false;
         }
 
         public void ActivarComponentes()
@@ -41,6 +42,7 @@ namespace InterfazGrafica4._7
             lbValor.Visible = true;
             txtCodigoMultaPagar.Visible = true;
             bnLimpiar.Visible = true;
+            btnPagar.Visible = true;
         }
 
         public void ValidarFiltro()
@@ -184,7 +186,7 @@ namespace InterfazGrafica4._7
         {
             string codigoMulta = txtCodigoMultaPagar.Text;
             var respuesta = usuarioPagoMultaService.ModificiarEstado(codigoMulta);
-
+            MessageBox.Show(respuesta);
         }
     }
 }

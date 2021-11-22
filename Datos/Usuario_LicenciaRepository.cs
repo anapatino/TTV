@@ -56,11 +56,16 @@ namespace Datos
                 reader.Close();
             }
             return licencias;
-        } 
+        }
 
-        public void MapearDatos()
+        public void ModificarCategoria(string categoriaNew)
         {
-
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "";
+                command.Parameters.Add(new OracleParameter("codigoMultaUsuario", categoriaNew));
+                int fila = command.ExecuteNonQuery();
+            }
         }
 
         public Usuario_Licencia BuscarUsuario(string identificacion)

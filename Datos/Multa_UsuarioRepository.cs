@@ -68,8 +68,8 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "update multa_usuario set ESTADO='PAGADO' where CODIGO_MUL_USU=@";
-                command.Parameters.Add(new SqlParameter("@CODIGO_MUL_USU", codigoMultaUsuario));
+                command.CommandText = "update multa_usuario set ESTADO='PAGADO' where CODIGO_MUL_USU=:codigoMultaUsuario";
+                command.Parameters.Add(new OracleParameter("codigoMultaUsuario", codigoMultaUsuario));
                 int fila = command.ExecuteNonQuery();
             }
         }
