@@ -309,6 +309,7 @@ namespace InterfazGrafica4._7
             {
                 txtPrecio.Text = registro["CAT_PRECIO"].ToString();
             }
+            conx.Close();
         }
 
         private void cmDepartamento_SelectedIndexChanged(object sender, EventArgs e)
@@ -323,6 +324,7 @@ namespace InterfazGrafica4._7
             {
                 cmbCiudad.Items.Add(registro["CIUD_NOMBRE"].ToString());
             }
+            conx.Close();
         }
 
         private void bnRegistrar_Click(object sender, EventArgs e)
@@ -364,6 +366,7 @@ namespace InterfazGrafica4._7
                 cat = registro["CAT_COD_PK"].ToString();
             }
             return cat;
+            conx.Close();
         }
 
         private string ObtenerCiudadCod()
@@ -379,6 +382,7 @@ namespace InterfazGrafica4._7
                 ciud = registro["CIUD_CODIGO_PK"].ToString();
             }
             return ciud;
+            conx.Close();
         }
 
         private string ObtenerBarrioCod()
@@ -394,6 +398,7 @@ namespace InterfazGrafica4._7
                 barr = registro["BARR_CODIGO_PK"].ToString();
             }
             return barr;
+            conx.Close();
         }
 
         private string ObtenerRestriccionCod()
@@ -409,6 +414,7 @@ namespace InterfazGrafica4._7
                 ress = registro["RES_COD_PK"].ToString();
             }
             return ress;
+            conx.Close();
         }
 
         

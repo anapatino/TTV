@@ -347,6 +347,7 @@ namespace InterfazGrafica4._7
                 barr = registro["MUL_ID_PK"].ToString();
             }
             return barr;
+            conx.Close();
         }
 
         private string ObtenerCiudadCod()
@@ -362,6 +363,7 @@ namespace InterfazGrafica4._7
                 ciud = registro["CIUD_CODIGO_PK"].ToString();
             }
             return ciud;
+            conx.Close();
         }
 
         private string ObtenerBarrioCod()
@@ -377,6 +379,7 @@ namespace InterfazGrafica4._7
                 barr = registro["BARR_CODIGO_PK"].ToString();
             }
             return barr;
+            conx.Close();
         }
 
         private string ObtenerRestriccionCod()
@@ -392,6 +395,7 @@ namespace InterfazGrafica4._7
                 ress = registro["RES_COD_PK"].ToString();
             }
             return ress;
+            conx.Close();
         }
 
         private void bnLimpiar_Click_1(object sender, EventArgs e)
@@ -464,7 +468,7 @@ namespace InterfazGrafica4._7
             {
                 txtValor.Text = registro["MUL_VALOR"].ToString();
             }
-          
+            conx.Close();
         }
 
         
@@ -481,6 +485,7 @@ namespace InterfazGrafica4._7
             {
                 cmbCiudad.Items.Add(registro["CIUD_NOMBRE"].ToString());
             }
+            conx.Close();
         }
     }
 }

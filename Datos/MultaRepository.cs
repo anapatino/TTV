@@ -24,7 +24,7 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "CALL PK1INSERTAR.REGISTRAR_MULTA(:CodigoMulta,:Cedula,:IdMulta,:Estado,:FechaExp,:VehiculoId);";
+                command.CommandText = "CALL PK1INSERTAR.REGISTRAR_MULTA(:CodigoMulta,:Cedula,:IdMulta,:Estado,:FechaExp,:VehiculoId)";
                 command.Parameters.Add(new OracleParameter("CodigoMulta", multa.CodigoMultaUsuario));
                 command.Parameters.Add(new OracleParameter("Cedula", multa.Usuario.Codigo));
                 command.Parameters.Add(new OracleParameter("IdMulta", multa.Multa.Mul_Id));
@@ -39,7 +39,7 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "INSERT INTO VEHICULO VALUES(:Placa,:Marca);";
+                command.CommandText = "INSERT INTO VEHICULO VALUES(:Placa,:Marca)";
                 command.Parameters.Add(new OracleParameter("Placa", vehiculo.Placa));
                 command.Parameters.Add(new OracleParameter("Marca", vehiculo.Marca));
                 command.ExecuteNonQuery();
