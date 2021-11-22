@@ -58,14 +58,20 @@ namespace Datos
             return licencias;
         }
 
-        public void ModificarCategoria(string categoriaNew)
+        public void ModificarCategoria(string codigoCategoria,string codigoLicencia)
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "";
-                command.Parameters.Add(new OracleParameter("codigoMultaUsuario", categoriaNew));
+                command.CommandText = "update licencia_categoria set cat_cod_fk=:codigoCategoria where lic_codigo_fk=:codigoLicencia";
+                command.Parameters.Add(new OracleParameter("codigoCategoria", codigoCategoria));
+                command.Parameters.Add(new OracleParameter("codigoLicencia", codigoLicencia));
                 int fila = command.ExecuteNonQuery();
             }
+        }
+
+        public Usuario_Licencia BuscarCodigoLicenciaUsuario(string codigo)
+        {
+            return (Usuario_Licencia)ConsultarLicencia().FirstOrDefault(m => m.Licencia.Codigo.Equals(codigo));
         }
 
         public Usuario_Licencia BuscarUsuario(string identificacion)

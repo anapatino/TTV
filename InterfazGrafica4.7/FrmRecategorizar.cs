@@ -24,7 +24,20 @@ namespace InterfazGrafica4._7
 
         private void bnGuardar_Click(object sender, EventArgs e)
         {
+            Recategorizar();
+        }
 
+        public void Recategorizar()
+        {
+            string codigoLicencia = txtCodigoLicencia.Text;
+            string codigoCategoria = cmbCategoria.Text;
+            var respuesta = recategorizarLicenciaService.ModificiarCategoria(codigoCategoria,codigoLicencia);
+            MessageBox.Show(respuesta);
+        }
+
+        public void LlenarComboCategoria()
+        {
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -161,6 +174,8 @@ namespace InterfazGrafica4._7
             cmbCategoria.Visible = false;
             cmbCategoria.Text = null;
             bnGuardar.Visible = false;
+            lbCodigo.Visible =false;
+            txtCodigoLicencia.Visible =false;
         }
 
         public void ActivarComponentes()
@@ -171,6 +186,8 @@ namespace InterfazGrafica4._7
             cmbCategoria.Visible = true;
             cmbCategoria.Text = null;
             bnGuardar.Visible = true;
+            lbCodigo.Visible = true;
+            txtCodigoLicencia.Visible = true;
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)
