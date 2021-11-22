@@ -3,6 +3,7 @@ using Entidad;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,10 @@ namespace InterfazGrafica4._7
         public FrmRegistroMulta()
         {
             InitializeComponent();
+            AñadirDepartamento();
+            AñadirBarrio();
+            AñadirMulta();
+            AñadirRestriccion();
         }
 
         private void LimpiarComponentes()
@@ -290,6 +295,90 @@ namespace InterfazGrafica4._7
         private void bnLimpiar_Click_1(object sender, EventArgs e)
         {
             LimpiarComponentes();
+        }
+
+        private void AñadirDepartamento()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Departamento", conx);
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            while (registro.Read())
+            {
+                cmDepartamento.Items.Add(registro["DEP_NOMBRE"].ToString());
+            }
+            conx.Close();
+        }
+
+        private void AñadirBarrio()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Barrio", conx);
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            while (registro.Read())
+            {
+                cmbBarrio.Items.Add(registro["BARR_NOMBRE"].ToString());
+            }
+            conx.Close();
+        }
+
+        private void AñadirRestriccion()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Restriccion", conx);
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            while (registro.Read())
+            {
+                cmbRestriccion.Items.Add(registro["RES_DESCRIPCION"].ToString());
+            }
+            conx.Close();
+        }
+
+
+        private void AñadirMulta()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Multa", conx);
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            while (registro.Read())
+            {
+                cmDescripcion.Items.Add(registro["MUL_DESCRIPCION"].ToString());
+            }
+            conx.Close();
+        }
+
+        private void cmDescripcion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Multa WHERE MUL_DESCRIPCION = :Descripcion", conx);
+            command.Parameters.Add(new OracleParameter("Descripcion", cmDescripcion.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            while(registro.Read())
+            {
+                txtValor.Text = registro["MUL_VALOR"].ToString();
+            }
+          
+        }
+
+        
+
+        private void cmDepartamento_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cmbCiudad.Items.Clear();
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT D.dep_nombre, C.ciud_nombre FROM Ciudad C LEFT JOIN DEPARTAMENTO D ON(C.DEP_CODIGO_FK = D.DEP_CODIGO_PK) WHERE D.dep_nombre = :Departamento", conx);
+            command.Parameters.Add(new OracleParameter("Departamento", cmDepartamento.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            while (registro.Read())
+            {
+                cmbCiudad.Items.Add(registro["CIUD_NOMBRE"].ToString());
+            }
         }
     }
 }

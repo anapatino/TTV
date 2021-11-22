@@ -38,7 +38,6 @@ namespace InterfazGrafica4._7
             this.DatosPersonales = new System.Windows.Forms.TabPage();
             this.cmbRestriccion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmDepartamento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbDepartamento = new System.Windows.Forms.Label();
             this.cmbBarrio = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbCiudad = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -61,6 +60,7 @@ namespace InterfazGrafica4._7
             this.lbNombreSeg = new System.Windows.Forms.Label();
             this.lbNombrePri = new System.Windows.Forms.Label();
             this.DatosLicencia = new System.Windows.Forms.TabPage();
+            this.txtMarca = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtBusqueda = new Guna.UI2.WinForms.Guna2TextBox();
@@ -73,7 +73,6 @@ namespace InterfazGrafica4._7
             this.label9 = new System.Windows.Forms.Label();
             this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.bnRegistrar = new Guna.UI2.WinForms.Guna2Button();
-            this.txtMarca = new Guna.UI2.WinForms.Guna2TextBox();
             this.errorCedula = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPriNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorSegNombre = new System.Windows.Forms.ErrorProvider(this.components);
@@ -88,6 +87,7 @@ namespace InterfazGrafica4._7
             this.errorMarca = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPlaca = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmDepartamento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PanelRegistro.SuspendLayout();
             this.DatosPersonales.SuspendLayout();
             this.DatosLicencia.SuspendLayout();
@@ -147,9 +147,9 @@ namespace InterfazGrafica4._7
             // 
             // DatosPersonales
             // 
+            this.DatosPersonales.Controls.Add(this.cmDepartamento);
             this.DatosPersonales.Controls.Add(this.cmbRestriccion);
             this.DatosPersonales.Controls.Add(this.label4);
-            this.DatosPersonales.Controls.Add(this.cmDepartamento);
             this.DatosPersonales.Controls.Add(this.lbDepartamento);
             this.DatosPersonales.Controls.Add(this.cmbBarrio);
             this.DatosPersonales.Controls.Add(this.cmbCiudad);
@@ -194,8 +194,6 @@ namespace InterfazGrafica4._7
             this.cmbRestriccion.FormattingEnabled = true;
             this.cmbRestriccion.HoverState.Parent = this.cmbRestriccion;
             this.cmbRestriccion.ItemHeight = 30;
-            this.cmbRestriccion.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmbRestriccion.ItemsAppearance.Parent = this.cmbRestriccion;
             this.cmbRestriccion.Location = new System.Drawing.Point(462, 296);
             this.cmbRestriccion.Name = "cmbRestriccion";
@@ -213,31 +211,6 @@ namespace InterfazGrafica4._7
             this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 59;
             this.label4.Text = "Restriccion";
-            // 
-            // cmDepartamento
-            // 
-            this.cmDepartamento.BackColor = System.Drawing.Color.Transparent;
-            this.cmDepartamento.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.cmDepartamento.BorderRadius = 15;
-            this.cmDepartamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmDepartamento.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cmDepartamento.FocusedColor = System.Drawing.Color.Empty;
-            this.cmDepartamento.FocusedState.Parent = this.cmDepartamento;
-            this.cmDepartamento.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmDepartamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmDepartamento.FormattingEnabled = true;
-            this.cmDepartamento.HoverState.Parent = this.cmDepartamento;
-            this.cmDepartamento.ItemHeight = 30;
-            this.cmDepartamento.Items.AddRange(new object[] {
-            "Ninguno"});
-            this.cmDepartamento.ItemsAppearance.Parent = this.cmDepartamento;
-            this.cmDepartamento.Location = new System.Drawing.Point(154, 235);
-            this.cmDepartamento.Name = "cmDepartamento";
-            this.cmDepartamento.ShadowDecoration.Parent = this.cmDepartamento;
-            this.cmDepartamento.Size = new System.Drawing.Size(142, 36);
-            this.cmDepartamento.TabIndex = 58;
-            this.cmDepartamento.Validating += new System.ComponentModel.CancelEventHandler(this.cmDepartamento_Validating);
             // 
             // lbDepartamento
             // 
@@ -264,8 +237,6 @@ namespace InterfazGrafica4._7
             this.cmbBarrio.FormattingEnabled = true;
             this.cmbBarrio.HoverState.Parent = this.cmbBarrio;
             this.cmbBarrio.ItemHeight = 30;
-            this.cmbBarrio.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmbBarrio.ItemsAppearance.Parent = this.cmbBarrio;
             this.cmbBarrio.Location = new System.Drawing.Point(154, 296);
             this.cmbBarrio.Name = "cmbBarrio";
@@ -289,8 +260,6 @@ namespace InterfazGrafica4._7
             this.cmbCiudad.FormattingEnabled = true;
             this.cmbCiudad.HoverState.Parent = this.cmbCiudad;
             this.cmbCiudad.ItemHeight = 30;
-            this.cmbCiudad.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmbCiudad.ItemsAppearance.Parent = this.cmbCiudad;
             this.cmbCiudad.Location = new System.Drawing.Point(462, 231);
             this.cmbCiudad.Name = "cmbCiudad";
@@ -645,6 +614,36 @@ namespace InterfazGrafica4._7
             this.DatosLicencia.Text = "Datos Multa";
             this.DatosLicencia.UseVisualStyleBackColor = true;
             // 
+            // txtMarca
+            // 
+            this.txtMarca.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMarca.BorderRadius = 15;
+            this.txtMarca.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMarca.DefaultText = "";
+            this.txtMarca.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMarca.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMarca.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMarca.DisabledState.Parent = this.txtMarca;
+            this.txtMarca.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMarca.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMarca.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMarca.FocusedState.Parent = this.txtMarca;
+            this.txtMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarca.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMarca.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMarca.HoverState.Parent = this.txtMarca;
+            this.txtMarca.Location = new System.Drawing.Point(162, 40);
+            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.PasswordChar = '\0';
+            this.txtMarca.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMarca.PlaceholderText = "";
+            this.txtMarca.SelectedText = "";
+            this.txtMarca.ShadowDecoration.Parent = this.txtMarca;
+            this.txtMarca.Size = new System.Drawing.Size(221, 36);
+            this.txtMarca.TabIndex = 73;
+            this.txtMarca.Validating += new System.ComponentModel.CancelEventHandler(this.txtMarca_Validating);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -714,14 +713,13 @@ namespace InterfazGrafica4._7
             this.cmDescripcion.FormattingEnabled = true;
             this.cmDescripcion.HoverState.Parent = this.cmDescripcion;
             this.cmDescripcion.ItemHeight = 30;
-            this.cmDescripcion.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmDescripcion.ItemsAppearance.Parent = this.cmDescripcion;
             this.cmDescripcion.Location = new System.Drawing.Point(161, 156);
             this.cmDescripcion.Name = "cmDescripcion";
             this.cmDescripcion.ShadowDecoration.Parent = this.cmDescripcion;
             this.cmDescripcion.Size = new System.Drawing.Size(218, 36);
             this.cmDescripcion.TabIndex = 69;
+            this.cmDescripcion.SelectedIndexChanged += new System.EventHandler(this.cmDescripcion_SelectedIndexChanged);
             this.cmDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.cmDescripcion_Validating_1);
             // 
             // txtValor
@@ -858,36 +856,6 @@ namespace InterfazGrafica4._7
             this.bnRegistrar.Text = "Registrar";
             this.bnRegistrar.Click += new System.EventHandler(this.bnRegistrar_Click_1);
             // 
-            // txtMarca
-            // 
-            this.txtMarca.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMarca.BorderRadius = 15;
-            this.txtMarca.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMarca.DefaultText = "";
-            this.txtMarca.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMarca.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMarca.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMarca.DisabledState.Parent = this.txtMarca;
-            this.txtMarca.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMarca.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMarca.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMarca.FocusedState.Parent = this.txtMarca;
-            this.txtMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.ForeColor = System.Drawing.Color.DimGray;
-            this.txtMarca.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMarca.HoverState.Parent = this.txtMarca;
-            this.txtMarca.Location = new System.Drawing.Point(162, 40);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.PasswordChar = '\0';
-            this.txtMarca.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMarca.PlaceholderText = "";
-            this.txtMarca.SelectedText = "";
-            this.txtMarca.ShadowDecoration.Parent = this.txtMarca;
-            this.txtMarca.Size = new System.Drawing.Size(221, 36);
-            this.txtMarca.TabIndex = 73;
-            this.txtMarca.Validating += new System.ComponentModel.CancelEventHandler(this.txtMarca_Validating);
-            // 
             // errorCedula
             // 
             this.errorCedula.ContainerControl = this;
@@ -957,6 +925,29 @@ namespace InterfazGrafica4._7
             this.errorDescripcion.ContainerControl = this;
             this.errorDescripcion.Icon = ((System.Drawing.Icon)(resources.GetObject("errorDescripcion.Icon")));
             // 
+            // cmDepartamento
+            // 
+            this.cmDepartamento.BackColor = System.Drawing.Color.Transparent;
+            this.cmDepartamento.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmDepartamento.BorderRadius = 15;
+            this.cmDepartamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmDepartamento.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmDepartamento.FocusedColor = System.Drawing.Color.Empty;
+            this.cmDepartamento.FocusedState.Parent = this.cmDepartamento;
+            this.cmDepartamento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmDepartamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmDepartamento.FormattingEnabled = true;
+            this.cmDepartamento.HoverState.Parent = this.cmDepartamento;
+            this.cmDepartamento.ItemHeight = 30;
+            this.cmDepartamento.ItemsAppearance.Parent = this.cmDepartamento;
+            this.cmDepartamento.Location = new System.Drawing.Point(154, 231);
+            this.cmDepartamento.Name = "cmDepartamento";
+            this.cmDepartamento.ShadowDecoration.Parent = this.cmDepartamento;
+            this.cmDepartamento.Size = new System.Drawing.Size(142, 36);
+            this.cmDepartamento.TabIndex = 61;
+            this.cmDepartamento.SelectedIndexChanged += new System.EventHandler(this.cmDepartamento_SelectedIndexChanged_1);
+            // 
             // FrmRegistroMulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1003,7 +994,6 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.TabPage DatosPersonales;
         private Guna.UI2.WinForms.Guna2ComboBox cmbRestriccion;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2ComboBox cmDepartamento;
         private System.Windows.Forms.Label lbDepartamento;
         private Guna.UI2.WinForms.Guna2ComboBox cmbBarrio;
         private Guna.UI2.WinForms.Guna2ComboBox cmbCiudad;
@@ -1053,5 +1043,6 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.ErrorProvider errorMarca;
         private System.Windows.Forms.ErrorProvider errorPlaca;
         private System.Windows.Forms.ErrorProvider errorDescripcion;
+        private Guna.UI2.WinForms.Guna2ComboBox cmDepartamento;
     }
 }
