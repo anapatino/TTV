@@ -47,6 +47,11 @@ namespace InterfazGrafica4._7
             txtGS.Text = null;
             txtOrganismo.Text = null;
             cmbRestriccion.Text = null;
+            cmbBarrio.Text = null;
+            cmbCiudad.Text = null;
+            cmbRestriccion.Text = null;
+            cmDepartamento.Text = null;
+            cmCategoria.Text = null;
         }
 
         private void txtCedula_Validating(object sender, CancelEventArgs e)
@@ -351,6 +356,7 @@ namespace InterfazGrafica4._7
             usuario.RestriccionCodigo = ObtenerRestriccionCod();
             string mensaje = usuarioService.Guardar(usuario);   
             MessageBox.Show(mensaje + " y "+ mensaje2);
+            LimpiarComponentes();
         }
 
         private string ObtenerCategoriaCod()

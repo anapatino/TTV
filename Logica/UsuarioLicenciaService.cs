@@ -37,6 +37,27 @@ namespace Logica
             }
         }
 
+        public string ModificiarCategoria(string codigoCategoria, string codigoLicencia)
+        {
+            try
+            {
+                connectionManager.Open();
+                if (usuarioLicenciaRepository.BuscarCodigoLicenciaUsuario(codigoLicencia) == null)
+                {
+                    return $"No es posible realizar la Modificación de Categoria, la persona con Nro Licencia {codigoLicencia} no existe";
+                }
+                usuarioLicenciaRepository.ModificarCategoria(codigoCategoria,codigoLicencia);
+                return "Se realizó la Modificación Satisfactoriamente";
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Modificar la categoria: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
 
         public (string mensaje, Usuario_Licencia usuario) ConsultarPorIdentificacion(string identificacion)
         {
