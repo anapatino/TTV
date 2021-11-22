@@ -15,7 +15,6 @@ namespace Entidad
 
         public Multa(string codigo,string descripcion, decimal valor)
         {
-           
             Mul_Id = codigo;
             Descripcion = descripcion;
             Valor = valor;
@@ -27,10 +26,6 @@ namespace Entidad
 
         public Decimal Valor { get; set; }
 
-        public int GenerarCodigo()
-        {
-            Random r = new Random();
-            return r.Next(1, 9999999);
-        }
+       
     }
 }

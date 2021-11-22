@@ -9,11 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica;
+
 
 namespace InterfazGrafica4._7
 {
     public partial class FrmRegistroMulta : Form
     {
+        UsuarioService usuarioService;
+        MultaService multaService;
+
         public FrmRegistroMulta()
         {
             InitializeComponent();
@@ -21,6 +26,8 @@ namespace InterfazGrafica4._7
             AñadirBarrio();
             AñadirMulta();
             AñadirRestriccion();
+            usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
+            multaService = new MultaService(ConfigConnection.ConnectionString);
         }
 
         private void LimpiarComponentes()
@@ -289,7 +296,106 @@ namespace InterfazGrafica4._7
 
         private void bnRegistrar_Click_1(object sender, EventArgs e)
         {
+            Usuario usuario = new Usuario();
+            usuario.Codigo = txtCedula.Text;
+            usuario.Pri_nombre = txtPriNombre.Text;
+            usuario.Seg_nombre = txtSegNombre.Text;
+            usuario.Pri_apellido = txtPriApellido.Text;
+            usuario.Seg_apellido = txtSegApellido.Text;
+            usuario.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+            usuario.Telefono = txtTelefono.Text;
+            usuario.Grupo_Sanguineo = txtGS.Text;
+            usuario.LicenciaCodigo = "0006";
+            usuario.CiudadCodigo = ObtenerCiudadCod();
+            usuario.BarrioCodigo = ObtenerBarrioCod();
+            usuario.RestriccionCodigo = ObtenerRestriccionCod();
+            string mensaje = usuarioService.Guardar(usuario);
+            Multa mul = new Multa();
+            mul.Mul_Id = ObtenerMultaCod();
+            mul.Descripcion = cmDescripcion.Text;
+            mul.Valor = decimal.Parse(txtValor.Text);
+            Vehiculo vehiculo = new Vehiculo();
+            vehiculo.Placa = txtPlaca.Text;
+            vehiculo.Marca = txtMarca.Text;
+            string mesaje2 = multaService.GuardarVehiculo(vehiculo);
+            Multa_Usuario multa = new Multa_Usuario();
+            multa.Usuario = usuario;
+            multa.Multa = mul;
+            string codgio = multa.GenerarCodigo().ToString();
+            multa.CodigoMultaUsuario = codgio;
+            multa.Vehiculo_Id = txtPlaca.Text;
+            multa.VehiculoNombre = txtMarca.Text;
+            multa.Estado = "PENDIENTE";
+            multa.FechaExpedicion = dtpFechaExp.Value.Date;
+            string mensaje3 = multaService.Guardar(multa);
+            MessageBox.Show(mensaje3);
+        }
 
+
+      
+
+        private string ObtenerMultaCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Multa WHERE MUL_DESCRIPCION = :Descripcion", conx);
+            command.Parameters.Add(new OracleParameter("Descripcion", cmDescripcion.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string barr = "";
+            while (registro.Read())
+            {
+                barr = registro["MUL_ID_PK"].ToString();
+            }
+            return barr;
+            conx.Close();
+        }
+
+        private string ObtenerCiudadCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Ciudad WHERE CIUD_NOMBRE = :Ciudad", conx);
+            command.Parameters.Add(new OracleParameter("Ciudad", cmbCiudad.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string ciud = "";
+            while (registro.Read())
+            {
+                ciud = registro["CIUD_CODIGO_PK"].ToString();
+            }
+            return ciud;
+            conx.Close();
+        }
+
+        private string ObtenerBarrioCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Barrio WHERE BARR_NOMBRE = :Barrio", conx);
+            command.Parameters.Add(new OracleParameter("Barrio", cmbBarrio.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string barr = "";
+            while (registro.Read())
+            {
+                barr = registro["BARR_CODIGO_PK"].ToString();
+            }
+            return barr;
+            conx.Close();
+        }
+
+        private string ObtenerRestriccionCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Restriccion WHERE RES_DESCRIPCION = :Descripcion", conx);
+            command.Parameters.Add(new OracleParameter("Descripcion", cmbRestriccion.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string ress = "";
+            while (registro.Read())
+            {
+                ress = registro["RES_COD_PK"].ToString();
+            }
+            return ress;
+            conx.Close();
         }
 
         private void bnLimpiar_Click_1(object sender, EventArgs e)
@@ -362,7 +468,7 @@ namespace InterfazGrafica4._7
             {
                 txtValor.Text = registro["MUL_VALOR"].ToString();
             }
-          
+            conx.Close();
         }
 
         
@@ -379,6 +485,7 @@ namespace InterfazGrafica4._7
             {
                 cmbCiudad.Items.Add(registro["CIUD_NOMBRE"].ToString());
             }
+            conx.Close();
         }
     }
 }
