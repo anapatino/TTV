@@ -64,7 +64,7 @@ namespace InterfazGrafica4._7
             this.lbPrecio = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpFechaExp = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.lbMulta = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -594,7 +594,7 @@ namespace InterfazGrafica4._7
             this.DatosLicencia.Controls.Add(this.lbPrecio);
             this.DatosLicencia.Controls.Add(this.lbCategoria);
             this.DatosLicencia.Controls.Add(this.label6);
-            this.DatosLicencia.Controls.Add(this.guna2DateTimePicker1);
+            this.DatosLicencia.Controls.Add(this.dtpFechaExp);
             this.DatosLicencia.Controls.Add(this.label5);
             this.DatosLicencia.Location = new System.Drawing.Point(4, 25);
             this.DatosLicencia.Name = "DatosLicencia";
@@ -615,7 +615,6 @@ namespace InterfazGrafica4._7
             this.txtOrganismo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtOrganismo.DisabledState.Parent = this.txtOrganismo;
             this.txtOrganismo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtOrganismo.Enabled = false;
             this.txtOrganismo.FillColor = System.Drawing.Color.WhiteSmoke;
             this.txtOrganismo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOrganismo.FocusedState.Parent = this.txtOrganismo;
@@ -721,20 +720,20 @@ namespace InterfazGrafica4._7
             this.label6.TabIndex = 46;
             this.label6.Text = "Fecha Expedicion";
             // 
-            // guna2DateTimePicker1
+            // dtpFechaExp
             // 
-            this.guna2DateTimePicker1.BorderRadius = 15;
-            this.guna2DateTimePicker1.CheckedState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(160, 204);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.ShadowDecoration.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(253, 30);
-            this.guna2DateTimePicker1.TabIndex = 45;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2021, 11, 14, 21, 54, 38, 545);
+            this.dtpFechaExp.BorderRadius = 15;
+            this.dtpFechaExp.CheckedState.Parent = this.dtpFechaExp;
+            this.dtpFechaExp.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpFechaExp.HoverState.Parent = this.dtpFechaExp;
+            this.dtpFechaExp.Location = new System.Drawing.Point(160, 204);
+            this.dtpFechaExp.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaExp.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaExp.Name = "dtpFechaExp";
+            this.dtpFechaExp.ShadowDecoration.Parent = this.dtpFechaExp;
+            this.dtpFechaExp.Size = new System.Drawing.Size(253, 30);
+            this.dtpFechaExp.TabIndex = 45;
+            this.dtpFechaExp.Value = new System.DateTime(2021, 11, 14, 21, 54, 38, 545);
             // 
             // label5
             // 
@@ -800,6 +799,7 @@ namespace InterfazGrafica4._7
             this.bnRegistrar.Size = new System.Drawing.Size(114, 30);
             this.bnRegistrar.TabIndex = 28;
             this.bnRegistrar.Text = "Registrar";
+            this.bnRegistrar.Click += new System.EventHandler(this.bnRegistrar_Click);
             // 
             // errorCedula
             // 
@@ -940,7 +940,7 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label lbTelefono;
         private Guna.UI2.WinForms.Guna2TextBox txtTelefono;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaExp;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox cmCategoria;
         protected Guna.UI2.WinForms.Guna2TextBox txtPrecio;
