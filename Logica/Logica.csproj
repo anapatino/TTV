@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HistorialPagoMultaConsultaResponse.cs" />
+    <Compile Include="LicenciaService.cs" />
     <Compile Include="LicenciaUsuarioConsultaResponse.cs" />
     <Compile Include="MultaUsuarioConsultaResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HistorialPagoMultaService.cs" />
     <Compile Include="UsuarioMultaService.cs" />
     <Compile Include="UsuarioLicenciaService.cs" />
+    <Compile Include="UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">

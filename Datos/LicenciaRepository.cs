@@ -23,7 +23,7 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "CALL PK1INSERTAR.REGISTRAR_LICENCIA_CATEGORIA(:Codigo,:Organismo,:FechaExp,:Categoria);";
+                command.CommandText = "CALL PK1INSERTAR.REGISTRAR_LICENCIA_CATEGORIA(:Codigo,:Organismo,:FechaExp,:Categoria)";
                 command.Parameters.Add(new OracleParameter("Codigo", licencia.Codigo));
                 command.Parameters.Add(new OracleParameter("Organismo", licencia.Organismo));
                 command.Parameters.Add(new OracleParameter("FechaExp", licencia.FechaExp));

@@ -8,11 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica;
+using Entidad;
 
 namespace InterfazGrafica4._7
 {
     public partial class FrmRegistroLicenciaa : Form
     {
+        string ciud = "";
+        UsuarioService usuarioService;
+        LicenciaService licenciaService;
+
         public FrmRegistroLicenciaa()
         {
             InitializeComponent();
@@ -20,6 +26,8 @@ namespace InterfazGrafica4._7
             AñadirBarrio();
             AñadirCategoria();
             AñadirRestriccion();
+            usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
+            licenciaService = new LicenciaService(ConfigConnection.ConnectionString);
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)
@@ -316,5 +324,93 @@ namespace InterfazGrafica4._7
                 cmbCiudad.Items.Add(registro["CIUD_NOMBRE"].ToString());
             }
         }
+
+        private void bnRegistrar_Click(object sender, EventArgs e)
+        {
+            Licencia licencia = new Licencia();
+            string codigo = licencia.GenerarCodigo().ToString();
+            licencia.Codigo = codigo;
+            licencia.Organismo = txtOrganismo.Text;
+            licencia.FechaExp = dtpFechaExp.Value.Date;
+            licencia.CodCat = ObtenerCategoriaCod();
+            string mensaje2 = licenciaService.Guardar(licencia);
+            Usuario usuario = new Usuario();
+            usuario.Codigo = txtCedula.Text;
+            usuario.Pri_nombre = txtPriNombre.Text;
+            usuario.Seg_nombre = txtSegNombre.Text;
+            usuario.Pri_apellido = txtPriApellido.Text;
+            usuario.Seg_apellido = txtSegApellido.Text;
+            usuario.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+            usuario.Telefono = txtTelefono.Text;
+            usuario.Grupo_Sanguineo = txtGS.Text;
+            usuario.LicenciaCodigo = codigo;
+            usuario.CiudadCodigo = ObtenerCiudadCod();       
+            usuario.BarrioCodigo = ObtenerBarrioCod();       
+            usuario.RestriccionCodigo = ObtenerRestriccionCod();
+            string mensaje = usuarioService.Guardar(usuario);   
+            MessageBox.Show(mensaje + " y "+ mensaje2);
+        }
+
+        private string ObtenerCategoriaCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Categoria WHERE CAT_NOM = :Categoria", conx);
+            command.Parameters.Add(new OracleParameter("Categoria", cmCategoria.Text));
+            conx.Open();
+            string cat = "";
+            OracleDataReader registro = command.ExecuteReader();
+            while (registro.Read())
+            {
+                cat = registro["CAT_COD_PK"].ToString();
+            }
+            return cat;
+        }
+
+        private string ObtenerCiudadCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Ciudad WHERE CIUD_NOMBRE = :Ciudad", conx);
+            command.Parameters.Add(new OracleParameter("Ciudad", cmbCiudad.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string ciud = "";
+            while (registro.Read())
+            {
+                ciud = registro["CIUD_CODIGO_PK"].ToString();
+            }
+            return ciud;
+        }
+
+        private string ObtenerBarrioCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Barrio WHERE BARR_NOMBRE = :Barrio", conx);
+            command.Parameters.Add(new OracleParameter("Barrio", cmbBarrio.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string barr = "";
+            while (registro.Read())
+            {
+                barr = registro["BARR_CODIGO_PK"].ToString();
+            }
+            return barr;
+        }
+
+        private string ObtenerRestriccionCod()
+        {
+            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
+            OracleCommand command = new OracleCommand("SELECT * FROM Restriccion WHERE RES_DESCRIPCION = :Descripcion", conx);
+            command.Parameters.Add(new OracleParameter("Descripcion", cmbRestriccion.Text));
+            conx.Open();
+            OracleDataReader registro = command.ExecuteReader();
+            string ress = "";
+            while (registro.Read())
+            {
+                ress = registro["RES_COD_PK"].ToString();
+            }
+            return ress;
+        }
+
+        
     }
 }
