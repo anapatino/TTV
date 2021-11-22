@@ -36,6 +36,7 @@ namespace InterfazGrafica4._7
             this.label1 = new System.Windows.Forms.Label();
             this.PanelRegistro = new System.Windows.Forms.TabControl();
             this.DatosPersonales = new System.Windows.Forms.TabPage();
+            this.cmDepartamento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbRestriccion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbDepartamento = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@ namespace InterfazGrafica4._7
             this.DatosLicencia = new System.Windows.Forms.TabPage();
             this.txtMarca = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpFechaExp = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtBusqueda = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmDescripcion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtValor = new Guna.UI2.WinForms.Guna2TextBox();
@@ -87,7 +88,6 @@ namespace InterfazGrafica4._7
             this.errorMarca = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPlaca = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmDepartamento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PanelRegistro.SuspendLayout();
             this.DatosPersonales.SuspendLayout();
             this.DatosLicencia.SuspendLayout();
@@ -178,6 +178,29 @@ namespace InterfazGrafica4._7
             this.DatosPersonales.TabIndex = 0;
             this.DatosPersonales.Text = "Datos Personales";
             this.DatosPersonales.UseVisualStyleBackColor = true;
+            // 
+            // cmDepartamento
+            // 
+            this.cmDepartamento.BackColor = System.Drawing.Color.Transparent;
+            this.cmDepartamento.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmDepartamento.BorderRadius = 15;
+            this.cmDepartamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmDepartamento.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmDepartamento.FocusedColor = System.Drawing.Color.Empty;
+            this.cmDepartamento.FocusedState.Parent = this.cmDepartamento;
+            this.cmDepartamento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmDepartamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmDepartamento.FormattingEnabled = true;
+            this.cmDepartamento.HoverState.Parent = this.cmDepartamento;
+            this.cmDepartamento.ItemHeight = 30;
+            this.cmDepartamento.ItemsAppearance.Parent = this.cmDepartamento;
+            this.cmDepartamento.Location = new System.Drawing.Point(154, 231);
+            this.cmDepartamento.Name = "cmDepartamento";
+            this.cmDepartamento.ShadowDecoration.Parent = this.cmDepartamento;
+            this.cmDepartamento.Size = new System.Drawing.Size(142, 36);
+            this.cmDepartamento.TabIndex = 61;
+            this.cmDepartamento.SelectedIndexChanged += new System.EventHandler(this.cmDepartamento_SelectedIndexChanged_1);
             // 
             // cmbRestriccion
             // 
@@ -597,7 +620,7 @@ namespace InterfazGrafica4._7
             // 
             this.DatosLicencia.Controls.Add(this.txtMarca);
             this.DatosLicencia.Controls.Add(this.label6);
-            this.DatosLicencia.Controls.Add(this.guna2DateTimePicker1);
+            this.DatosLicencia.Controls.Add(this.dtpFechaExp);
             this.DatosLicencia.Controls.Add(this.txtBusqueda);
             this.DatosLicencia.Controls.Add(this.cmDescripcion);
             this.DatosLicencia.Controls.Add(this.txtValor);
@@ -654,20 +677,20 @@ namespace InterfazGrafica4._7
             this.label6.TabIndex = 72;
             this.label6.Text = "Fecha Expedicion";
             // 
-            // guna2DateTimePicker1
+            // dtpFechaExp
             // 
-            this.guna2DateTimePicker1.BorderRadius = 15;
-            this.guna2DateTimePicker1.CheckedState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(161, 280);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.ShadowDecoration.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(221, 36);
-            this.guna2DateTimePicker1.TabIndex = 71;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2021, 11, 14, 21, 54, 38, 545);
+            this.dtpFechaExp.BorderRadius = 15;
+            this.dtpFechaExp.CheckedState.Parent = this.dtpFechaExp;
+            this.dtpFechaExp.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpFechaExp.HoverState.Parent = this.dtpFechaExp;
+            this.dtpFechaExp.Location = new System.Drawing.Point(161, 280);
+            this.dtpFechaExp.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaExp.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaExp.Name = "dtpFechaExp";
+            this.dtpFechaExp.ShadowDecoration.Parent = this.dtpFechaExp;
+            this.dtpFechaExp.Size = new System.Drawing.Size(221, 36);
+            this.dtpFechaExp.TabIndex = 71;
+            this.dtpFechaExp.Value = new System.DateTime(2021, 11, 14, 21, 54, 38, 545);
             // 
             // txtBusqueda
             // 
@@ -925,29 +948,6 @@ namespace InterfazGrafica4._7
             this.errorDescripcion.ContainerControl = this;
             this.errorDescripcion.Icon = ((System.Drawing.Icon)(resources.GetObject("errorDescripcion.Icon")));
             // 
-            // cmDepartamento
-            // 
-            this.cmDepartamento.BackColor = System.Drawing.Color.Transparent;
-            this.cmDepartamento.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.cmDepartamento.BorderRadius = 15;
-            this.cmDepartamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmDepartamento.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cmDepartamento.FocusedColor = System.Drawing.Color.Empty;
-            this.cmDepartamento.FocusedState.Parent = this.cmDepartamento;
-            this.cmDepartamento.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmDepartamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmDepartamento.FormattingEnabled = true;
-            this.cmDepartamento.HoverState.Parent = this.cmDepartamento;
-            this.cmDepartamento.ItemHeight = 30;
-            this.cmDepartamento.ItemsAppearance.Parent = this.cmDepartamento;
-            this.cmDepartamento.Location = new System.Drawing.Point(154, 231);
-            this.cmDepartamento.Name = "cmDepartamento";
-            this.cmDepartamento.ShadowDecoration.Parent = this.cmDepartamento;
-            this.cmDepartamento.Size = new System.Drawing.Size(142, 36);
-            this.cmDepartamento.TabIndex = 61;
-            this.cmDepartamento.SelectedIndexChanged += new System.EventHandler(this.cmDepartamento_SelectedIndexChanged_1);
-            // 
             // FrmRegistroMulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1017,7 +1017,7 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label lbNombrePri;
         private System.Windows.Forms.TabPage DatosLicencia;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaExp;
         private Guna.UI2.WinForms.Guna2TextBox txtBusqueda;
         private Guna.UI2.WinForms.Guna2ComboBox cmDescripcion;
         private Guna.UI2.WinForms.Guna2TextBox txtValor;

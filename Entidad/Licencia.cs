@@ -32,7 +32,7 @@ namespace Entidad
         public int GenerarCodigo()
         {
             Random r = new Random();
-            return r.Next(1, 9999999);
+            return r.Next(1, 9999);
         }
 
     }

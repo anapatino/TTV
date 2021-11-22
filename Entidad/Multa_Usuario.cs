@@ -15,14 +15,14 @@ namespace Entidad
         }
 
 
-        public Multa_Usuario(Usuario usuario, Multa multa,string codigo, string idVehiculo,string nombreVehiculo,string estado,DateTime fecha)
+        public Multa_Usuario(Usuario usuario, Multa multa,string codigo, string idVehiculo,string nombreVehiculo,DateTime fecha)
         {
             Usuario = usuario;
             Multa = multa;
             CodigoMultaUsuario = codigo;
             Vehiculo_Id = idVehiculo;
             VehiculoNombre = nombreVehiculo;
-            Estado = estado;
+            Estado = "PENDIENTE";
             FechaExpedicion = fecha;
         }
 
@@ -39,6 +39,12 @@ namespace Entidad
         public string Estado { get; set; }
 
         public DateTime FechaExpedicion { get; set; }
+
+        public int GenerarCodigo()
+        {
+            Random r = new Random();
+            return r.Next(1, 9999);
+        }
 
     }
 }
