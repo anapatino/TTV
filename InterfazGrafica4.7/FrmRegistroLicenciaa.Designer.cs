@@ -33,6 +33,8 @@ namespace InterfazGrafica4._7
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroLicenciaa));
             this.PanelRegistro = new System.Windows.Forms.TabControl();
             this.DatosPersonales = new System.Windows.Forms.TabPage();
+            this.cmbRestriccion = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cmDepartamento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbDepartamento = new System.Windows.Forms.Label();
             this.cmbBarrio = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -80,8 +82,6 @@ namespace InterfazGrafica4._7
             this.errorDepartamento = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorCiudad = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorBarrio = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbRestriccion = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.errorOrganismo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorRestriccion = new System.Windows.Forms.ErrorProvider(this.components);
@@ -149,6 +149,38 @@ namespace InterfazGrafica4._7
             this.DatosPersonales.Text = "Datos Personales";
             this.DatosPersonales.UseVisualStyleBackColor = true;
             // 
+            // cmbRestriccion
+            // 
+            this.cmbRestriccion.BackColor = System.Drawing.Color.Transparent;
+            this.cmbRestriccion.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbRestriccion.BorderRadius = 15;
+            this.cmbRestriccion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbRestriccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRestriccion.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbRestriccion.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbRestriccion.FocusedState.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbRestriccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbRestriccion.FormattingEnabled = true;
+            this.cmbRestriccion.HoverState.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.ItemHeight = 30;
+            this.cmbRestriccion.ItemsAppearance.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.Location = new System.Drawing.Point(462, 296);
+            this.cmbRestriccion.Name = "cmbRestriccion";
+            this.cmbRestriccion.ShadowDecoration.Parent = this.cmbRestriccion;
+            this.cmbRestriccion.Size = new System.Drawing.Size(142, 36);
+            this.cmbRestriccion.TabIndex = 60;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(369, 304);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "Restriccion";
+            // 
             // cmDepartamento
             // 
             this.cmDepartamento.BackColor = System.Drawing.Color.Transparent;
@@ -164,14 +196,13 @@ namespace InterfazGrafica4._7
             this.cmDepartamento.FormattingEnabled = true;
             this.cmDepartamento.HoverState.Parent = this.cmDepartamento;
             this.cmDepartamento.ItemHeight = 30;
-            this.cmDepartamento.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmDepartamento.ItemsAppearance.Parent = this.cmDepartamento;
             this.cmDepartamento.Location = new System.Drawing.Point(154, 235);
             this.cmDepartamento.Name = "cmDepartamento";
             this.cmDepartamento.ShadowDecoration.Parent = this.cmDepartamento;
             this.cmDepartamento.Size = new System.Drawing.Size(142, 36);
             this.cmDepartamento.TabIndex = 58;
+            this.cmDepartamento.SelectedIndexChanged += new System.EventHandler(this.cmDepartamento_SelectedIndexChanged);
             this.cmDepartamento.Validating += new System.ComponentModel.CancelEventHandler(this.cmDepartamento_Validating);
             // 
             // lbDepartamento
@@ -199,8 +230,6 @@ namespace InterfazGrafica4._7
             this.cmbBarrio.FormattingEnabled = true;
             this.cmbBarrio.HoverState.Parent = this.cmbBarrio;
             this.cmbBarrio.ItemHeight = 30;
-            this.cmbBarrio.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmbBarrio.ItemsAppearance.Parent = this.cmbBarrio;
             this.cmbBarrio.Location = new System.Drawing.Point(154, 296);
             this.cmbBarrio.Name = "cmbBarrio";
@@ -224,8 +253,6 @@ namespace InterfazGrafica4._7
             this.cmbCiudad.FormattingEnabled = true;
             this.cmbCiudad.HoverState.Parent = this.cmbCiudad;
             this.cmbCiudad.ItemHeight = 30;
-            this.cmbCiudad.Items.AddRange(new object[] {
-            "Ninguno"});
             this.cmbCiudad.ItemsAppearance.Parent = this.cmbCiudad;
             this.cmbCiudad.Location = new System.Drawing.Point(462, 231);
             this.cmbCiudad.Name = "cmbCiudad";
@@ -624,22 +651,13 @@ namespace InterfazGrafica4._7
             this.cmCategoria.FormattingEnabled = true;
             this.cmCategoria.HoverState.Parent = this.cmCategoria;
             this.cmCategoria.ItemHeight = 30;
-            this.cmCategoria.Items.AddRange(new object[] {
-            "A1",
-            "A2",
-            "A3",
-            "B1",
-            "B2",
-            "B3",
-            "C1",
-            "C2",
-            "C3"});
             this.cmCategoria.ItemsAppearance.Parent = this.cmCategoria;
             this.cmCategoria.Location = new System.Drawing.Point(157, 28);
             this.cmCategoria.Name = "cmCategoria";
             this.cmCategoria.ShadowDecoration.Parent = this.cmCategoria;
             this.cmCategoria.Size = new System.Drawing.Size(258, 36);
             this.cmCategoria.TabIndex = 51;
+            this.cmCategoria.SelectedIndexChanged += new System.EventHandler(this.cmCategoria_SelectedIndexChanged);
             this.cmCategoria.Validating += new System.ComponentModel.CancelEventHandler(this.cmCategoria_Validating);
             // 
             // txtPrecio
@@ -842,40 +860,6 @@ namespace InterfazGrafica4._7
             // 
             this.errorBarrio.ContainerControl = this;
             this.errorBarrio.Icon = ((System.Drawing.Icon)(resources.GetObject("errorBarrio.Icon")));
-            // 
-            // cmbRestriccion
-            // 
-            this.cmbRestriccion.BackColor = System.Drawing.Color.Transparent;
-            this.cmbRestriccion.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.cmbRestriccion.BorderRadius = 15;
-            this.cmbRestriccion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbRestriccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRestriccion.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cmbRestriccion.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbRestriccion.FocusedState.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbRestriccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbRestriccion.FormattingEnabled = true;
-            this.cmbRestriccion.HoverState.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.ItemHeight = 30;
-            this.cmbRestriccion.Items.AddRange(new object[] {
-            "Ninguno"});
-            this.cmbRestriccion.ItemsAppearance.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.Location = new System.Drawing.Point(462, 296);
-            this.cmbRestriccion.Name = "cmbRestriccion";
-            this.cmbRestriccion.ShadowDecoration.Parent = this.cmbRestriccion;
-            this.cmbRestriccion.Size = new System.Drawing.Size(142, 36);
-            this.cmbRestriccion.TabIndex = 60;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(369, 304);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 17);
-            this.label4.TabIndex = 59;
-            this.label4.Text = "Restriccion";
             // 
             // errorOrganismo
             // 
