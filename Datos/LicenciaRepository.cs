@@ -31,5 +31,68 @@ namespace Datos
                 command.ExecuteNonQuery();
             }
         }
+
+        public List<string> AñadirCategoria()
+        {
+            List<string> categorias = new List<string>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT CAT_NOM FROM Categoria";
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        categorias.Add(reader.GetString(0));
+                    }
+                }
+                reader.Close();
+            }
+            return categorias;
+        }
+
+        public string PrecioCateoria(string categoria)
+        {
+            string cat = "";
+            using (var command = _connection.CreateCommand())
+            {
+                
+                command.CommandText = "SELECT * FROM Categoria WHERE CAT_NOM = :Categoria";
+                command.Parameters.Add(new OracleParameter("Categoria", categoria));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        cat = reader.GetString(3);
+                    }                 
+                }
+                reader.Close();
+            }
+            return cat;
+        }
+
+        public string ObtenerCateoria(string categoria)
+        {
+            string cat = "";
+            using (var command = _connection.CreateCommand())
+            {
+
+                command.CommandText = "SELECT * FROM Categoria WHERE CAT_NOM = :Categoria";
+                command.Parameters.Add(new OracleParameter("Categoria", categoria));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        cat = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return cat;
+        }
+
+
     }
 }

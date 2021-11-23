@@ -48,5 +48,58 @@ namespace Logica
             }
             finally { connectionManager.Close(); }
         }
+
+        public ComboxConsultasResponse AñadirMulta()
+        {
+            try
+            {
+                connectionManager.Open();
+                return new ComboxConsultasResponse(multaRepository.AñadirMulta());
+            }
+            catch (Exception e)
+            {
+                return new ComboxConsultasResponse($"Error inesperado al Consultar: {e.Message}");
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerPrecioMulta(string multa)
+        {
+            try
+            {
+                connectionManager.Open();
+                string cat = multaRepository.ObtenerPrecioMulta(multa);
+                return cat;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Eliminar: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerCodigoMulta(string multa)
+        {
+            try
+            {
+                connectionManager.Open();
+                string cat = multaRepository.ObtenerCodMulta(multa);
+                return cat;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Eliminar: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
     }
 }
