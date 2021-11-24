@@ -45,5 +45,63 @@ namespace Datos
                 command.ExecuteNonQuery();
             }
         }
+
+        public List<string> AñadirMulta()
+        {
+            List<string> multas = new List<string>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Multa";
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    multas.Add(reader.GetString(1));
+                }
+                reader.Close();
+            }
+            return multas;
+        }
+
+        public string ObtenerPrecioMulta(string multa)
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+
+                command.CommandText = "SELECT * FROM Multa WHERE MUL_DESCRIPCION = :Descripcion";
+                command.Parameters.Add(new OracleParameter("Descripcion", multa));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(2);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
+
+        public string ObtenerCodMulta(string multa)
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+
+                command.CommandText = "SELECT * FROM Multa WHERE MUL_DESCRIPCION = :Descripcion";
+                command.Parameters.Add(new OracleParameter("Descripcion", multa));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
     }
 }

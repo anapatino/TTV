@@ -15,19 +15,19 @@ namespace InterfazGrafica4._7
 {
     public partial class FrmRegistroLicenciaa : Form
     {
-        string ciud = "";
+ 
         UsuarioService usuarioService;
         LicenciaService licenciaService;
 
         public FrmRegistroLicenciaa()
         {
             InitializeComponent();
+            usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
+            licenciaService = new LicenciaService(ConfigConnection.ConnectionString);
             AñadirDepartamento();
             AñadirBarrio();
             AñadirCategoria();
-            AñadirRestriccion();
-            usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
-            licenciaService = new LicenciaService(ConfigConnection.ConnectionString);
+            AñadirRestriccion(); 
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)
@@ -251,85 +251,33 @@ namespace InterfazGrafica4._7
 
         private void AñadirDepartamento()
         {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Departamento",conx);
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            while(registro.Read())
-            {
-                cmDepartamento.Items.Add(registro["DEP_NOMBRE"].ToString());
-            }
-            conx.Close();
+            cmDepartamento.DataSource = usuarioService.AñadirDepartamento().Combox;
         }
 
         private void AñadirBarrio()
         {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Barrio", conx);
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            while (registro.Read())
-            {
-                cmbBarrio.Items.Add(registro["BARR_NOMBRE"].ToString());
-            }
-            conx.Close();
+            cmbBarrio.DataSource = usuarioService.AñadirBarrios().Combox;
         }
 
         private void AñadirRestriccion()
         {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Restriccion", conx);
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            while (registro.Read())
-            {
-                cmbRestriccion.Items.Add(registro["RES_DESCRIPCION"].ToString());
-            }
-            conx.Close();
+            cmbRestriccion.DataSource = usuarioService.AñadirRestricciones().Combox;
         }
 
 
         private void AñadirCategoria()
         {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Categoria", conx);
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            while (registro.Read())
-            {
-                cmCategoria.Items.Add(registro["CAT_NOM"].ToString());
-            }
-            conx.Close();
+            cmCategoria.DataSource = licenciaService.AñadirCategorias().Combox;
         }
 
         private void cmCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Categoria WHERE CAT_NOM = :Categoria", conx);
-            command.Parameters.Add(new OracleParameter("Categoria", cmCategoria.Text));
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            while (registro.Read())
-            {
-                txtPrecio.Text = registro["CAT_PRECIO"].ToString();
-            }
-            conx.Close();
+            txtPrecio.Text = licenciaService.ObtenerPrecio(cmCategoria.Text);
         }
 
         private void cmDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbCiudad.Items.Clear();
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT D.dep_nombre, C.ciud_nombre FROM Ciudad C LEFT JOIN DEPARTAMENTO D ON(C.DEP_CODIGO_FK = D.DEP_CODIGO_PK) WHERE D.dep_nombre = :Departamento", conx);
-            command.Parameters.Add(new OracleParameter("Departamento", cmDepartamento.Text));
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            while (registro.Read())
-            {
-                cmbCiudad.Items.Add(registro["CIUD_NOMBRE"].ToString());
-            }
-            conx.Close();
+            cmbCiudad.DataSource = usuarioService.AñadirCiudades(cmDepartamento.Text).Combox;
         }
 
         private void bnRegistrar_Click(object sender, EventArgs e)
@@ -339,7 +287,7 @@ namespace InterfazGrafica4._7
             licencia.Codigo = codigo;
             licencia.Organismo = txtOrganismo.Text;
             licencia.FechaExp = dtpFechaExp.Value.Date;
-            licencia.CodCat = ObtenerCategoriaCod();
+            licencia.CodCat = licenciaService.ObtenerCategoria(cmCategoria.Text);
             string mensaje2 = licenciaService.Guardar(licencia);
             Usuario usuario = new Usuario();
             usuario.Codigo = txtCedula.Text;
@@ -351,78 +299,15 @@ namespace InterfazGrafica4._7
             usuario.Telefono = txtTelefono.Text;
             usuario.Grupo_Sanguineo = txtGS.Text;
             usuario.LicenciaCodigo = codigo;
-            usuario.CiudadCodigo = ObtenerCiudadCod();       
-            usuario.BarrioCodigo = ObtenerBarrioCod();       
-            usuario.RestriccionCodigo = ObtenerRestriccionCod();
+            usuario.CiudadCodigo = usuarioService.ObtenerCiudad(cmbCiudad.Text);
+            usuario.BarrioCodigo = usuarioService.ObtenerBarrio(cmbBarrio.Text);
+            usuario.RestriccionCodigo = usuarioService.ObtenerRestriccion(cmbRestriccion.Text);
             string mensaje = usuarioService.Guardar(usuario);   
             MessageBox.Show(mensaje + " y "+ mensaje2);
             LimpiarComponentes();
         }
 
-        private string ObtenerCategoriaCod()
-        {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Categoria WHERE CAT_NOM = :Categoria", conx);
-            command.Parameters.Add(new OracleParameter("Categoria", cmCategoria.Text));
-            conx.Open();
-            string cat = "";
-            OracleDataReader registro = command.ExecuteReader();
-            while (registro.Read())
-            {
-                cat = registro["CAT_COD_PK"].ToString();
-            }
-            return cat;
-            conx.Close();
-        }
-
-        private string ObtenerCiudadCod()
-        {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Ciudad WHERE CIUD_NOMBRE = :Ciudad", conx);
-            command.Parameters.Add(new OracleParameter("Ciudad", cmbCiudad.Text));
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            string ciud = "";
-            while (registro.Read())
-            {
-                ciud = registro["CIUD_CODIGO_PK"].ToString();
-            }
-            return ciud;
-            conx.Close();
-        }
-
-        private string ObtenerBarrioCod()
-        {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Barrio WHERE BARR_NOMBRE = :Barrio", conx);
-            command.Parameters.Add(new OracleParameter("Barrio", cmbBarrio.Text));
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            string barr = "";
-            while (registro.Read())
-            {
-                barr = registro["BARR_CODIGO_PK"].ToString();
-            }
-            return barr;
-            conx.Close();
-        }
-
-        private string ObtenerRestriccionCod()
-        {
-            OracleConnection conx = new OracleConnection(ConfigConnection.ConnectionString);
-            OracleCommand command = new OracleCommand("SELECT * FROM Restriccion WHERE RES_DESCRIPCION = :Descripcion", conx);
-            command.Parameters.Add(new OracleParameter("Descripcion", cmbRestriccion.Text));
-            conx.Open();
-            OracleDataReader registro = command.ExecuteReader();
-            string ress = "";
-            while (registro.Read())
-            {
-                ress = registro["RES_COD_PK"].ToString();
-            }
-            return ress;
-            conx.Close();
-        }
-
+       
         
     }
 }

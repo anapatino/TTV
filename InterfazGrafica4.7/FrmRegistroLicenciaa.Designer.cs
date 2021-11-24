@@ -650,6 +650,8 @@ namespace InterfazGrafica4._7
             this.cmCategoria.FormattingEnabled = true;
             this.cmCategoria.HoverState.Parent = this.cmCategoria;
             this.cmCategoria.ItemHeight = 30;
+            this.cmCategoria.Items.AddRange(new object[] {
+            "ㅤ"});
             this.cmCategoria.ItemsAppearance.Parent = this.cmCategoria;
             this.cmCategoria.Location = new System.Drawing.Point(157, 28);
             this.cmCategoria.Name = "cmCategoria";

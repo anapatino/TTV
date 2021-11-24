@@ -33,5 +33,58 @@ namespace Logica
             }
             finally { connectionManager.Close(); }
         }
+
+        public ComboxConsultasResponse AñadirCategorias()
+        {
+            try
+            {
+                connectionManager.Open();
+                return new ComboxConsultasResponse(licenciaRepository.AñadirCategoria());
+            }
+            catch (Exception e)
+            {
+                return new ComboxConsultasResponse($"Error inesperado al Consultar: {e.Message}");
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerPrecio(string categoria)
+        {
+            try
+            {
+                connectionManager.Open();
+                string cat = licenciaRepository.PrecioCateoria(categoria);
+                return cat;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Eliminar: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerCategoria(string categoria)
+        {
+            try
+            {
+                connectionManager.Open();
+                string cat = licenciaRepository.ObtenerCateoria(categoria);
+                return cat;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Eliminar: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
     }
 }
