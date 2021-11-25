@@ -1,25 +1,34 @@
 ﻿using System;
-using Entidad;
-using Logica;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica;
+using Entidad;
 
 namespace InterfazGrafica4._7
 {
     public partial class FrmRecategorizar : Form
     {
         UsuarioLicenciaService recategorizarLicenciaService;
+        LicenciaService licenciaService;
 
         public FrmRecategorizar()
         {
             InitializeComponent();
             recategorizarLicenciaService = new UsuarioLicenciaService(ConfigConnection.ConnectionString);
+            licenciaService= new LicenciaService(ConfigConnection.ConnectionString);
+            ActivarComponentesBaseDatos();
+        }
+
+        public void ActivarComponentesBaseDatos()
+        {
+            AñadirCategoria();
         }
 
         private void bnGuardar_Click(object sender, EventArgs e)
@@ -27,73 +36,19 @@ namespace InterfazGrafica4._7
             Recategorizar();
         }
 
+        private void AñadirCategoria()
+        {
+            cmbCategoria.DataSource = licenciaService.AñadirCategorias().Combox;
+        }
+
+
         public void Recategorizar()
         {
             string codigoLicencia = txtCodigoLicencia.Text;
-            string codigoCategoria = cmbCategoria.Text;
-            codigoCategoria = AsignarCodigoCategoria(codigoCategoria);
+            string nombreCategoria = cmbCategoria.Text;
+            string codigoCategoria = licenciaService.ObtenerCategoria(nombreCategoria);
             var respuesta = recategorizarLicenciaService.ModificiarCategoria(codigoCategoria,codigoLicencia);
             MessageBox.Show(respuesta);
-        }
-
-        public string AsignarCodigoCategoria(string codigoCategoria)
-        {
-            if (codigoCategoria.Equals("A1"))
-            {
-                return "0101"; 
-            }
-            else if (codigoCategoria.Equals("A2"))
-            {
-                return "0102";
-            }
-            else if (codigoCategoria.Equals("A3"))
-            {
-                return "0103";
-            }
-            else
-            {
-                return AsignarCodigoCategoriaB(codigoCategoria);
-            }
-            return null;
-        }
-
-        public string AsignarCodigoCategoriaB(string codigoCategoria)
-        {
-            if (codigoCategoria.Equals("B1"))
-            {
-                return "0104";
-            }
-            else if (codigoCategoria.Equals("B2"))
-            {
-                return "0105";
-            }
-            else if (codigoCategoria.Equals("B3"))
-            {
-                return "0106";
-            }
-            else
-            {
-                return AsignarCodigoCategoriaC(codigoCategoria);
-            }
-            return null;
-        }
-
-        public string AsignarCodigoCategoriaC(string codigoCategoria)
-        {
-            if (codigoCategoria.Equals("C1"))
-            {
-                return "0107";
-            }
-            else if (codigoCategoria.Equals("C2"))
-            {
-                return "0108";
-            }
-            else if (codigoCategoria.Equals("C3"))
-            {
-                return "0109";
-            }
-         
-            return null;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -108,7 +63,7 @@ namespace InterfazGrafica4._7
             {
                 VisualizarTodo();
             }
-            else if (filtro.Equals("IDENTIFICACION"))
+            else if (filtro.Equals("CEDULA"))
             {
                 VisualizarCedula();
             }
@@ -116,7 +71,15 @@ namespace InterfazGrafica4._7
             {
                 VisualizarOrganismo();
             }
-            else if (filtro.Equals("CATEGORIA"))
+            else
+            {
+                ValidarFiltroExtenso(filtro);
+            }
+        }
+
+        public void ValidarFiltroExtenso(string filtro)
+        {
+            if (filtro.Equals("CATEGORIA"))
             {
                 VisualizarCategoria();
             }
@@ -124,9 +87,13 @@ namespace InterfazGrafica4._7
             {
                 VisualizarNombre();
             }
-            else if (filtro.Equals("ANIO"))
+            else if (filtro.Equals("FECHA"))
             {
                 VisualizarFecha();
+            }
+            else
+            {
+                VisualizarCodigoLicencia();
             }
         }
 
@@ -175,9 +142,19 @@ namespace InterfazGrafica4._7
             VisualizarTabla(respuesta);
         }
 
+        public void VisualizarCodigoLicencia()
+        {
+            string codigo = txtFiltro.Text;
+            var (mensaje, licenciaBuscada) = recategorizarLicenciaService.ConsultarPorCodigoLicencia(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado la Licencia con Nro {codigo}"))
+            {
+                AgregarRegistroTabla(licenciaBuscada);
+            }
+            MessageBox.Show(mensaje);
+        }
+
         public void VisualizarTabla(LicenciaUsuarioConsultaResponse respuesta)
         {
-
             if (respuesta.Error)
             {
                 MessageBox.Show(respuesta.Mensaje);
@@ -216,7 +193,6 @@ namespace InterfazGrafica4._7
                       i.Licencia.CodCat,
                       i.Licencia.FechaExp
                     );
-
         }
 
         public void LimpiarComponentes()
@@ -233,6 +209,9 @@ namespace InterfazGrafica4._7
             lbCodigo.Visible =false;
             txtCodigoLicencia.Visible =false;
             txtCodigoLicencia.Text = null;
+            txtPrecio.Visible = false;
+            txtPrecio.Text = null;
+            lbPrecio.Visible = false;
         }
 
         public void ActivarComponentes()
@@ -245,11 +224,18 @@ namespace InterfazGrafica4._7
             bnGuardar.Visible = true;
             lbCodigo.Visible = true;
             txtCodigoLicencia.Visible = true;
+            txtPrecio.Visible = true;
+            lbPrecio.Visible = true;
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarComponentes();
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtPrecio.Text = licenciaService.ObtenerPrecio(cmbCategoria.Text);
         }
     }
 }

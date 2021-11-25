@@ -229,10 +229,13 @@ namespace InterfazGrafica4._7
             this.cmFiltro.Items.AddRange(new object[] {
             "TODOS",
             "IDENTIFICACION",
+            "CODIGO MULTA",
             "NOMBRE",
             "DESCRIPCION",
             "ESTADO",
-            "ANIO"});
+            "ANIO",
+            "PLACA",
+            "MARCA"});
             this.cmFiltro.ItemsAppearance.Parent = this.cmFiltro;
             this.cmFiltro.Location = new System.Drawing.Point(135, 15);
             this.cmFiltro.Name = "cmFiltro";
@@ -380,6 +383,7 @@ namespace InterfazGrafica4._7
             this.txtValor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtValor.DisabledState.Parent = this.txtValor;
             this.txtValor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValor.Enabled = false;
             this.txtValor.FillColor = System.Drawing.Color.LightGray;
             this.txtValor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValor.FocusedState.Parent = this.txtValor;
@@ -387,14 +391,14 @@ namespace InterfazGrafica4._7
             this.txtValor.ForeColor = System.Drawing.Color.Black;
             this.txtValor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValor.HoverState.Parent = this.txtValor;
-            this.txtValor.Location = new System.Drawing.Point(370, 557);
+            this.txtValor.Location = new System.Drawing.Point(408, 557);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValor.Name = "txtValor";
             this.txtValor.PasswordChar = '\0';
             this.txtValor.PlaceholderText = "";
             this.txtValor.SelectedText = "";
             this.txtValor.ShadowDecoration.Parent = this.txtValor;
-            this.txtValor.Size = new System.Drawing.Size(205, 34);
+            this.txtValor.Size = new System.Drawing.Size(167, 34);
             this.txtValor.TabIndex = 50;
             this.txtValor.Visible = false;
             // 
@@ -403,7 +407,7 @@ namespace InterfazGrafica4._7
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbValor.ForeColor = System.Drawing.Color.DimGray;
-            this.lbValor.Location = new System.Drawing.Point(271, 566);
+            this.lbValor.Location = new System.Drawing.Point(306, 566);
             this.lbValor.Name = "lbValor";
             this.lbValor.Size = new System.Drawing.Size(95, 17);
             this.lbValor.TabIndex = 49;

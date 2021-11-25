@@ -15,21 +15,22 @@ namespace InterfazGrafica4._7
     public partial class FrmPagoMulta : Form
     {
         UsuarioMultaService usuarioPagoMultaService;
-
+        MultaService multaService;
+        
         public FrmPagoMulta()
         {
             InitializeComponent();
             usuarioPagoMultaService = new UsuarioMultaService(ConfigConnection.ConnectionString);
+            multaService = new MultaService(ConfigConnection.ConnectionString);
         }
 
- 
         public void LimpiarComponentes()
         {
             dgvTabla.Visible = false;
             dgvTabla.Rows.Clear();
             cmFiltro.Text = null;
             txtFiltro.Text = null;
-            lbValor.Visible = false;
+            lbCodigoMultaPagar.Visible = false;
             txtCodigoMultaPagar.Visible = false;
             txtCodigoMultaPagar.Text = null;
             bnLimpiar.Visible = false;
@@ -39,7 +40,7 @@ namespace InterfazGrafica4._7
         public void ActivarComponentes()
         {
             dgvTabla.Visible = true;
-            lbValor.Visible = true;
+            lbCodigoMultaPagar.Visible = true;
             txtCodigoMultaPagar.Visible = true;
             bnLimpiar.Visible = true;
             btnPagar.Visible = true;
@@ -64,13 +65,33 @@ namespace InterfazGrafica4._7
             {
                 VisualizarDescripcion();
             }
-            else if (filtro.Equals("ESTADO"))
+            else
+            {
+                ValidarFiltroExtenso(filtro);
+            }
+        }
+
+        public void ValidarFiltroExtenso(string filtro)
+        {
+            if (filtro.Equals("ESTADO"))
             {
                 VisualizarEstado();
             }
             else if (filtro.Equals("ANIO"))
             {
                 VisualizarAnio();
+            }
+            else if (filtro.Equals("CODIGO MULTA"))
+            {
+                VisualizarCodigoMulta();
+            }
+            else if (filtro.Equals("PLACA"))
+            {
+                VisualizarPlaca();
+            }
+            else
+            {
+                VisualizarMarca();
             }
         }
 
@@ -80,15 +101,40 @@ namespace InterfazGrafica4._7
             VisualizarTabla(respuesta);
         }
 
+        public void VisualizarCodigoMulta()
+        {
+            string codigo = txtFiltro.Text;
+            var (mensaje, codigoBuscado) = usuarioPagoMultaService.ConsultarPorCodigoMulta(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado el Nro Multa {codigo}"))
+            {
+                AgregarRegistroTabla(codigoBuscado);
+            }
+            MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarPlaca()
+        {
+            string placa = txtFiltro.Text;
+            var (mensaje, placaBuscada) = usuarioPagoMultaService.ConsultarPorPlaca(placa);
+            if (mensaje.Equals($" Se encuentra Registrado la placa {placa}"))
+            {
+                AgregarRegistroTabla(placaBuscada);
+            }
+            MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarMarca()
+        {
+            string marca = txtFiltro.Text;
+            var respuesta = usuarioPagoMultaService.ConsultarPorMarca(marca);
+            VisualizarTabla(respuesta);
+        }
+
         public void VisualizarIdentificacion()
         {
             string identificacion = txtFiltro.Text;
-            var (mensaje, personaBuscada) = usuarioPagoMultaService.ConsultarPorIdentificacion(identificacion);
-            if (mensaje.Equals($" Se encuentra Registrado {identificacion}"))
-            {
-                AgregarRegistroTabla(personaBuscada);
-            }
-            MessageBox.Show(mensaje);
+            var respuesta = usuarioPagoMultaService.ConsultarPorIdentificacion(identificacion);
+            VisualizarTabla(respuesta);
         }
 
         public void VisualizarNombre()

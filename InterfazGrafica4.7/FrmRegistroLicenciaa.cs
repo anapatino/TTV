@@ -282,13 +282,32 @@ namespace InterfazGrafica4._7
 
         private void bnRegistrar_Click(object sender, EventArgs e)
         {
+            RegistrarDatos();
+        }
+
+        private void RegistrarDatos()
+        {
+            var licencia = RegistrarLicencia();
+            string mensajeLicencia = licenciaService.Guardar(licencia);
+            var usuario = RegistrarUsuario(licencia);
+            string mensajeUsuario = usuarioService.Guardar(usuario);
+            MessageBox.Show(mensajeLicencia + " y " + mensajeUsuario);
+            LimpiarComponentes();
+        }
+
+        private Licencia RegistrarLicencia()
+        {
             Licencia licencia = new Licencia();
             string codigo = licencia.GenerarCodigo().ToString();
             licencia.Codigo = codigo;
             licencia.Organismo = txtOrganismo.Text;
             licencia.FechaExp = dtpFechaExp.Value.Date;
             licencia.CodCat = licenciaService.ObtenerCategoria(cmCategoria.Text);
-            string mensaje2 = licenciaService.Guardar(licencia);
+            return licencia;
+        }
+
+        private Usuario RegistrarUsuario(Licencia licencia)
+        {
             Usuario usuario = new Usuario();
             usuario.Codigo = txtCedula.Text;
             usuario.Pri_nombre = txtPriNombre.Text;
@@ -298,16 +317,11 @@ namespace InterfazGrafica4._7
             usuario.FechaNacimiento = dtpFechaNacimiento.Value.Date;
             usuario.Telefono = txtTelefono.Text;
             usuario.Grupo_Sanguineo = txtGS.Text;
-            usuario.LicenciaCodigo = codigo;
+            usuario.LicenciaCodigo = licencia.Codigo;
             usuario.CiudadCodigo = usuarioService.ObtenerCiudad(cmbCiudad.Text);
             usuario.BarrioCodigo = usuarioService.ObtenerBarrio(cmbBarrio.Text);
             usuario.RestriccionCodigo = usuarioService.ObtenerRestriccion(cmbRestriccion.Text);
-            string mensaje = usuarioService.Guardar(usuario);   
-            MessageBox.Show(mensaje + " y "+ mensaje2);
-            LimpiarComponentes();
+            return usuario;
         }
-
-       
-        
     }
 }

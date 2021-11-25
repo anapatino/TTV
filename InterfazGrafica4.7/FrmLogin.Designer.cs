@@ -42,6 +42,8 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.pnIzquierdo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenLogin)).BeginInit();
             this.pnSuperior.SuspendLayout();
@@ -120,7 +122,7 @@ namespace InterfazGrafica4._7
             this.txtPassword.BorderColor = System.Drawing.Color.White;
             this.txtPassword.BorderRadius = 15;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.DefaultText = "Pasword";
+            this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -137,7 +139,6 @@ namespace InterfazGrafica4._7
             this.txtPassword.PasswordChar = '\0';
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
-            this.txtPassword.SelectionStart = 7;
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
             this.txtPassword.Size = new System.Drawing.Size(289, 38);
             this.txtPassword.TabIndex = 15;
@@ -148,7 +149,7 @@ namespace InterfazGrafica4._7
             this.txtUsername.BorderColor = System.Drawing.Color.White;
             this.txtUsername.BorderRadius = 15;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.DefaultText = "Username";
+            this.txtUsername.DefaultText = "";
             this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -165,7 +166,6 @@ namespace InterfazGrafica4._7
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.SelectedText = "";
-            this.txtUsername.SelectionStart = 8;
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(289, 38);
             this.txtUsername.TabIndex = 13;
@@ -202,6 +202,8 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 48;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.lbPassword);
+            this.bunifuPanel1.Controls.Add(this.lbUsername);
             this.bunifuPanel1.Controls.Add(this.label1);
             this.bunifuPanel1.Controls.Add(this.bunifuCheckBox1);
             this.bunifuPanel1.Controls.Add(this.btnLogin);
@@ -280,6 +282,30 @@ namespace InterfazGrafica4._7
             this.bunifuCheckBox1.ThreeState = false;
             this.bunifuCheckBox1.ToolTipText = null;
             // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lbUsername.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbUsername.Location = new System.Drawing.Point(28, 122);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(67, 17);
+            this.lbUsername.TabIndex = 19;
+            this.lbUsername.Text = "Username";
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lbPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbPassword.Location = new System.Drawing.Point(28, 215);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(63, 17);
+            this.lbPassword.TabIndex = 20;
+            this.lbPassword.Text = "Password";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,5 +343,7 @@ namespace InterfazGrafica4._7
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.Label lbUsername;
     }
 }

@@ -64,14 +64,26 @@ namespace Datos
             return pagos; ;
         }
 
-        public HistorialPagoMulta BuscarUsuario(string identificacion)
+        public List<HistorialPagoMulta> BuscarUsuario(string identificacion)
         {
-            return (HistorialPagoMulta)ConsultarPagos().FirstOrDefault(m => m.Usuario.Codigo.Equals(identificacion));
+            return ConsultarPagos().Where(m => m.Usuario.Codigo.Equals(identificacion)).ToList();
+        }
+
+        public HistorialPagoMulta BuscarCodigoMultaUsuario(string codigo)
+        {
+            return (HistorialPagoMulta) ConsultarPagos().FirstOrDefault(m => m.CodigoMultaUsuario.Equals(codigo));
+        }
+
+        public HistorialPagoMulta BuscarCodigoHistorial(string codigo)
+        {
+            return (HistorialPagoMulta) ConsultarPagos().FirstOrDefault(m => m.CodigoHistorial.Equals(codigo));
         }
 
         public List<HistorialPagoMulta> FiltroNombre(string nombre)
         {
-            return ConsultarPagos().Where(m => m.Usuario.Pri_nombre.Equals(nombre)).ToList();
+            return (from m in ConsultarPagos()
+                    where m.Usuario.Pri_nombre.ToLower().Contains(nombre.ToLower())
+                    select m).ToList();
         }
 
         public List<HistorialPagoMulta> FiltroFecha(int fecha)
@@ -81,7 +93,9 @@ namespace Datos
 
         public List<HistorialPagoMulta> FiltroDescripcion(string descripcion)
         {
-            return ConsultarPagos().Where(m => m.Multa.Descripcion.Equals(descripcion)).ToList();
+            return (from m in ConsultarPagos()
+                    where m.Multa.Descripcion.ToLower().Contains(descripcion.ToLower())
+                    select m).ToList();
         }
 
         public List<HistorialPagoMulta> FiltroEstado(string estado)
@@ -89,5 +103,14 @@ namespace Datos
             return ConsultarPagos().Where(m => m.Estado.Equals(estado)).ToList();
         }
 
+        public HistorialPagoMulta FiltroPlacaVehiculo(string placa)
+        {
+            return (HistorialPagoMulta) ConsultarPagos().FirstOrDefault(m => m.VehiculoId.Equals(placa));
+        }
+
+        public List<HistorialPagoMulta> FiltroMarcaVehiculo(string marca)
+        {
+            return  ConsultarPagos().Where(m => m.VehiculoNombre.Equals(marca)).ToList();
+        }
     }
 }

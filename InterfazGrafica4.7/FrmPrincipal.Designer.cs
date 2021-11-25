@@ -53,11 +53,11 @@ namespace InterfazGrafica4._7
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panelContenedor = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnBienvenida = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbDescripcionHome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
             this.panelSubMenuMulta.SuspendLayout();
@@ -434,18 +434,44 @@ namespace InterfazGrafica4._7
             this.pnBienvenida.Size = new System.Drawing.Size(665, 535);
             this.pnBienvenida.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Location = new System.Drawing.Point(235, 453);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = " procesos que se hagan.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(142, 425);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(373, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "ver el historial de pagos y enterarte de los nuevos";
+            // 
             // lbDescripcionHome
             // 
             this.lbDescripcionHome.AutoSize = true;
             this.lbDescripcionHome.BackColor = System.Drawing.Color.Transparent;
-            this.lbDescripcionHome.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescripcionHome.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDescripcionHome.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbDescripcionHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbDescripcionHome.Location = new System.Drawing.Point(148, 403);
+            this.lbDescripcionHome.Location = new System.Drawing.Point(96, 400);
             this.lbDescripcionHome.Name = "lbDescripcionHome";
-            this.lbDescripcionHome.Size = new System.Drawing.Size(399, 17);
+            this.lbDescripcionHome.Size = new System.Drawing.Size(494, 20);
             this.lbDescripcionHome.TabIndex = 7;
-            this.lbDescripcionHome.Text = "Ahora puedes llevar un control de tus registros de licencia y multa";
+            this.lbDescripcionHome.Text = "Ahora puedes llevar un control de tus registros de licencia y multa,";
             // 
             // label1
             // 
@@ -462,39 +488,13 @@ namespace InterfazGrafica4._7
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = global::InterfazGrafica4._7.Properties.Resources.Team_spirit1;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(84, 19);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(66, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(498, 292);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(547, 362);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 5;
             this.guna2PictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(178, 420);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(339, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "ver el historial de pagos ,multas,licencias y enterarte de";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(236, 437);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(223, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "los nuevos procesos que que hagan.";
             // 
             // FrmPrincipal
             // 

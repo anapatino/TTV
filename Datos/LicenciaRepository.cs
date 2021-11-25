@@ -7,6 +7,7 @@ using Oracle.ManagedDataAccess.Client;
 using System.Data.Common;
 using System.Data;
 using Entidad;
+using System.Collections;
 
 namespace Datos
 {
@@ -93,6 +94,20 @@ namespace Datos
             return cat;
         }
 
-
+        public ArrayList ObtenerDatosLicencia()
+        {
+            ArrayList lic =new ArrayList();
+            using (var command = (OracleCommand)_connection.CreateCommand())
+            {
+                command.CommandText = "LlenarDiagrama";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("TOTAL_LICENCIAS", OracleDbType.Int32, ParameterDirection.Output);
+                command.Parameters.Add("SIN_LICENCIA", OracleDbType.Int32, ParameterDirection.Output);
+                command.ExecuteNonQuery();
+                lic.Add(command.Parameters["TOTAL_LICENCIAS"]);
+                lic.Add(command.Parameters["SIN_LICENCIA"]);
+            }
+            return lic;
+        }
     }
 }

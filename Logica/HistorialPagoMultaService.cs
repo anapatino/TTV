@@ -38,21 +38,99 @@ namespace Logica
         }
 
 
-        public (string mensaje, HistorialPagoMulta usuario) ConsultarPorIdentificacion(string identificacion)
+        public HistorialPagoMultaConsultaResponse ConsultarPorIdentificacion(string identificacion)
         {
             try
             {
                 connectionManager.Open();
-                var usuario = historialPagoRepository.BuscarUsuario(identificacion);
-                if (usuario == null)
-                {
-                    return ("No se encontró un registro con la identificacion Solicitada", usuario);
-                }
-                return ($" Se encuentra Registrado {identificacion}", usuario);
+                return new HistorialPagoMultaConsultaResponse(historialPagoRepository.BuscarUsuario(identificacion));
             }
             catch (Exception e)
             {
-                return ($"Error inesperado al Buscar: {e.Message}", null);
+                return new HistorialPagoMultaConsultaResponse($"Error inesperado al Buscar: {e.Message}");
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, HistorialPagoMulta usuarioMulta) ConsultarPorPlaca(string placa)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioMulta = historialPagoRepository.FiltroPlacaVehiculo(placa);
+                if (usuarioMulta == null)
+                {
+                    return ("No se encontró un registro con la placa  Solicitada", null);
+                }
+                return ($" Se encuentra Registrado la placa {placa}", usuarioMulta);
+            }
+            catch (Exception e)
+            {
+                return ($"Error al Buscar Placa : {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, HistorialPagoMulta usuarioMulta) ConsultarCodigoHistorial(string codigo)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioMulta = historialPagoRepository.BuscarCodigoHistorial(codigo);
+                if (usuarioMulta == null)
+                {
+                    return ("No se encontró un registro con el codigo  Solicitada", null);
+                }
+                return ($"Se encuentra Registrado el codigo {codigo}", usuarioMulta);
+            }
+            catch (Exception e)
+            {
+                return ($"Error al Buscar el codigo: {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, HistorialPagoMulta usuarioMulta) ConsultarCodigoMultaUsuario(string codigo)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioMulta = historialPagoRepository.BuscarCodigoMultaUsuario(codigo);
+                if (usuarioMulta == null)
+                {
+                    return ("No se encontró un registro con el codigo multa Solicitada", null);
+                }
+                return ($"Se encuentra Registrado el codigo de la multa {codigo}", usuarioMulta);
+            }
+            catch (Exception e)
+            {
+                return ($"Error al Buscar el codigo de la multa: {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public HistorialPagoMultaConsultaResponse ConsultarPorMarcaVehiculo(string marca)
+        {
+            try
+            {
+                connectionManager.Open();
+                return new HistorialPagoMultaConsultaResponse(historialPagoRepository.FiltroMarcaVehiculo(marca));
+            }
+            catch (Exception e)
+            {
+                return new HistorialPagoMultaConsultaResponse($"Error inesperado al Buscar: {e.Message}");
             }
             finally
             {
@@ -127,8 +205,6 @@ namespace Logica
                 connectionManager.Close();
             }
         }
-
-
     }
 
 }

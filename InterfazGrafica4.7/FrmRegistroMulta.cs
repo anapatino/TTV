@@ -50,11 +50,6 @@ namespace InterfazGrafica4._7
             cmDescripcion.Text = null;
         }
 
-        public void CapturarDatos()
-        {
-        
-        }
-
         private void txtPlaca_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtPlaca.Text))
@@ -297,6 +292,24 @@ namespace InterfazGrafica4._7
 
         private void bnRegistrar_Click_1(object sender, EventArgs e)
         {
+            CapturarDatos();
+        }
+
+        public void CapturarDatos()
+        {
+            var usuario = RegistrarUsuario();
+            string mensajeUsuario = usuarioService.Guardar(usuario);
+            var mul = RegistrarMulta();
+            var vehiculo = RegistrarVehiculo();
+            string mensajeVehiculo = multaService.GuardarVehiculo(vehiculo);
+            var multa = RegistrarMultaUsuario(usuario, mul);
+            string mensajeMultaUsuario = multaService.Guardar(multa);
+            MessageBox.Show(mensajeMultaUsuario);
+            LimpiarComponentes();
+        }
+
+        public Usuario RegistrarUsuario()
+        {
             Usuario usuario = new Usuario();
             usuario.Codigo = txtCedula.Text;
             usuario.Pri_nombre = txtPriNombre.Text;
@@ -310,15 +323,28 @@ namespace InterfazGrafica4._7
             usuario.CiudadCodigo = usuarioService.ObtenerCiudad(cmbCiudad.Text);
             usuario.BarrioCodigo = usuarioService.ObtenerBarrio(cmbBarrio.Text);
             usuario.RestriccionCodigo = usuarioService.ObtenerRestriccion(cmbRestriccion.Text);
-            string mensaje = usuarioService.Guardar(usuario);
+            return usuario;
+        }
+
+        public Multa RegistrarMulta()
+        {
             Multa mul = new Multa();
             mul.Mul_Id = multaService.ObtenerCodigoMulta(cmDescripcion.Text);
             mul.Descripcion = cmDescripcion.Text;
             mul.Valor = decimal.Parse(txtValor.Text);
+            return mul;
+        }
+
+        public Vehiculo RegistrarVehiculo()
+        {
             Vehiculo vehiculo = new Vehiculo();
             vehiculo.Placa = txtPlaca.Text;
             vehiculo.Marca = txtMarca.Text;
-            string mesaje2 = multaService.GuardarVehiculo(vehiculo);
+            return vehiculo;
+        }
+
+        public Multa_Usuario RegistrarMultaUsuario(Usuario usuario,Multa mul)
+        {
             Multa_Usuario multa = new Multa_Usuario();
             multa.Usuario = usuario;
             multa.Multa = mul;
@@ -328,11 +354,8 @@ namespace InterfazGrafica4._7
             multa.VehiculoNombre = txtMarca.Text;
             multa.Estado = "PENDIENTE";
             multa.FechaExpedicion = dtpFechaExp.Value.Date;
-            string mensaje3 = multaService.Guardar(multa);
-            MessageBox.Show(mensaje3);
-            LimpiarComponentes();
+            return multa;
         }
-
 
         private void bnLimpiar_Click_1(object sender, EventArgs e)
         {

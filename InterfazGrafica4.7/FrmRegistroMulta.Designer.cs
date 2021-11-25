@@ -139,7 +139,7 @@ namespace InterfazGrafica4._7
             this.PanelRegistro.Controls.Add(this.DatosPersonales);
             this.PanelRegistro.Controls.Add(this.DatosLicencia);
             this.PanelRegistro.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelRegistro.Location = new System.Drawing.Point(49, 120);
+            this.PanelRegistro.Location = new System.Drawing.Point(49, 156);
             this.PanelRegistro.Name = "PanelRegistro";
             this.PanelRegistro.SelectedIndex = 0;
             this.PanelRegistro.Size = new System.Drawing.Size(676, 383);
@@ -854,7 +854,7 @@ namespace InterfazGrafica4._7
             this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnLimpiar.ForeColor = System.Drawing.Color.White;
             this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
-            this.bnLimpiar.Location = new System.Drawing.Point(406, 529);
+            this.bnLimpiar.Location = new System.Drawing.Point(406, 555);
             this.bnLimpiar.Name = "bnLimpiar";
             this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
             this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
@@ -871,7 +871,7 @@ namespace InterfazGrafica4._7
             this.bnRegistrar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnRegistrar.ForeColor = System.Drawing.Color.White;
             this.bnRegistrar.HoverState.Parent = this.bnRegistrar;
-            this.bnRegistrar.Location = new System.Drawing.Point(234, 529);
+            this.bnRegistrar.Location = new System.Drawing.Point(234, 555);
             this.bnRegistrar.Name = "bnRegistrar";
             this.bnRegistrar.ShadowDecoration.Parent = this.bnRegistrar;
             this.bnRegistrar.Size = new System.Drawing.Size(114, 30);

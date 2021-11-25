@@ -103,5 +103,102 @@ namespace Datos
             }
             return mul;
         }
+
+        public string ContarMultasRegistradas()
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) AS TOTAL_MULTAS_REGISTRADAS FROM MULTA_USUARIO";
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
+
+        public string SumarMultasPendientes()
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT SUM(M.mul_valor) FROM MULTA_USUARIO MU JOIN MULTA M ON (MU.mul_id_fk=M.mul_id_pk) WHERE MU.estado='PENDIENTE'";
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
+
+        public string SumarMultasPendientesUsuario(string identificacion)
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT SUM(M.mul_valor) FROM MULTA_USUARIO MU JOIN MULTA M ON (MU.mul_id_fk=M.mul_id_pk) WHERE MU.estado='PENDIENTE' AND MU.usu_cod_fk=:identificacion";
+                command.Parameters.Add(new OracleParameter("identificacion", identificacion));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
+
+        public string ContarMultasPagadas()
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) AS TOTAL_MULTAS_PAGADAS FROM HISTORIALPAGOMULTA";
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
+
+        public string ContarMultasPendientes()
+        {
+            string mul = "";
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) AS TOTAL_MULTAS_PENDIENTES FROM MULTA_USUARIO WHERE ESTADO='PENDIENTE'";
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        mul = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return mul;
+        }
+
     }
 }

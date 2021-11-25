@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +62,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return $"Error inesperado al Eliminar: {e.Message}";
+                return $"Error inesperado al Buscar: {e.Message}";
             }
             finally
             {
@@ -79,7 +80,25 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return $"Error inesperado al Eliminar: {e.Message}";
+                return $"Error inesperado al Buscar: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string ,ArrayList) ObtenerDatosLicencia()
+        {
+            try
+            {
+                connectionManager.Open();
+                var lic = licenciaRepository.ObtenerDatosLicencia();
+                return ("ArrayList Con Datos",lic);
+            }
+            catch (Exception e)
+            {
+                return ($"Error inesperado al Buscar: {e.Message}",null);
             }
             finally
             {

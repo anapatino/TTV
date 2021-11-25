@@ -80,8 +80,10 @@ namespace Datos
         }
 
         public List<Usuario_Licencia> FiltroOrganismo(string organismo)
-        {
-            return ConsultarLicencia().Where(l => l.Licencia.Organismo.Equals(organismo)).ToList();
+        {    
+            return (from p in ConsultarLicencia()
+                    where p.Licencia.Organismo.ToLower().Contains(organismo.ToLower())
+                    select p).ToList();
         }
 
         public List<Usuario_Licencia> FiltroCategoria(string categoria)
@@ -91,7 +93,9 @@ namespace Datos
 
         public List<Usuario_Licencia> FiltroNombre(string nombre)
         {
-            return ConsultarLicencia().Where(l => l.Usuario.Pri_nombre.Equals(nombre)).ToList();
+            return (from p in ConsultarLicencia()
+                    where p.Usuario.Pri_nombre.ToLower().Contains(nombre.ToLower())
+                    select p).ToList();
         }
 
         public List<Usuario_Licencia> FiltroFecha(int fecha)

@@ -19,7 +19,6 @@ namespace Logica
             usuarioLicenciaRepository = new Usuario_LicenciaRepository(connectionManager.Connection);
         }
 
-
         public LicenciaUsuarioConsultaResponse ConsultarLicenciaa()
         {
             try
@@ -73,7 +72,29 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return ($"Error inesperado al Buscar: {e.Message}", null);
+                return ($"Error al Buscar Nro Identificacion Usuario: {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, Usuario_Licencia usuario) ConsultarPorCodigoLicencia(string codigo)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioLicencia = usuarioLicenciaRepository.BuscarCodigoLicenciaUsuario(codigo);
+                if (usuarioLicencia == null)
+                {
+                    return ("No se encontró un registro con la licencia Solicitada", null);
+                }
+                return ($"Se encuentra Registrado la Licencia con Nro {codigo}", usuarioLicencia);
+            }
+            catch (Exception e)
+            {
+                return ($"Error al Buscar Nro Licencia: {e.Message}", null);
             }
             finally
             {
@@ -90,14 +111,13 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return new LicenciaUsuarioConsultaResponse("Se presento el siguiente: " + e.Message);
+                return new LicenciaUsuarioConsultaResponse("Error al Consultar Organismo: " + e.Message);
             }
             finally
             {
                 connectionManager.Close();
             }
         }
-
 
         public LicenciaUsuarioConsultaResponse ConsultarPorCategoria(string categoria)
         {

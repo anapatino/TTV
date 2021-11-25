@@ -79,14 +79,16 @@ namespace Datos
             return (Multa_Usuario)ConsultarMultas().FirstOrDefault(m => m.CodigoMultaUsuario.Equals(codigo));
         }
 
-        public Multa_Usuario BuscarUsuario(string identificacion)
+        public List<Multa_Usuario> BuscarUsuario(string identificacion)
         {
-            return (Multa_Usuario)ConsultarMultas().FirstOrDefault(m => m.Usuario.Codigo.Equals(identificacion));
+            return ConsultarMultas().Where(m => m.Usuario.Codigo.Equals(identificacion)).ToList();
         }
 
         public List<Multa_Usuario> FiltroNombre(string nombre)
         {
-            return ConsultarMultas().Where(m => m.Usuario.Pri_nombre.Equals(nombre)).ToList();
+            return (from m in ConsultarMultas()
+                    where m.Usuario.Pri_nombre.ToLower().Contains(nombre.ToLower())
+                    select m).ToList();
         }
 
         public List<Multa_Usuario> FiltroFecha(int fecha)
@@ -96,12 +98,24 @@ namespace Datos
 
         public List<Multa_Usuario> FiltroDescripcion(string descripcion)
         {
-            return ConsultarMultas().Where(m => m.Multa.Descripcion.Equals(descripcion)).ToList();
+            return (from m in ConsultarMultas()
+                    where m.Multa.Descripcion.ToLower().Contains(descripcion.ToLower())
+                    select m).ToList();
         }
 
         public List<Multa_Usuario> FiltroEstado(string estado)
         {
             return ConsultarMultas().Where(m => m.Estado.Equals(estado)).ToList();
+        }
+
+        public Multa_Usuario FiltroPlacaVehiculo(string placa)
+        {
+            return (Multa_Usuario)ConsultarMultas().FirstOrDefault(m => m.Vehiculo_Id.Equals(placa));
+        }
+
+        public List<Multa_Usuario> FiltroMarcaVehiculo(string marca)
+        {
+            return ConsultarMultas().Where(m => m.VehiculoNombre.Equals(marca)).ToList();
         }
 
     }
