@@ -23,11 +23,7 @@ namespace InterfazGrafica4._7
             usuarioLicenciaService = new UsuarioLicenciaService(ConfigConnection.ConnectionString);
         }
 
-        private void btnDetalles_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ValidarFiltro();
@@ -82,13 +78,22 @@ namespace InterfazGrafica4._7
 
         public void VisualizarCedula()
         {
+            
             string identificacion = txtFiltro.Text;
             var (mensaje, personaBuscada) = usuarioLicenciaService.ConsultarPorIdentificacion(identificacion);
             if (mensaje.Equals($" Se encuentra Registrado {identificacion}"))
             {
+                btnDetalles.Visible = true;
                 AgregarRegistroTabla(personaBuscada);
             }
             MessageBox.Show(mensaje);
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            string identificacion = txtFiltro.Text;
+            var (mensaje, personaBuscada) = usuarioLicenciaService.ConsultarPorIdentificacion(identificacion);
+            new FrmInformacionLicencia(personaBuscada).Show();
         }
 
         public void VisualizarOrganismo()
@@ -188,7 +193,6 @@ namespace InterfazGrafica4._7
         {
             dgvTabla.Visible = true;
             bnLimpiar.Visible = true;
-            btnDetalles.Visible = true;
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)

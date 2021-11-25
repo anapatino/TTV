@@ -64,7 +64,6 @@ namespace InterfazGrafica4._7
             this.txtMarca = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFechaExp = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.txtBusqueda = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmDescripcion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtValor = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPlaca = new Guna.UI2.WinForms.Guna2TextBox();
@@ -88,6 +87,10 @@ namespace InterfazGrafica4._7
             this.errorMarca = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPlaca = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lbTieneLicencia = new System.Windows.Forms.Label();
+            this.cmbOpcionLicencia = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtFiltro = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.PanelRegistro.SuspendLayout();
             this.DatosPersonales.SuspendLayout();
             this.DatosLicencia.SuspendLayout();
@@ -118,7 +121,7 @@ namespace InterfazGrafica4._7
             this.lbMulta.BackColor = System.Drawing.Color.Transparent;
             this.lbMulta.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMulta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.lbMulta.Location = new System.Drawing.Point(235, 40);
+            this.lbMulta.Location = new System.Drawing.Point(239, 21);
             this.lbMulta.Name = "lbMulta";
             this.lbMulta.Size = new System.Drawing.Size(127, 41);
             this.lbMulta.TabIndex = 27;
@@ -128,7 +131,7 @@ namespace InterfazGrafica4._7
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 40);
+            this.label1.Location = new System.Drawing.Point(46, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 42);
             this.label1.TabIndex = 26;
@@ -621,7 +624,6 @@ namespace InterfazGrafica4._7
             this.DatosLicencia.Controls.Add(this.txtMarca);
             this.DatosLicencia.Controls.Add(this.label6);
             this.DatosLicencia.Controls.Add(this.dtpFechaExp);
-            this.DatosLicencia.Controls.Add(this.txtBusqueda);
             this.DatosLicencia.Controls.Add(this.cmDescripcion);
             this.DatosLicencia.Controls.Add(this.txtValor);
             this.DatosLicencia.Controls.Add(this.txtPlaca);
@@ -691,35 +693,6 @@ namespace InterfazGrafica4._7
             this.dtpFechaExp.Size = new System.Drawing.Size(221, 36);
             this.dtpFechaExp.TabIndex = 71;
             this.dtpFechaExp.Value = new System.DateTime(2021, 11, 14, 21, 54, 38, 545);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBusqueda.BorderRadius = 15;
-            this.txtBusqueda.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBusqueda.DefaultText = "";
-            this.txtBusqueda.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBusqueda.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBusqueda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBusqueda.DisabledState.Parent = this.txtBusqueda;
-            this.txtBusqueda.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBusqueda.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBusqueda.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBusqueda.FocusedState.Parent = this.txtBusqueda;
-            this.txtBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.ForeColor = System.Drawing.Color.DimGray;
-            this.txtBusqueda.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBusqueda.HoverState.Parent = this.txtBusqueda;
-            this.txtBusqueda.Location = new System.Drawing.Point(421, 156);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.PasswordChar = '\0';
-            this.txtBusqueda.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBusqueda.PlaceholderText = "";
-            this.txtBusqueda.SelectedText = "";
-            this.txtBusqueda.ShadowDecoration.Parent = this.txtBusqueda;
-            this.txtBusqueda.Size = new System.Drawing.Size(221, 36);
-            this.txtBusqueda.TabIndex = 70;
             // 
             // cmDescripcion
             // 
@@ -854,7 +827,7 @@ namespace InterfazGrafica4._7
             this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnLimpiar.ForeColor = System.Drawing.Color.White;
             this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
-            this.bnLimpiar.Location = new System.Drawing.Point(406, 555);
+            this.bnLimpiar.Location = new System.Drawing.Point(425, 562);
             this.bnLimpiar.Name = "bnLimpiar";
             this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
             this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
@@ -871,7 +844,7 @@ namespace InterfazGrafica4._7
             this.bnRegistrar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnRegistrar.ForeColor = System.Drawing.Color.White;
             this.bnRegistrar.HoverState.Parent = this.bnRegistrar;
-            this.bnRegistrar.Location = new System.Drawing.Point(234, 555);
+            this.bnRegistrar.Location = new System.Drawing.Point(253, 562);
             this.bnRegistrar.Name = "bnRegistrar";
             this.bnRegistrar.ShadowDecoration.Parent = this.bnRegistrar;
             this.bnRegistrar.Size = new System.Drawing.Size(114, 30);
@@ -948,12 +921,102 @@ namespace InterfazGrafica4._7
             this.errorDescripcion.ContainerControl = this;
             this.errorDescripcion.Icon = ((System.Drawing.Icon)(resources.GetObject("errorDescripcion.Icon")));
             // 
+            // lbTieneLicencia
+            // 
+            this.lbTieneLicencia.AutoSize = true;
+            this.lbTieneLicencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTieneLicencia.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lbTieneLicencia.Location = new System.Drawing.Point(49, 106);
+            this.lbTieneLicencia.Name = "lbTieneLicencia";
+            this.lbTieneLicencia.Size = new System.Drawing.Size(120, 20);
+            this.lbTieneLicencia.TabIndex = 60;
+            this.lbTieneLicencia.Text = "Tiene Licencia :";
+            // 
+            // cmbOpcionLicencia
+            // 
+            this.cmbOpcionLicencia.BackColor = System.Drawing.Color.Transparent;
+            this.cmbOpcionLicencia.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbOpcionLicencia.BorderRadius = 15;
+            this.cmbOpcionLicencia.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbOpcionLicencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOpcionLicencia.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbOpcionLicencia.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbOpcionLicencia.FocusedState.Parent = this.cmbOpcionLicencia;
+            this.cmbOpcionLicencia.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbOpcionLicencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbOpcionLicencia.FormattingEnabled = true;
+            this.cmbOpcionLicencia.HoverState.Parent = this.cmbOpcionLicencia;
+            this.cmbOpcionLicencia.ItemHeight = 30;
+            this.cmbOpcionLicencia.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.cmbOpcionLicencia.ItemsAppearance.Parent = this.cmbOpcionLicencia;
+            this.cmbOpcionLicencia.Location = new System.Drawing.Point(173, 99);
+            this.cmbOpcionLicencia.Name = "cmbOpcionLicencia";
+            this.cmbOpcionLicencia.ShadowDecoration.Parent = this.cmbOpcionLicencia;
+            this.cmbOpcionLicencia.Size = new System.Drawing.Size(108, 36);
+            this.cmbOpcionLicencia.TabIndex = 62;
+            this.cmbOpcionLicencia.SelectedIndexChanged += new System.EventHandler(this.cmbOpcionLicencia_SelectedIndexChanged);
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtFiltro.BorderRadius = 15;
+            this.txtFiltro.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFiltro.DefaultText = "";
+            this.txtFiltro.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFiltro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFiltro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFiltro.DisabledState.Parent = this.txtFiltro;
+            this.txtFiltro.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFiltro.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtFiltro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFiltro.FocusedState.Parent = this.txtFiltro;
+            this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltro.ForeColor = System.Drawing.Color.Black;
+            this.txtFiltro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFiltro.HoverState.Parent = this.txtFiltro;
+            this.txtFiltro.Location = new System.Drawing.Point(288, 99);
+            this.txtFiltro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.PasswordChar = '\0';
+            this.txtFiltro.PlaceholderText = "";
+            this.txtFiltro.SelectedText = "";
+            this.txtFiltro.ShadowDecoration.Parent = this.txtFiltro;
+            this.txtFiltro.Size = new System.Drawing.Size(242, 35);
+            this.txtFiltro.TabIndex = 64;
+            this.txtFiltro.Visible = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Animated = true;
+            this.btnBuscar.BorderRadius = 15;
+            this.btnBuscar.CheckedState.Parent = this.btnBuscar;
+            this.btnBuscar.CustomImages.Parent = this.btnBuscar;
+            this.btnBuscar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.HoverState.Parent = this.btnBuscar;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnBuscar.Location = new System.Drawing.Point(547, 99);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.ShadowDecoration.Parent = this.btnBuscar;
+            this.btnBuscar.Size = new System.Drawing.Size(41, 35);
+            this.btnBuscar.TabIndex = 63;
+            this.btnBuscar.Visible = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // FrmRegistroMulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(780, 614);
+            this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cmbOpcionLicencia);
+            this.Controls.Add(this.lbTieneLicencia);
             this.Controls.Add(this.bnLimpiar);
             this.Controls.Add(this.bnRegistrar);
             this.Controls.Add(this.PanelRegistro);
@@ -1018,7 +1081,6 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.TabPage DatosLicencia;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaExp;
-        private Guna.UI2.WinForms.Guna2TextBox txtBusqueda;
         private Guna.UI2.WinForms.Guna2ComboBox cmDescripcion;
         private Guna.UI2.WinForms.Guna2TextBox txtValor;
         private Guna.UI2.WinForms.Guna2TextBox txtPlaca;
@@ -1044,5 +1106,9 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.ErrorProvider errorPlaca;
         private System.Windows.Forms.ErrorProvider errorDescripcion;
         private Guna.UI2.WinForms.Guna2ComboBox cmDepartamento;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbOpcionLicencia;
+        private System.Windows.Forms.Label lbTieneLicencia;
+        private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
+        private Guna.UI2.WinForms.Guna2Button btnBuscar;
     }
 }
