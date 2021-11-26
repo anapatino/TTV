@@ -52,8 +52,13 @@ namespace Datos
 
         private static void MapearMulta(DbDataReader reader, out Multa mul, out Usuario usuario)
         {
-            mul = new Multa();
-            usuario = new Usuario();
+            usuario = MapearUsuario(reader);
+            mul = MapearMulta(reader);
+        }
+
+        private static Usuario MapearUsuario(DbDataReader reader)
+        {
+            Usuario usuario = new Usuario();
             usuario.Codigo = reader.GetString(0);
             usuario.Pri_nombre = reader.GetString(1);
             usuario.Seg_nombre = reader.GetString(2);
@@ -66,9 +71,16 @@ namespace Datos
             usuario.CiudadCodigo = reader.GetString(9);
             usuario.BarrioCodigo = reader.GetString(10);
             usuario.RestriccionCodigo = reader.GetString(11);
+            return usuario;
+        }
+
+        private static Multa MapearMulta(DbDataReader reader)
+        {
+            Multa mul = new Multa();
             mul.Mul_Id = reader.GetString(12);
             mul.Descripcion = reader.GetString(13);
             mul.Valor = reader.GetDecimal(14);
+            return mul;
         }
 
         public  void ModificarEstado(string codigoMultaUsuario)
