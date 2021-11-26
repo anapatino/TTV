@@ -66,13 +66,37 @@ namespace InterfazGrafica4._7
             {
                 VisualizarDescripcion();
             }
-            else if (filtro.Equals("ESTADO"))
+            else
+            {
+                ValidarFiltroExtenso(filtro);
+            }
+        }
+
+        public void ValidarFiltroExtenso(string filtro)
+        {
+            if (filtro.Equals("ESTADO"))
             {
                 VisualizarEstado();
             }
             else if (filtro.Equals("ANIO"))
             {
                 VisualizarAnio();
+            }
+            else if (filtro.Equals("CODIGO MULTA"))
+            {
+                VisualizarCodigoMulta();
+            }
+            else if (filtro.Equals("PLACA"))
+            {
+                VisualizarPlaca();
+            }
+            else if (filtro.Equals("MARCA"))
+            {
+                VisualizarMarca();
+            }
+            else
+            {
+                VisualizarCodigoHistorial();
             }
         }
 
@@ -85,12 +109,48 @@ namespace InterfazGrafica4._7
         public void VisualizarIdentificacion()
         {
             string identificacion = txtFiltro.Text;
-            var (mensaje, personaBuscada) = historialPagoService.ConsultarPorIdentificacion(identificacion);
-            if (mensaje.Equals($" Se encuentra Registrado {identificacion}"))
+            var respuesta = historialPagoService.ConsultarPorIdentificacion(identificacion);
+            VisualizarTabla(respuesta);
+        }
+
+        public void VisualizarCodigoHistorial()
+        {
+            string codigo = txtFiltro.Text;
+            var (mensaje, codigoBuscado) = historialPagoService.ConsultarCodigoHistorial(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado el codigo {codigo}"))
             {
-                AgregarRegistroTabla(personaBuscada);
+                AgregarRegistroTabla(codigoBuscado);
             }
             MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarCodigoMulta()
+        {
+            string codigo = txtFiltro.Text;
+            var (mensaje, codigoBuscado) = historialPagoService.ConsultarCodigoMultaUsuario(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado el codigo de la multa {codigo}"))
+            {
+                AgregarRegistroTabla(codigoBuscado);
+            }
+            MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarPlaca()
+        {
+            string placa = txtFiltro.Text;
+            var (mensaje, placaBuscada) = historialPagoService.ConsultarPorPlaca(placa);
+            if (mensaje.Equals($" Se encuentra Registrado la placa {placa}"))
+            {
+                AgregarRegistroTabla(placaBuscada);
+            }
+            MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarMarca()
+        {
+            string marca = txtFiltro.Text;
+            var respuesta = historialPagoService.ConsultarPorMarcaVehiculo(marca);
+            VisualizarTabla(respuesta);
         }
 
         public void VisualizarNombre()

@@ -1,4 +1,6 @@
 ﻿using System;
+using Entidad;
+using Logica;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,14 @@ namespace InterfazGrafica4._7
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        public FrmPrincipal(Cuenta cuenta)
         {
-
+            Cuenta = cuenta;
             InitializeComponent();
             customizeDesing();
         }
+
+        public Cuenta Cuenta { get; set; }
 
         int m, mx, my;
 
@@ -82,12 +86,13 @@ namespace InterfazGrafica4._7
 
         private void btSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide();
+            new FrmLogin().Show();
         }
 
         private void bttHome_Click(object sender, EventArgs e)
         {
-            OpenFormHijo(new FrmHome());
+            OpenFormHijo(new FrmHome(Cuenta));
         }
 
         private void bttLicencia_Click(object sender, EventArgs e)

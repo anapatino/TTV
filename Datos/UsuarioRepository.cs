@@ -134,6 +134,26 @@ namespace Datos
             return ciud;
         }
 
+        public string ObtenerDepartamento(string ciudad)
+        {
+            string dep = "";
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "SELECT D.DEP_NOMBRE FROM DEPARTAMENTO D JOIN CIUDAD C ON (C.DEP_CODIGO_FK = D.DEP_CODIGO_PK) WHERE CIUD_NOMBRE=:ciudad";
+                command.Parameters.Add(new OracleParameter("ciudad", ciudad));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        dep = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+            }
+            return dep;
+        }
+
         public string ObtenerBarrio(string barrio)
         {
             string barr = "";

@@ -101,5 +101,96 @@ namespace Logica
                 connectionManager.Close();
             }
         }
+
+        public string ObtenerMultasRegistradas()
+        {
+            try
+            {
+                connectionManager.Open();
+                string totalMultas = multaRepository.ContarMultasRegistradas();
+                return totalMultas;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Contar Multas Registradas: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerSumaMultasPendientes()
+        {
+            try
+            {
+                connectionManager.Open();
+                string totalMultas = multaRepository.SumarMultasPendientes();
+                return totalMultas;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Sumar Multas Registradas: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerSumaMultasPendientesUsuario(string identificacion)
+        {
+            try
+            {
+                connectionManager.Open();
+                string totalMultas = multaRepository.SumarMultasPendientesUsuario(identificacion);
+                return totalMultas;
+            }
+            catch (Exception e)
+            {
+                return "Error inesperado al Sumar Multas Registradas de un Usuario";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerMultasPendientes()
+        {
+            try
+            {
+                connectionManager.Open();
+                string totalMultas = multaRepository.ContarMultasPendientes();
+                return totalMultas;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Contar Multas Pendientes: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerMultasPagadas()
+        {
+            try
+            {
+                connectionManager.Open();
+                string totalMultas = multaRepository.ContarMultasPagadas();
+                return totalMultas;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Contar Multas Pagadas: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
     }
 }

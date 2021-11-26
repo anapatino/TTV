@@ -48,7 +48,7 @@ namespace InterfazGrafica4._7
             this.txtPriApellido = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTelefono = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGrupoSanguineo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCiudad = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtRestriccion = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtFechaExpedicion = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtFechaNacimiento = new Guna.UI2.WinForms.Guna2TextBox();
@@ -341,35 +341,35 @@ namespace InterfazGrafica4._7
             this.txtGrupoSanguineo.Size = new System.Drawing.Size(185, 30);
             this.txtGrupoSanguineo.TabIndex = 31;
             // 
-            // txtDireccion
+            // txtCiudad
             // 
-            this.txtDireccion.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccion.BorderRadius = 15;
-            this.txtDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDireccion.DefaultText = "";
-            this.txtDireccion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDireccion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDireccion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDireccion.DisabledState.Parent = this.txtDireccion;
-            this.txtDireccion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDireccion.Enabled = false;
-            this.txtDireccion.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDireccion.FocusedState.Parent = this.txtDireccion;
-            this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.ForeColor = System.Drawing.Color.DimGray;
-            this.txtDireccion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDireccion.HoverState.Parent = this.txtDireccion;
-            this.txtDireccion.Location = new System.Drawing.Point(24, 271);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.PasswordChar = '\0';
-            this.txtDireccion.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccion.PlaceholderText = "";
-            this.txtDireccion.SelectedText = "";
-            this.txtDireccion.ShadowDecoration.Parent = this.txtDireccion;
-            this.txtDireccion.Size = new System.Drawing.Size(185, 30);
-            this.txtDireccion.TabIndex = 33;
+            this.txtCiudad.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCiudad.BorderRadius = 15;
+            this.txtCiudad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCiudad.DefaultText = "";
+            this.txtCiudad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCiudad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCiudad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCiudad.DisabledState.Parent = this.txtCiudad;
+            this.txtCiudad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCiudad.Enabled = false;
+            this.txtCiudad.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCiudad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCiudad.FocusedState.Parent = this.txtCiudad;
+            this.txtCiudad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCiudad.ForeColor = System.Drawing.Color.DimGray;
+            this.txtCiudad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCiudad.HoverState.Parent = this.txtCiudad;
+            this.txtCiudad.Location = new System.Drawing.Point(24, 271);
+            this.txtCiudad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCiudad.Name = "txtCiudad";
+            this.txtCiudad.PasswordChar = '\0';
+            this.txtCiudad.PlaceholderForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCiudad.PlaceholderText = "";
+            this.txtCiudad.SelectedText = "";
+            this.txtCiudad.ShadowDecoration.Parent = this.txtCiudad;
+            this.txtCiudad.Size = new System.Drawing.Size(185, 30);
+            this.txtCiudad.TabIndex = 33;
             // 
             // txtRestriccion
             // 
@@ -756,7 +756,7 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.Controls.Add(this.lbCiudad);
             this.bunifuPanel1.Controls.Add(this.txtTelefono);
             this.bunifuPanel1.Controls.Add(this.lbPriNombre);
-            this.bunifuPanel1.Controls.Add(this.txtDireccion);
+            this.bunifuPanel1.Controls.Add(this.txtCiudad);
             this.bunifuPanel1.Controls.Add(this.lbTelefono);
             this.bunifuPanel1.Controls.Add(this.txtSegNombre);
             this.bunifuPanel1.Controls.Add(this.txtSegApellido);
@@ -874,7 +874,7 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label lbRestriccion;
         private System.Windows.Forms.Label lbMulta;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Guna.UI2.WinForms.Guna2TextBox txtDireccion;
+        private Guna.UI2.WinForms.Guna2TextBox txtCiudad;
         private Guna.UI2.WinForms.Guna2TextBox txtGrupoSanguineo;
         private Guna.UI2.WinForms.Guna2TextBox txtTelefono;
         private Guna.UI2.WinForms.Guna2TextBox txtPriApellido;

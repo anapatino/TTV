@@ -18,12 +18,14 @@ namespace InterfazGrafica4._7
     {
         UsuarioService usuarioService;
         MultaService multaService;
+        UsuarioLicenciaService usuarioLicenciaService;
 
         public FrmRegistroMulta()
         {
             InitializeComponent();
             usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
             multaService = new MultaService(ConfigConnection.ConnectionString);
+            usuarioLicenciaService = new UsuarioLicenciaService(ConfigConnection.ConnectionString);
             AñadirDepartamento();
             AñadirBarrio();
             AñadirMulta();
@@ -48,11 +50,10 @@ namespace InterfazGrafica4._7
             txtMarca.Text = null;
             txtPlaca.Text = null;
             cmDescripcion.Text = null;
-        }
-
-        public void CapturarDatos()
-        {
-        
+            btnBuscar.Visible = false;
+            txtFiltro.Text = null;
+            txtFiltro.Visible = false;
+            cmbOpcionLicencia.Text = null;
         }
 
         private void txtPlaca_Validating(object sender, CancelEventArgs e)
@@ -297,6 +298,24 @@ namespace InterfazGrafica4._7
 
         private void bnRegistrar_Click_1(object sender, EventArgs e)
         {
+            CapturarDatos();
+        }
+
+        public void CapturarDatos()
+        {
+            var usuario = RegistrarUsuario();
+            string mensajeUsuario = usuarioService.Guardar(usuario);
+            var mul = RegistrarMulta();
+            var vehiculo = RegistrarVehiculo();
+            string mensajeVehiculo = multaService.GuardarVehiculo(vehiculo);
+            var multa = RegistrarMultaUsuario(usuario, mul);
+            string mensajeMultaUsuario = multaService.Guardar(multa);
+            MessageBox.Show(mensajeMultaUsuario);
+            LimpiarComponentes();
+        }
+
+        public Usuario RegistrarUsuario()
+        {
             Usuario usuario = new Usuario();
             usuario.Codigo = txtCedula.Text;
             usuario.Pri_nombre = txtPriNombre.Text;
@@ -310,15 +329,28 @@ namespace InterfazGrafica4._7
             usuario.CiudadCodigo = usuarioService.ObtenerCiudad(cmbCiudad.Text);
             usuario.BarrioCodigo = usuarioService.ObtenerBarrio(cmbBarrio.Text);
             usuario.RestriccionCodigo = usuarioService.ObtenerRestriccion(cmbRestriccion.Text);
-            string mensaje = usuarioService.Guardar(usuario);
+            return usuario;
+        }
+
+        public Multa RegistrarMulta()
+        {
             Multa mul = new Multa();
             mul.Mul_Id = multaService.ObtenerCodigoMulta(cmDescripcion.Text);
             mul.Descripcion = cmDescripcion.Text;
             mul.Valor = decimal.Parse(txtValor.Text);
+            return mul;
+        }
+
+        public Vehiculo RegistrarVehiculo()
+        {
             Vehiculo vehiculo = new Vehiculo();
             vehiculo.Placa = txtPlaca.Text;
             vehiculo.Marca = txtMarca.Text;
-            string mesaje2 = multaService.GuardarVehiculo(vehiculo);
+            return vehiculo;
+        }
+
+        public Multa_Usuario RegistrarMultaUsuario(Usuario usuario,Multa mul)
+        {
             Multa_Usuario multa = new Multa_Usuario();
             multa.Usuario = usuario;
             multa.Multa = mul;
@@ -328,15 +360,13 @@ namespace InterfazGrafica4._7
             multa.VehiculoNombre = txtMarca.Text;
             multa.Estado = "PENDIENTE";
             multa.FechaExpedicion = dtpFechaExp.Value.Date;
-            string mensaje3 = multaService.Guardar(multa);
-            MessageBox.Show(mensaje3);
-            LimpiarComponentes();
+            return multa;
         }
-
 
         private void bnLimpiar_Click_1(object sender, EventArgs e)
         {
             LimpiarComponentes();
+            ActivarEdicionDatos();
         }
 
         private void AñadirDepartamento()
@@ -371,6 +401,91 @@ namespace InterfazGrafica4._7
         private void cmDepartamento_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             cmbCiudad.DataSource = usuarioService.AñadirCiudades(cmDepartamento.Text).Combox;
+        }
+
+        private void cmbOpcionLicencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbOpcionLicencia.Text.Equals("SI"))
+            {
+                txtFiltro.Visible = true;
+                btnBuscar.Visible = true;
+            }
+            else
+            {
+                txtFiltro.Visible = false;
+                btnBuscar.Visible = false;
+                cmbOpcionLicencia.Text = null;
+            }
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarLicenciaRegistrada();
+        }
+
+        private void BuscarLicenciaRegistrada()
+        {
+            string codigo = txtFiltro.Text;
+            var (mensaje, licenciaBuscada) = usuarioLicenciaService.ConsultarPorCodigoLicencia(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado la Licencia con Nro {codigo}"))
+            {
+                DesactivarEdicionDatos();
+                TraerDatosLicencia(licenciaBuscada);
+            }
+            else
+            {
+                txtFiltro.Text = null;
+            }
+
+            MessageBox.Show(mensaje);
+        }
+
+        private void DesactivarEdicionDatos()
+        {
+            txtCedula.Enabled = false;
+            txtPriNombre.Enabled = false;
+            txtSegNombre.Enabled = false;
+            txtPriApellido.Enabled = false;
+            txtSegApellido.Enabled = false;
+            txtTelefono.Enabled = false;
+            txtGS.Enabled = false;
+            cmbRestriccion.Enabled = false;
+            cmbBarrio.Enabled = false;
+            cmbCiudad.Enabled = false;
+            cmDepartamento.Enabled = false;
+        }
+
+        private void ActivarEdicionDatos()
+        {
+            txtCedula.Enabled = true;
+            txtPriNombre.Enabled = true;
+            txtSegNombre.Enabled = true;
+            txtPriApellido.Enabled = true;
+            txtSegApellido.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtGS.Enabled = true;
+            cmbRestriccion.Enabled = true;
+            cmbBarrio.Enabled = true;
+            cmbCiudad.Enabled = true;
+            cmDepartamento.Enabled = true;
+        }
+
+        private void TraerDatosLicencia(Usuario_Licencia licenciaBuscada)
+        {
+            txtCedula.Text = licenciaBuscada.Usuario.Codigo;
+            txtPriNombre.Text = licenciaBuscada.Usuario.Pri_nombre;
+            txtSegNombre.Text = licenciaBuscada.Usuario.Seg_nombre;
+            txtPriApellido.Text = licenciaBuscada.Usuario.Pri_apellido;
+            txtSegApellido.Text = licenciaBuscada.Usuario.Seg_apellido;
+            txtTelefono.Text = licenciaBuscada.Usuario.Telefono;
+            txtGS.Text = licenciaBuscada.Usuario.Grupo_Sanguineo;
+            cmbRestriccion.Text = licenciaBuscada.Usuario.RestriccionCodigo;
+            cmbBarrio.Text = licenciaBuscada.Usuario.BarrioCodigo;
+            cmbCiudad.Text = licenciaBuscada.Usuario.CiudadCodigo;
+            //dtpFechaNacimiento = licenciaBuscada.Usuario.FechaNacimiento.Value.Date;
+            //cmDepartamento.Text = licenciaBuscada.Usuario.;
+       
         }
     }
 }

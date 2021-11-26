@@ -15,11 +15,13 @@ namespace InterfazGrafica4._7
     public partial class FrmConsultaMulta : Form
     {
         UsuarioMultaService usuarioMultaService;
+        MultaService multaService;
 
         public FrmConsultaMulta()
         {
             InitializeComponent();
             usuarioMultaService = new UsuarioMultaService(ConfigConnection.ConnectionString);
+            multaService = new MultaService(ConfigConnection.ConnectionString);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -42,9 +44,7 @@ namespace InterfazGrafica4._7
         public void ActivarComponentes()
         {
             dgvTabla.Visible = true;
-            bnLimpiar.Visible = true;
-            lbValor.Visible = true;
-            txtValor.Visible = true;
+            bnLimpiar.Visible = true;     
         }
 
         public void ValidarFiltro()
@@ -66,7 +66,15 @@ namespace InterfazGrafica4._7
             {
                 VisualizarDescripcion();
             }
-            else if (filtro.Equals("ESTADO"))
+            else
+            {
+                ValidarFiltroExtenso(filtro);
+            }
+        }
+
+        public void ValidarFiltroExtenso(string filtro)
+        {
+            if (filtro.Equals("ESTADO"))
             {
                 VisualizarEstado();
             }
@@ -74,23 +82,80 @@ namespace InterfazGrafica4._7
             {
                 VisualizarAnio();
             }
+            else if (filtro.Equals("CODIGO MULTA"))
+            {
+                VisualizarCodigoMulta();
+            }
+            else if (filtro.Equals("PLACA"))
+            {
+                VisualizarPlaca();
+            }
+            else
+            {
+                VisualizarMarca();
+            }
         }
 
         public void VisualizarTodo()
         {
             var respuesta = usuarioMultaService.ConsultarMultaa();
             VisualizarTabla(respuesta);
+            ActivarFiltroPagar();
+        }
+
+        public void ActivarFiltroPagar()
+        {
+            lbValor.Visible = true;
+            txtValor.Visible = true;
+            txtValor.Text = multaService.ObtenerSumaMultasPendientes();
+        }
+
+        public void ActivarFiltroPagarUsuario(string identificacion)
+        {
+            string valor=multaService.ObtenerSumaMultasPendientesUsuario(identificacion);;
+            if (!valor.Equals("Error inesperado al Sumar Multas Registradas de un Usuario"))
+            {
+                lbValor.Visible = true;
+                txtValor.Visible = true;
+                txtValor.Text = valor;
+            }
         }
 
         public void VisualizarIdentificacion()
         {
-            string identificacion = txtFiltro.Text;
-            var (mensaje, personaBuscada) = usuarioMultaService.ConsultarPorIdentificacion(identificacion);
-            if (mensaje.Equals($" Se encuentra Registrado {identificacion}"))
+            string identificacion = txtFiltro.Text;   
+            var respuesta = usuarioMultaService.ConsultarPorIdentificacion(identificacion);
+            VisualizarTabla(respuesta);
+            ActivarFiltroPagarUsuario(identificacion);
+        }
+
+        public void VisualizarCodigoMulta()
+        {
+            string codigo = txtFiltro.Text;
+            var (mensaje, codigoBuscado) = usuarioMultaService.ConsultarPorCodigoMulta(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado el Nro Multa {codigo}"))
             {
-                AgregarRegistroTabla(personaBuscada);
+                AgregarRegistroTabla(codigoBuscado);
             }
             MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarPlaca()
+        {
+            string placa = txtFiltro.Text;
+            var (mensaje, placaBuscada) = usuarioMultaService.ConsultarPorPlaca(placa);
+            if (mensaje.Equals($" Se encuentra Registrado la placa {placa}"))
+            {
+                AgregarRegistroTabla(placaBuscada);
+            }
+            MessageBox.Show(mensaje);
+        }
+
+        public void VisualizarMarca()
+        {
+            string marca = txtFiltro.Text;
+            var respuesta = usuarioMultaService.ConsultarPorMarca(marca);
+            VisualizarTabla(respuesta);
         }
 
         public void VisualizarNombre()

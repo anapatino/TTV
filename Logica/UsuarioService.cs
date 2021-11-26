@@ -110,7 +110,25 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return $"Error inesperado al Eliminar: {e.Message}";
+                return $"Error inesperado al Buscar Ciudad: {e.Message}";
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public string ObtenerDepartamento(string ciudad)
+        {
+            try
+            {
+                connectionManager.Open();
+                string dep = usuarioRepository.ObtenerDepartamento(ciudad);
+                return dep;
+            }
+            catch (Exception e)
+            {
+                return $"Error inesperado al Buscar Departamento: {e.Message}";
             }
             finally
             {
@@ -128,7 +146,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return $"Error inesperado al Eliminar: {e.Message}";
+                return $"Error inesperado al Buscar Barrio: {e.Message}";
             }
             finally
             {
@@ -146,7 +164,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return $"Error inesperado al Eliminar: {e.Message}";
+                return $"Error inesperado al Buscar Restriccion: {e.Message}";
             }
             finally
             {

@@ -61,21 +61,77 @@ namespace Logica
         }
 
 
-        public (string mensaje, Multa_Usuario usuario) ConsultarPorIdentificacion(string identificacion)
+        public MultaUsuarioConsultaResponse ConsultarPorIdentificacion(string identificacion)
         {
             try
             {
                 connectionManager.Open();
-                var usuario = usuarioMultaRepository.BuscarUsuario(identificacion);
-                if (usuario == null)
-                {
-                    return ("No se encontró un registro con la identificacion Solicitada", usuario);
-                }
-                return ($" Se encuentra Registrado {identificacion}", usuario);
+                return new MultaUsuarioConsultaResponse(usuarioMultaRepository.BuscarUsuario(identificacion));
             }
             catch (Exception e)
             {
-                return ($"Error inesperado al Buscar: {e.Message}", null);
+                return new MultaUsuarioConsultaResponse("Error al Consultar Por Identificacion: " + e.Message);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, Multa_Usuario usuarioMulta) ConsultarPorCodigoMulta(string codigoMulta)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioMulta = usuarioMultaRepository.BuscarCodigoMultaUsuario(codigoMulta);
+                if (usuarioMulta == null)
+                {
+                    return ("No se encontró un registro con el Nro Multa Solicitada", null);
+                }
+                return ($"Se encuentra Registrado el Nro Multa {codigoMulta}", usuarioMulta);
+            }
+            catch (Exception e)
+            {
+                return ($"Error inesperado al Buscar Nro Multa: {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, Multa_Usuario usuarioMulta) ConsultarPorPlaca(string placa)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioMulta = usuarioMultaRepository.FiltroPlacaVehiculo(placa);
+                if (usuarioMulta == null)
+                {
+                    return ("No se encontró un registro con la placa  Solicitada", null);
+                }
+                return ($" Se encuentra Registrado la placa {placa}", usuarioMulta);
+            }
+            catch (Exception e)
+            {
+                return ($"Error al Buscar Placa : {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public MultaUsuarioConsultaResponse ConsultarPorMarca(string marca)
+        {
+            try
+            {
+                connectionManager.Open();
+                return new MultaUsuarioConsultaResponse(usuarioMultaRepository.FiltroMarcaVehiculo(marca));
+            }
+            catch (Exception e)
+            {
+                return new MultaUsuarioConsultaResponse("Error al Consultar Por Marca: " + e.Message);
             }
             finally
             {
@@ -92,7 +148,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return new MultaUsuarioConsultaResponse("Se presento el siguiente: " + e.Message);
+                return new MultaUsuarioConsultaResponse("Error al Consultar Por Nombre: " + e.Message);
             }
             finally
             {
@@ -109,7 +165,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return new MultaUsuarioConsultaResponse("Se presento el siguiente: " + e.Message);
+                return new MultaUsuarioConsultaResponse("Error al Consultar Por Anio: " + e.Message);
             }
             finally
             {
@@ -126,7 +182,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return new MultaUsuarioConsultaResponse("Se presento el siguiente: " + e.Message);
+                return new MultaUsuarioConsultaResponse("Error al Consultar Por Descripcion: " + e.Message);
             }
             finally
             {
@@ -143,7 +199,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return new MultaUsuarioConsultaResponse("Se presento el siguiente: " + e.Message);
+                return new MultaUsuarioConsultaResponse("Error al Consultar Por Estado: " + e.Message);
             }
             finally
             {

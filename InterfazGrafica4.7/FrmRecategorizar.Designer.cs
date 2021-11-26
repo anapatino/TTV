@@ -59,6 +59,8 @@ namespace InterfazGrafica4._7
             this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.txtCodigoLicencia = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbCodigo = new System.Windows.Forms.Label();
+            this.lbPrecio = new System.Windows.Forms.Label();
+            this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImage)).BeginInit();
@@ -122,7 +124,7 @@ namespace InterfazGrafica4._7
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvTabla.Size = new System.Drawing.Size(678, 212);
+            this.dgvTabla.Size = new System.Drawing.Size(678, 177);
             this.dgvTabla.TabIndex = 55;
             this.dgvTabla.Visible = false;
             // 
@@ -245,6 +247,7 @@ namespace InterfazGrafica4._7
             this.cmFiltro.Items.AddRange(new object[] {
             "TODO",
             "IDENTIFICACION",
+            "CODIGO LICENCIA",
             "NOMBRE",
             "CATEGORIA",
             "ORGANISMO",
@@ -329,29 +332,20 @@ namespace InterfazGrafica4._7
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.HoverState.Parent = this.cmbCategoria;
             this.cmbCategoria.ItemHeight = 30;
-            this.cmbCategoria.Items.AddRange(new object[] {
-            "A1",
-            "A2",
-            "A3",
-            "B1",
-            "B2",
-            "B3",
-            "C1",
-            "C2",
-            "C3"});
             this.cmbCategoria.ItemsAppearance.Parent = this.cmbCategoria;
-            this.cmbCategoria.Location = new System.Drawing.Point(144, 524);
+            this.cmbCategoria.Location = new System.Drawing.Point(366, 473);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.ShadowDecoration.Parent = this.cmbCategoria;
-            this.cmbCategoria.Size = new System.Drawing.Size(174, 36);
+            this.cmbCategoria.Size = new System.Drawing.Size(131, 36);
             this.cmbCategoria.TabIndex = 53;
             this.cmbCategoria.Visible = false;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // lbCategoria
             // 
             this.lbCategoria.AutoSize = true;
             this.lbCategoria.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategoria.Location = new System.Drawing.Point(63, 535);
+            this.lbCategoria.Location = new System.Drawing.Point(285, 482);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(75, 17);
             this.lbCategoria.TabIndex = 52;
@@ -414,14 +408,14 @@ namespace InterfazGrafica4._7
             this.txtCodigoLicencia.ForeColor = System.Drawing.Color.Black;
             this.txtCodigoLicencia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCodigoLicencia.HoverState.Parent = this.txtCodigoLicencia;
-            this.txtCodigoLicencia.Location = new System.Drawing.Point(144, 480);
+            this.txtCodigoLicencia.Location = new System.Drawing.Point(123, 473);
             this.txtCodigoLicencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigoLicencia.Name = "txtCodigoLicencia";
             this.txtCodigoLicencia.PasswordChar = '\0';
             this.txtCodigoLicencia.PlaceholderText = "";
             this.txtCodigoLicencia.SelectedText = "";
             this.txtCodigoLicencia.ShadowDecoration.Parent = this.txtCodigoLicencia;
-            this.txtCodigoLicencia.Size = new System.Drawing.Size(174, 36);
+            this.txtCodigoLicencia.Size = new System.Drawing.Size(131, 36);
             this.txtCodigoLicencia.TabIndex = 58;
             this.txtCodigoLicencia.Visible = false;
             // 
@@ -429,12 +423,55 @@ namespace InterfazGrafica4._7
             // 
             this.lbCodigo.AutoSize = true;
             this.lbCodigo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCodigo.Location = new System.Drawing.Point(58, 490);
+            this.lbCodigo.Location = new System.Drawing.Point(43, 482);
             this.lbCodigo.Name = "lbCodigo";
             this.lbCodigo.Size = new System.Drawing.Size(79, 17);
             this.lbCodigo.TabIndex = 59;
             this.lbCodigo.Text = "Codigo Lic";
             this.lbCodigo.Visible = false;
+            // 
+            // lbPrecio
+            // 
+            this.lbPrecio.AutoSize = true;
+            this.lbPrecio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrecio.Location = new System.Drawing.Point(528, 483);
+            this.lbPrecio.Name = "lbPrecio";
+            this.lbPrecio.Size = new System.Drawing.Size(48, 17);
+            this.lbPrecio.TabIndex = 61;
+            this.lbPrecio.Text = "Precio";
+            this.lbPrecio.Visible = false;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrecio.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecio.BorderRadius = 15;
+            this.txtPrecio.BorderThickness = 2;
+            this.txtPrecio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrecio.DefaultText = "";
+            this.txtPrecio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrecio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrecio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrecio.DisabledState.Parent = this.txtPrecio;
+            this.txtPrecio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPrecio.FocusedState.Parent = this.txtPrecio;
+            this.txtPrecio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPrecio.HoverState.Parent = this.txtPrecio;
+            this.txtPrecio.Location = new System.Drawing.Point(577, 473);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.PasswordChar = '\0';
+            this.txtPrecio.PlaceholderText = "";
+            this.txtPrecio.SelectedText = "";
+            this.txtPrecio.ShadowDecoration.Parent = this.txtPrecio;
+            this.txtPrecio.Size = new System.Drawing.Size(131, 36);
+            this.txtPrecio.TabIndex = 60;
+            this.txtPrecio.Visible = false;
             // 
             // FrmRecategorizar
             // 
@@ -442,6 +479,8 @@ namespace InterfazGrafica4._7
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 614);
+            this.Controls.Add(this.lbPrecio);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lbCodigo);
             this.Controls.Add(this.txtCodigoLicencia);
             this.Controls.Add(this.bnLimpiar);
@@ -492,5 +531,7 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2Button bnLimpiar;
         private System.Windows.Forms.Label lbCodigo;
         private Guna.UI2.WinForms.Guna2TextBox txtCodigoLicencia;
+        private System.Windows.Forms.Label lbPrecio;
+        private Guna.UI2.WinForms.Guna2TextBox txtPrecio;
     }
 }

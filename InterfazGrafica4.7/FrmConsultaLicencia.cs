@@ -23,11 +23,7 @@ namespace InterfazGrafica4._7
             usuarioLicenciaService = new UsuarioLicenciaService(ConfigConnection.ConnectionString);
         }
 
-        private void btnDetalles_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ValidarFiltro();
@@ -48,7 +44,15 @@ namespace InterfazGrafica4._7
             {
                 VisualizarOrganismo();
             }
-            else if (filtro.Equals("CATEGORIA"))
+            else
+            {
+                ValidarFiltroExtenso(filtro);
+            }
+        }
+
+        public void ValidarFiltroExtenso(string filtro)
+        {
+            if (filtro.Equals("CATEGORIA"))
             {
                 VisualizarCategoria();
             }
@@ -60,6 +64,10 @@ namespace InterfazGrafica4._7
             {
                 VisualizarFecha();
             }
+            else
+            {
+                VisualizarCodigoLicencia();
+            }
         }
 
         public void VisualizarTodo()
@@ -70,13 +78,22 @@ namespace InterfazGrafica4._7
 
         public void VisualizarCedula()
         {
+            
             string identificacion = txtFiltro.Text;
             var (mensaje, personaBuscada) = usuarioLicenciaService.ConsultarPorIdentificacion(identificacion);
             if (mensaje.Equals($" Se encuentra Registrado {identificacion}"))
             {
+                btnDetalles.Visible = true;
                 AgregarRegistroTabla(personaBuscada);
             }
             MessageBox.Show(mensaje);
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            string identificacion = txtFiltro.Text;
+            var (mensaje, personaBuscada) = usuarioLicenciaService.ConsultarPorIdentificacion(identificacion);
+            new FrmInformacionLicencia(personaBuscada).Show();
         }
 
         public void VisualizarOrganismo()
@@ -105,6 +122,17 @@ namespace InterfazGrafica4._7
             int fecha = int.Parse(txtFiltro.Text);
             var respuesta = usuarioLicenciaService.ConsultarPorAnio(fecha);
             VisualizarTabla(respuesta);
+        }
+
+        public void VisualizarCodigoLicencia()
+        {
+            string codigo= txtFiltro.Text;
+            var (mensaje, licenciaBuscada) = usuarioLicenciaService.ConsultarPorCodigoLicencia(codigo);
+            if (mensaje.Equals($"Se encuentra Registrado la Licencia con Nro {codigo}"))
+            {
+                AgregarRegistroTabla(licenciaBuscada);
+            }
+            MessageBox.Show(mensaje);
         }
 
         public void VisualizarTabla(LicenciaUsuarioConsultaResponse respuesta)
@@ -165,7 +193,6 @@ namespace InterfazGrafica4._7
         {
             dgvTabla.Visible = true;
             bnLimpiar.Visible = true;
-            btnDetalles.Visible = true;
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)

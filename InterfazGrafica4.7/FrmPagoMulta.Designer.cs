@@ -31,9 +31,9 @@ namespace InterfazGrafica4._7
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPagoMulta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnSuperior = new Guna.UI2.WinForms.Guna2Panel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@ namespace InterfazGrafica4._7
             this.btnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagar = new Guna.UI2.WinForms.Guna2Button();
             this.txtCodigoMultaPagar = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lbValor = new System.Windows.Forms.Label();
+            this.lbCodigoMultaPagar = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.lbPlca = new System.Windows.Forms.Label();
@@ -171,10 +171,13 @@ namespace InterfazGrafica4._7
             this.cmFiltro.Items.AddRange(new object[] {
             "TODOS",
             "IDENTIFICACION",
+            "CODIGO MULTA",
             "NOMBRE",
             "DESCRIPCION",
             "ESTADO",
-            "ANIO"});
+            "ANIO",
+            "PLACA",
+            "MARCA"});
             this.cmFiltro.ItemsAppearance.Parent = this.cmFiltro;
             this.cmFiltro.Location = new System.Drawing.Point(114, -1);
             this.cmFiltro.Name = "cmFiltro";
@@ -277,14 +280,14 @@ namespace InterfazGrafica4._7
             this.dgvTabla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTabla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTabla.ColumnHeadersHeight = 38;
             this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -304,21 +307,21 @@ namespace InterfazGrafica4._7
             this.dgvTabla.Name = "dgvTabla";
             this.dgvTabla.ReadOnly = true;
             this.dgvTabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTabla.RowHeadersVisible = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTabla.Size = new System.Drawing.Size(678, 250);
             this.dgvTabla.TabIndex = 47;
             this.dgvTabla.Visible = false;
@@ -389,7 +392,7 @@ namespace InterfazGrafica4._7
             this.pnInferior.Controls.Add(this.btnLimpiar);
             this.pnInferior.Controls.Add(this.btnPagar);
             this.pnInferior.Controls.Add(this.txtCodigoMultaPagar);
-            this.pnInferior.Controls.Add(this.lbValor);
+            this.pnInferior.Controls.Add(this.lbCodigoMultaPagar);
             this.pnInferior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnInferior.Location = new System.Drawing.Point(0, 534);
             this.pnInferior.Name = "pnInferior";
@@ -465,17 +468,17 @@ namespace InterfazGrafica4._7
             this.txtCodigoMultaPagar.TabIndex = 48;
             this.txtCodigoMultaPagar.Visible = false;
             // 
-            // lbValor
+            // lbCodigoMultaPagar
             // 
-            this.lbValor.AutoSize = true;
-            this.lbValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbValor.ForeColor = System.Drawing.Color.DimGray;
-            this.lbValor.Location = new System.Drawing.Point(130, 30);
-            this.lbValor.Name = "lbValor";
-            this.lbValor.Size = new System.Drawing.Size(158, 17);
-            this.lbValor.TabIndex = 47;
-            this.lbValor.Text = "Codigo Multa  A Pagar";
-            this.lbValor.Visible = false;
+            this.lbCodigoMultaPagar.AutoSize = true;
+            this.lbCodigoMultaPagar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCodigoMultaPagar.ForeColor = System.Drawing.Color.DimGray;
+            this.lbCodigoMultaPagar.Location = new System.Drawing.Point(130, 30);
+            this.lbCodigoMultaPagar.Name = "lbCodigoMultaPagar";
+            this.lbCodigoMultaPagar.Size = new System.Drawing.Size(158, 17);
+            this.lbCodigoMultaPagar.TabIndex = 47;
+            this.lbCodigoMultaPagar.Text = "Codigo Multa  A Pagar";
+            this.lbCodigoMultaPagar.Visible = false;
             // 
             // guna2Panel2
             // 
@@ -564,7 +567,7 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2TextBox txtCodigoMultaPagar;
-        private System.Windows.Forms.Label lbValor;
+        private System.Windows.Forms.Label lbCodigoMultaPagar;
         private System.Windows.Forms.DataGridView dgvTabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoMulta;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmDescripcionMulta;
