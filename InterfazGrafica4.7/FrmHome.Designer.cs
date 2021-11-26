@@ -49,7 +49,7 @@ namespace InterfazGrafica4._7
             this.bnNotificaciones = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnUsuario = new Bunifu.UI.WinForms.BunifuPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbUsuarioPrincipal = new System.Windows.Forms.Label();
             this.pnEspacio = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnBusqueda = new Bunifu.UI.WinForms.BunifuPanel();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -261,7 +261,7 @@ namespace InterfazGrafica4._7
             this.pnUsuario.BorderRadius = 3;
             this.pnUsuario.BorderThickness = 1;
             this.pnUsuario.Controls.Add(this.guna2PictureBox1);
-            this.pnUsuario.Controls.Add(this.label4);
+            this.pnUsuario.Controls.Add(this.lbUsuarioPrincipal);
             this.pnUsuario.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnUsuario.Location = new System.Drawing.Point(558, 0);
             this.pnUsuario.Name = "pnUsuario";
@@ -281,17 +281,17 @@ namespace InterfazGrafica4._7
             this.guna2PictureBox1.TabIndex = 34;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // label4
+            // lbUsuarioPrincipal
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(34, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 20);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Administrador";
+            this.lbUsuarioPrincipal.AutoSize = true;
+            this.lbUsuarioPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.lbUsuarioPrincipal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuarioPrincipal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbUsuarioPrincipal.Location = new System.Drawing.Point(34, 10);
+            this.lbUsuarioPrincipal.Name = "lbUsuarioPrincipal";
+            this.lbUsuarioPrincipal.Size = new System.Drawing.Size(109, 20);
+            this.lbUsuarioPrincipal.TabIndex = 28;
+            this.lbUsuarioPrincipal.Text = "Administrador";
             // 
             // pnEspacio
             // 
@@ -540,7 +540,7 @@ namespace InterfazGrafica4._7
         private Bunifu.UI.WinForms.BunifuPanel pnBusqueda;
         private Bunifu.UI.WinForms.BunifuPanel pnEspacioo;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbUsuarioPrincipal;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox bnNotificaciones;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;

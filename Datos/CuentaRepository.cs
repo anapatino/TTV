@@ -21,20 +21,24 @@ namespace Datos
 
         public Cuenta VerificarIngreso(string usuario,string password)
         {
-            Cuenta cuenta = new Cuenta();
+            Cuenta cuenta = null;
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "SELECT *FROM CUENTA WHERE usuario=:usuario AND password=:password";
                 command.Parameters.Add(new OracleParameter("usuario",usuario));
                 command.Parameters.Add(new OracleParameter("password",password));
                 var reader = command.ExecuteReader();
-                if (reader.Read())
-                { 
-                    cuenta.Codigo = reader.GetString(0);
-                    cuenta.NombreUsuario = reader.GetString(1);
-                    cuenta.Usuario = reader.GetString(2);
-                    cuenta.Password = reader.GetString(3);
-                }
+                if (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        cuenta = new Cuenta();
+                        cuenta.Codigo = reader.GetString(0);
+                        cuenta.NombreUsuario = reader.GetString(1);
+                        cuenta.Usuario = reader.GetString(2);
+                        cuenta.Password = reader.GetString(3);
+                    }
+                }             
             }
             return cuenta;
         }

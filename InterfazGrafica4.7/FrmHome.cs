@@ -17,20 +17,30 @@ namespace InterfazGrafica4._7
         MultaService multaService;
         LicenciaService licenciaService;
 
-        public FrmHome()
+        public FrmHome(Cuenta cuenta)
         {
+            Cuenta = cuenta;
             InitializeComponent();
             multaService = new MultaService(ConfigConnection.ConnectionString);
             licenciaService = new LicenciaService(ConfigConnection.ConnectionString);
             ActivarCifrasMulta();
         }
 
+        public Cuenta Cuenta { get; set; }
+
         public void ActivarCifrasMulta()
         {
             ObtenerNroMultasRegistradas();
             ObtenerNroMultasPendientes();
             ObtenerNroMultasPagadas();
+            ActivarUsuario();
             ActivarGrafico();
+        }
+
+        public void ActivarUsuario()
+        {
+            lbUsuarioPrincipal.Text = Cuenta.NombreUsuario;
+            lbUsuario.Text= Cuenta.NombreUsuario;
         }
 
         public void ObtenerNroMultasRegistradas()

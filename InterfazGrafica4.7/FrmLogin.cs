@@ -31,11 +31,11 @@ namespace InterfazGrafica4._7
             string password=txtPassword.Text;
             string usuario=txtUsername.Text;
             var (mensaje, cuentaEncontrada) = cuentaService.VerificarCuenta(usuario,password);
-            if(mensaje.Equals("Iniciar Seccion"))
+            if(cuentaEncontrada!=null)
             {
                 Hide();
                 new FrmCargando().ShowDialog();
-                new FrmPrincipal().Show();
+                new FrmPrincipal(cuentaEncontrada).Show();   
             }
             else
             {
