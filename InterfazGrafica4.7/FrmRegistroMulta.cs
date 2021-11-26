@@ -26,11 +26,15 @@ namespace InterfazGrafica4._7
             usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
             multaService = new MultaService(ConfigConnection.ConnectionString);
             usuarioLicenciaService = new UsuarioLicenciaService(ConfigConnection.ConnectionString);
+            ActivarCombos();
+        }
+
+        public void ActivarCombos()
+        {
             AñadirDepartamento();
             AñadirBarrio();
             AñadirMulta();
             AñadirRestriccion();
-          
         }
 
         private void LimpiarComponentes()
@@ -310,7 +314,19 @@ namespace InterfazGrafica4._7
             string mensajeVehiculo = multaService.GuardarVehiculo(vehiculo);
             var multa = RegistrarMultaUsuario(usuario, mul);
             string mensajeMultaUsuario = multaService.Guardar(multa);
-            MessageBox.Show(mensajeMultaUsuario);
+            VerificarDatosRegistrados(mensajeMultaUsuario);
+        }
+
+        public void VerificarDatosRegistrados(string mensajeMultaUsuario)
+        {
+            if (mensajeMultaUsuario.Equals("Se guardaron los datos Satisfactoriamente la Multa"))
+            {
+                new FrmGuardar().Show();
+            }
+            else
+            {
+                new FrmError().Show();
+            }
             LimpiarComponentes();
         }
 
@@ -392,7 +408,6 @@ namespace InterfazGrafica4._7
 
         private void cmDescripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             txtValor.Text = multaService.ObtenerPrecioMulta(cmDescripcion.Text);
         }
 
@@ -483,9 +498,9 @@ namespace InterfazGrafica4._7
             cmbRestriccion.Text = licenciaBuscada.Usuario.RestriccionCodigo;
             cmbBarrio.Text = licenciaBuscada.Usuario.BarrioCodigo;
             cmbCiudad.Text = licenciaBuscada.Usuario.CiudadCodigo;
-            //dtpFechaNacimiento = licenciaBuscada.Usuario.FechaNacimiento.Value.Date;
-            //cmDepartamento.Text = licenciaBuscada.Usuario.;
-       
+            dtpFechaNacimiento.Text = licenciaBuscada.Usuario.FechaNacimiento.ToString();        
+            cmDepartamento.Text = usuarioService.ObtenerDepartamento(cmbCiudad.Text);
+
         }
     }
 }

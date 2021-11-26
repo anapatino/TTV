@@ -25,7 +25,7 @@ namespace Logica
             {
                 connectionManager.Open();
                 multaRepository.GuardarMulta(multa);
-                return "Se guardaron los datos Satisfactoriamente el Usuario";
+                return "Se guardaron los datos Satisfactoriamente la Multa";
             }
             catch (Exception e)
             {
@@ -40,7 +40,7 @@ namespace Logica
             {
                 connectionManager.Open();
                 multaRepository.GuardarVehiculo(vehiculo);
-                return "Se guardaron los datos Satisfactoriamente el Usuario";
+                return "Se guardaron los datos Satisfactoriamente del Vehiculo";
             }
             catch (Exception e)
             {

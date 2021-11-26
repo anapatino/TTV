@@ -24,15 +24,20 @@ namespace InterfazGrafica4._7
             InitializeComponent();
             usuarioService = new UsuarioService(ConfigConnection.ConnectionString);
             licenciaService = new LicenciaService(ConfigConnection.ConnectionString);
-            AñadirDepartamento();
-            AñadirBarrio();
-            AñadirCategoria();
-            AñadirRestriccion(); 
+            ActivarCombos();
         }
 
         private void bnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarComponentes();
+        }
+
+        public void ActivarCombos()
+        {
+            AñadirDepartamento();
+            AñadirBarrio();
+            AñadirCategoria();
+            AñadirRestriccion();
         }
 
         private void LimpiarComponentes()
@@ -291,7 +296,19 @@ namespace InterfazGrafica4._7
             string mensajeLicencia = licenciaService.Guardar(licencia);
             var usuario = RegistrarUsuario(licencia);
             string mensajeUsuario = usuarioService.Guardar(usuario);
-            MessageBox.Show(mensajeLicencia + " y " + mensajeUsuario);
+            VerificarDatosRegistrados(mensajeLicencia); 
+        }
+
+        public void VerificarDatosRegistrados(string mensajeLicencia)
+        {
+            if (mensajeLicencia.Equals("Se guardaron los datos Satisfactoriamente la Licencia"))
+            {
+                new FrmGuardar().Show();
+            }
+            else
+            {
+                new FrmError().Show();
+            }
             LimpiarComponentes();
         }
 
