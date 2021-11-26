@@ -40,10 +40,10 @@ namespace InterfazGrafica4._7
             this.lbLogin = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
-            this.lbUsername = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chxOcultarPassword = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.pnIzquierdo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenLogin)).BeginInit();
             this.pnSuperior.SuspendLayout();
@@ -119,8 +119,8 @@ namespace InterfazGrafica4._7
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.Transparent;
-            this.txtPassword.BorderColor = System.Drawing.Color.White;
-            this.txtPassword.BorderRadius = 15;
+            this.txtPassword.BorderColor = System.Drawing.Color.Cornsilk;
+            this.txtPassword.BorderRadius = 18;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -128,26 +128,29 @@ namespace InterfazGrafica4._7
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.DisabledState.Parent = this.txtPassword;
             this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.FillColor = System.Drawing.Color.Cornsilk;
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.FocusedState.Parent = this.txtPassword;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.HoverState.Parent = this.txtPassword;
-            this.txtPassword.Location = new System.Drawing.Point(18, 236);
+            this.txtPassword.Location = new System.Drawing.Point(31, 236);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '\0';
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
-            this.txtPassword.Size = new System.Drawing.Size(289, 38);
+            this.txtPassword.Size = new System.Drawing.Size(276, 38);
             this.txtPassword.TabIndex = 15;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.Transparent;
-            this.txtUsername.BorderColor = System.Drawing.Color.White;
-            this.txtUsername.BorderRadius = 15;
+            this.txtUsername.BorderColor = System.Drawing.Color.Cornsilk;
+            this.txtUsername.BorderRadius = 18;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsername.DefaultText = "";
             this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -155,19 +158,21 @@ namespace InterfazGrafica4._7
             this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.DisabledState.Parent = this.txtUsername;
             this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.FillColor = System.Drawing.Color.Cornsilk;
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.FocusedState.Parent = this.txtUsername;
             this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.HoverState.Parent = this.txtUsername;
-            this.txtUsername.Location = new System.Drawing.Point(18, 143);
+            this.txtUsername.Location = new System.Drawing.Point(31, 143);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.SelectedText = "";
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
-            this.txtUsername.Size = new System.Drawing.Size(289, 38);
+            this.txtUsername.Size = new System.Drawing.Size(276, 38);
             this.txtUsername.TabIndex = 13;
             // 
             // lbLogin
@@ -205,7 +210,7 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.Controls.Add(this.lbPassword);
             this.bunifuPanel1.Controls.Add(this.lbUsername);
             this.bunifuPanel1.Controls.Add(this.label1);
-            this.bunifuPanel1.Controls.Add(this.bunifuCheckBox1);
+            this.bunifuPanel1.Controls.Add(this.chxOcultarPassword);
             this.bunifuPanel1.Controls.Add(this.btnLogin);
             this.bunifuPanel1.Controls.Add(this.lbDescripcion);
             this.bunifuPanel1.Controls.Add(this.txtPassword);
@@ -217,6 +222,30 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.Size = new System.Drawing.Size(333, 428);
             this.bunifuPanel1.TabIndex = 2;
             // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lbPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbPassword.Location = new System.Drawing.Point(28, 215);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(69, 17);
+            this.lbPassword.TabIndex = 20;
+            this.lbPassword.Text = "Password";
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lbUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbUsername.Location = new System.Drawing.Point(28, 122);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(71, 17);
+            this.lbUsername.TabIndex = 19;
+            this.lbUsername.Text = "Username";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -225,86 +254,63 @@ namespace InterfazGrafica4._7
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
             this.label1.Location = new System.Drawing.Point(64, 301);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Open Section";
+            this.label1.Text = "Ocultar Password";
             // 
-            // bunifuCheckBox1
+            // chxOcultarPassword
             // 
-            this.bunifuCheckBox1.AllowBindingControlAnimation = true;
-            this.bunifuCheckBox1.AllowBindingControlColorChanges = false;
-            this.bunifuCheckBox1.AllowBindingControlLocation = true;
-            this.bunifuCheckBox1.AllowCheckBoxAnimation = false;
-            this.bunifuCheckBox1.AllowCheckmarkAnimation = true;
-            this.bunifuCheckBox1.AllowOnHoverStates = true;
-            this.bunifuCheckBox1.AutoCheck = true;
-            this.bunifuCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCheckBox1.BackgroundImage")));
-            this.bunifuCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bunifuCheckBox1.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
-            this.bunifuCheckBox1.BorderRadius = 12;
-            this.bunifuCheckBox1.Checked = true;
-            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
-            this.bunifuCheckBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuCheckBox1.CustomCheckmarkImage = null;
-            this.bunifuCheckBox1.Location = new System.Drawing.Point(37, 297);
-            this.bunifuCheckBox1.MinimumSize = new System.Drawing.Size(17, 17);
-            this.bunifuCheckBox1.Name = "bunifuCheckBox1";
-            this.bunifuCheckBox1.OnCheck.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.OnCheck.BorderRadius = 12;
-            this.bunifuCheckBox1.OnCheck.BorderThickness = 2;
-            this.bunifuCheckBox1.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(132)))), ((int)(((byte)(35)))));
-            this.bunifuCheckBox1.OnCheck.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox1.OnCheck.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnDisable.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox1.OnDisable.BorderRadius = 12;
-            this.bunifuCheckBox1.OnDisable.BorderThickness = 2;
-            this.bunifuCheckBox1.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox1.OnDisable.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuCheckBox1.OnHoverChecked.BorderRadius = 12;
-            this.bunifuCheckBox1.OnHoverChecked.BorderThickness = 2;
-            this.bunifuCheckBox1.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuCheckBox1.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox1.OnHoverChecked.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderRadius = 12;
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderThickness = 1;
-            this.bunifuCheckBox1.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
-            this.bunifuCheckBox1.OnUncheck.BorderRadius = 12;
-            this.bunifuCheckBox1.OnUncheck.BorderThickness = 1;
-            this.bunifuCheckBox1.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.Size = new System.Drawing.Size(21, 21);
-            this.bunifuCheckBox1.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
-            this.bunifuCheckBox1.TabIndex = 17;
-            this.bunifuCheckBox1.ThreeState = false;
-            this.bunifuCheckBox1.ToolTipText = null;
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lbUsername.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbUsername.Location = new System.Drawing.Point(28, 122);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(67, 17);
-            this.lbUsername.TabIndex = 19;
-            this.lbUsername.Text = "Username";
-            // 
-            // lbPassword
-            // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lbPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbPassword.Location = new System.Drawing.Point(28, 215);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(63, 17);
-            this.lbPassword.TabIndex = 20;
-            this.lbPassword.Text = "Password";
+            this.chxOcultarPassword.AllowBindingControlAnimation = true;
+            this.chxOcultarPassword.AllowBindingControlColorChanges = false;
+            this.chxOcultarPassword.AllowBindingControlLocation = true;
+            this.chxOcultarPassword.AllowCheckBoxAnimation = false;
+            this.chxOcultarPassword.AllowCheckmarkAnimation = true;
+            this.chxOcultarPassword.AllowOnHoverStates = true;
+            this.chxOcultarPassword.AutoCheck = true;
+            this.chxOcultarPassword.BackColor = System.Drawing.Color.Transparent;
+            this.chxOcultarPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chxOcultarPassword.BackgroundImage")));
+            this.chxOcultarPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chxOcultarPassword.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.chxOcultarPassword.BorderRadius = 12;
+            this.chxOcultarPassword.Checked = true;
+            this.chxOcultarPassword.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
+            this.chxOcultarPassword.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chxOcultarPassword.CustomCheckmarkImage = null;
+            this.chxOcultarPassword.Location = new System.Drawing.Point(37, 297);
+            this.chxOcultarPassword.MinimumSize = new System.Drawing.Size(17, 17);
+            this.chxOcultarPassword.Name = "chxOcultarPassword";
+            this.chxOcultarPassword.OnCheck.BorderColor = System.Drawing.Color.Transparent;
+            this.chxOcultarPassword.OnCheck.BorderRadius = 12;
+            this.chxOcultarPassword.OnCheck.BorderThickness = 2;
+            this.chxOcultarPassword.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(132)))), ((int)(((byte)(35)))));
+            this.chxOcultarPassword.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.chxOcultarPassword.OnCheck.CheckmarkThickness = 2;
+            this.chxOcultarPassword.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.chxOcultarPassword.OnDisable.BorderRadius = 12;
+            this.chxOcultarPassword.OnDisable.BorderThickness = 2;
+            this.chxOcultarPassword.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chxOcultarPassword.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.chxOcultarPassword.OnDisable.CheckmarkThickness = 2;
+            this.chxOcultarPassword.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.chxOcultarPassword.OnHoverChecked.BorderRadius = 12;
+            this.chxOcultarPassword.OnHoverChecked.BorderThickness = 2;
+            this.chxOcultarPassword.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.chxOcultarPassword.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.chxOcultarPassword.OnHoverChecked.CheckmarkThickness = 2;
+            this.chxOcultarPassword.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.chxOcultarPassword.OnHoverUnchecked.BorderRadius = 12;
+            this.chxOcultarPassword.OnHoverUnchecked.BorderThickness = 1;
+            this.chxOcultarPassword.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chxOcultarPassword.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
+            this.chxOcultarPassword.OnUncheck.BorderRadius = 12;
+            this.chxOcultarPassword.OnUncheck.BorderThickness = 1;
+            this.chxOcultarPassword.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chxOcultarPassword.Size = new System.Drawing.Size(21, 21);
+            this.chxOcultarPassword.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.chxOcultarPassword.TabIndex = 17;
+            this.chxOcultarPassword.ThreeState = false;
+            this.chxOcultarPassword.ToolTipText = null;
+            this.chxOcultarPassword.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chxOcultarPassword_CheckedChanged);
             // 
             // FrmLogin
             // 
@@ -342,7 +348,7 @@ namespace InterfazGrafica4._7
         private Guna.UI2.WinForms.Guna2PictureBox pcImagenLogin;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private System.Windows.Forms.Label label1;
-        private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
+        private Bunifu.UI.WinForms.BunifuCheckBox chxOcultarPassword;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label lbUsername;
     }

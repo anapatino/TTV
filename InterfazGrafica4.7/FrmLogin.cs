@@ -49,5 +49,22 @@ namespace InterfazGrafica4._7
             txtPassword.Text=null;
             txtUsername.Text=null;
         }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void chxOcultarPassword_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chxOcultarPassword.Checked == false)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
