@@ -31,24 +31,9 @@ namespace Datos
                 {
                     while (reader.Read())
                     {
-                        Usuario usuario = new Usuario();
-                        Licencia lic = new Licencia();
-                        usuario.Codigo=reader.GetString(0);
-                        usuario.Pri_nombre = reader.GetString(1);
-                        usuario.Seg_nombre = reader.GetString(2);
-                        usuario.Pri_apellido = reader.GetString(3);
-                        usuario.Seg_apellido = reader.GetString(4);
-                        usuario.FechaNacimiento = reader.GetDateTime(5);
-                        usuario.Telefono = reader.GetString(6);
-                        usuario.Grupo_Sanguineo = reader.GetString(7);
-                        usuario.LicenciaCodigo = reader.GetString(8);
-                        usuario.CiudadCodigo = reader.GetString(9);
-                        usuario.BarrioCodigo = reader.GetString(10);
-                        usuario.RestriccionCodigo = reader.GetString(11);
-                        lic.Codigo = reader.GetString(12);
-                        lic.Organismo = reader.GetString(13);
-                        lic.FechaExp = reader.GetDateTime(14);
-                        lic.CodCat = reader.GetString(15);
+                        Usuario usuario;
+                        Licencia lic;
+                        MaearPersona(reader, out usuario, out lic);
                         Usuario_Licencia licencia = new Usuario_Licencia(usuario, lic);
                         licencias.Add(licencia);
                     }
@@ -56,6 +41,28 @@ namespace Datos
                 reader.Close();
             }
             return licencias;
+        }
+
+        private static void MaearPersona(DbDataReader reader, out Usuario usuario, out Licencia lic)
+        {
+            usuario = new Usuario();
+            lic = new Licencia();
+            usuario.Codigo = reader.GetString(0);
+            usuario.Pri_nombre = reader.GetString(1);
+            usuario.Seg_nombre = reader.GetString(2);
+            usuario.Pri_apellido = reader.GetString(3);
+            usuario.Seg_apellido = reader.GetString(4);
+            usuario.FechaNacimiento = reader.GetDateTime(5);
+            usuario.Telefono = reader.GetString(6);
+            usuario.Grupo_Sanguineo = reader.GetString(7);
+            usuario.LicenciaCodigo = reader.GetString(8);
+            usuario.CiudadCodigo = reader.GetString(9);
+            usuario.BarrioCodigo = reader.GetString(10);
+            usuario.RestriccionCodigo = reader.GetString(11);
+            lic.Codigo = reader.GetString(12);
+            lic.Organismo = reader.GetString(13);
+            lic.FechaExp = reader.GetDateTime(14);
+            lic.CodCat = reader.GetString(15);
         }
 
         public void ModificarCategoria(string codigoCategoria,string codigoLicencia)
