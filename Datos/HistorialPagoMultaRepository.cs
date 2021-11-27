@@ -32,36 +32,43 @@ namespace Datos
                 {
                     while (reader.Read())
                     {
-                        Multa mul = new Multa();
-                        Usuario usuario = new Usuario();
-                        usuario.Codigo = reader.GetString(0);
-                        usuario.Pri_nombre = reader.GetString(1);
-                        usuario.Seg_nombre = reader.GetString(2);
-                        usuario.Pri_apellido = reader.GetString(3);
-                        usuario.Seg_apellido = reader.GetString(4);
-                        usuario.FechaNacimiento = reader.GetDateTime(5);
-                        usuario.Telefono = reader.GetString(6);
-                        usuario.Grupo_Sanguineo = reader.GetString(7);
-                        usuario.LicenciaCodigo = reader.GetString(8);
-                        usuario.CiudadCodigo = reader.GetString(9);
-                        usuario.BarrioCodigo = reader.GetString(10);
-                        usuario.RestriccionCodigo = reader.GetString(11);
-                        mul.Mul_Id = reader.GetString(12);
-                        mul.Descripcion = reader.GetString(13);
-                        mul.Valor = reader.GetDecimal(14);
+                        Multa mul;
+                        Usuario usuario;
+                        MapearHistorial(reader, out mul, out usuario);
                         string codigo = reader.GetString(15);
                         string codigoMultaUsuario = reader.GetString(16);
                         DateTime fechaPago = reader.GetDateTime(17);
                         string estado = reader.GetString(18);
                         string idVehiculo = reader.GetString(19);
                         string nombreVehiculo = reader.GetString(20);
-                        HistorialPagoMulta pago = new HistorialPagoMulta(usuario, mul, codigo, codigoMultaUsuario, idVehiculo,  nombreVehiculo, estado, fechaPago);
+                        HistorialPagoMulta pago = new HistorialPagoMulta(usuario, mul, codigo, codigoMultaUsuario, idVehiculo, nombreVehiculo, estado, fechaPago);
                         pagos.Add(pago);
                     }
                 }
                 reader.Close();
             }
             return pagos; ;
+        }
+
+        private static void MapearHistorial(DbDataReader reader, out Multa mul, out Usuario usuario)
+        {
+            mul = new Multa();
+            usuario = new Usuario();
+            usuario.Codigo = reader.GetString(0);
+            usuario.Pri_nombre = reader.GetString(1);
+            usuario.Seg_nombre = reader.GetString(2);
+            usuario.Pri_apellido = reader.GetString(3);
+            usuario.Seg_apellido = reader.GetString(4);
+            usuario.FechaNacimiento = reader.GetDateTime(5);
+            usuario.Telefono = reader.GetString(6);
+            usuario.Grupo_Sanguineo = reader.GetString(7);
+            usuario.LicenciaCodigo = reader.GetString(8);
+            usuario.CiudadCodigo = reader.GetString(9);
+            usuario.BarrioCodigo = reader.GetString(10);
+            usuario.RestriccionCodigo = reader.GetString(11);
+            mul.Mul_Id = reader.GetString(12);
+            mul.Descripcion = reader.GetString(13);
+            mul.Valor = reader.GetDecimal(14);
         }
 
         public List<HistorialPagoMulta> BuscarUsuario(string identificacion)

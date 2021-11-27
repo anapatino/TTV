@@ -33,35 +33,54 @@ namespace Datos
                 {
                     while (reader.Read())
                     {
-                        Multa mul = new Multa();
-                        Usuario usuario = new Usuario();
-                        usuario.Codigo = reader.GetString(0);
-                        usuario.Pri_nombre = reader.GetString(1);
-                        usuario.Seg_nombre = reader.GetString(2);
-                        usuario.Pri_apellido = reader.GetString(3);
-                        usuario.Seg_apellido = reader.GetString(4);
-                        usuario.FechaNacimiento = reader.GetDateTime(5);
-                        usuario.Telefono = reader.GetString(6);
-                        usuario.Grupo_Sanguineo = reader.GetString(7);
-                        usuario.LicenciaCodigo = reader.GetString(8);
-                        usuario.CiudadCodigo = reader.GetString(9);
-                        usuario.BarrioCodigo = reader.GetString(10);
-                        usuario.RestriccionCodigo = reader.GetString(11);
-                        mul.Mul_Id = reader.GetString(12);
-                        mul.Descripcion = reader.GetString(13);
-                        mul.Valor = reader.GetDecimal(14);
+                        Multa mul;
+                        Usuario usuario;
+                        MapearMulta(reader, out mul, out usuario);
                         string codigoMultaUsuario = reader.GetString(15);
                         DateTime fechaExpedicion = reader.GetDateTime(16);
                         string estado = reader.GetString(17);
                         string vehiculoId = reader.GetString(18);
                         string vehiculoNombre = reader.GetString(19);
-                        Multa_Usuario multa =new Multa_Usuario(usuario,mul, codigoMultaUsuario, vehiculoId, vehiculoNombre, estado, fechaExpedicion);
-                        multas.Add(multa);   
+                        Multa_Usuario multa = new Multa_Usuario(usuario, mul, codigoMultaUsuario, vehiculoId, vehiculoNombre, estado, fechaExpedicion);
+                        multas.Add(multa);
                     }
                 }
                 reader.Close();
             }
             return multas; ;
+        }
+
+        private static void MapearMulta(DbDataReader reader, out Multa mul, out Usuario usuario)
+        {
+            usuario = MapearUsuario(reader);
+            mul = MapearMulta(reader);
+        }
+
+        private static Usuario MapearUsuario(DbDataReader reader)
+        {
+            Usuario usuario = new Usuario();
+            usuario.Codigo = reader.GetString(0);
+            usuario.Pri_nombre = reader.GetString(1);
+            usuario.Seg_nombre = reader.GetString(2);
+            usuario.Pri_apellido = reader.GetString(3);
+            usuario.Seg_apellido = reader.GetString(4);
+            usuario.FechaNacimiento = reader.GetDateTime(5);
+            usuario.Telefono = reader.GetString(6);
+            usuario.Grupo_Sanguineo = reader.GetString(7);
+            usuario.LicenciaCodigo = reader.GetString(8);
+            usuario.CiudadCodigo = reader.GetString(9);
+            usuario.BarrioCodigo = reader.GetString(10);
+            usuario.RestriccionCodigo = reader.GetString(11);
+            return usuario;
+        }
+
+        private static Multa MapearMulta(DbDataReader reader)
+        {
+            Multa mul = new Multa();
+            mul.Mul_Id = reader.GetString(12);
+            mul.Descripcion = reader.GetString(13);
+            mul.Valor = reader.GetDecimal(14);
+            return mul;
         }
 
         public  void ModificarEstado(string codigoMultaUsuario)
