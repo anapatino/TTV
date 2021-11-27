@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ComboxConsultasResponse.cs" />
     <Compile Include="CuentaService.cs" />
+    <Compile Include="EmailService.cs" />
     <Compile Include="HistorialPagoMultaConsultaResponse.cs" />
     <Compile Include="LicenciaService.cs" />
     <Compile Include="LicenciaUsuarioConsultaResponse.cs" />
@@ -62,6 +63,10 @@
     <ProjectReference Include="..\Entidad\Entidad.csproj">
       <Project>{f6c3bac9-0cb7-4cad-962d-2b130a062e26}</Project>
       <Name>Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
+      <Project>{043451b1-bab9-40b0-bd27-db70674405a0}</Project>
+      <Name>Infraestructura</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

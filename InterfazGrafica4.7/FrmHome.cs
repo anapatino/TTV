@@ -63,9 +63,10 @@ namespace InterfazGrafica4._7
 
         public void ActivarGrafico()
         {
+            string [] titulos= { "Usuarios Con Licencias","Usuarios Sin Licencias"};
             var (mensaje,datos) = licenciaService.ObtenerDatosLicencia();
-            //graficoLicencia.Series[0].Points.DataBindXY(datos);
-
+            grafico.Series["grafico"].Points.DataBindXY(titulos,datos);
+            grafico.Titles.Add("Estadistica De Usuarios Con Licencia");
         }
     }
 }

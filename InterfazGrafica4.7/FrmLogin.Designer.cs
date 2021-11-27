@@ -40,6 +40,7 @@ namespace InterfazGrafica4._7
             this.lbLogin = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.linkRecuperarContrasena = new System.Windows.Forms.LinkLabel();
             this.lbPassword = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -108,7 +109,7 @@ namespace InterfazGrafica4._7
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.HoverState.Parent = this.btnLogin;
-            this.btnLogin.Location = new System.Drawing.Point(100, 354);
+            this.btnLogin.Location = new System.Drawing.Point(95, 346);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.ShadowDecoration.Parent = this.btnLogin;
             this.btnLogin.Size = new System.Drawing.Size(142, 45);
@@ -207,6 +208,7 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 48;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.linkRecuperarContrasena);
             this.bunifuPanel1.Controls.Add(this.lbPassword);
             this.bunifuPanel1.Controls.Add(this.lbUsername);
             this.bunifuPanel1.Controls.Add(this.label1);
@@ -219,8 +221,24 @@ namespace InterfazGrafica4._7
             this.bunifuPanel1.Location = new System.Drawing.Point(495, 42);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(333, 428);
+            this.bunifuPanel1.Size = new System.Drawing.Size(333, 448);
             this.bunifuPanel1.TabIndex = 2;
+            // 
+            // linkRecuperarContrasena
+            // 
+            this.linkRecuperarContrasena.AutoSize = true;
+            this.linkRecuperarContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(83)))), ((int)(((byte)(20)))));
+            this.linkRecuperarContrasena.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.linkRecuperarContrasena.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkRecuperarContrasena.ForeColor = System.Drawing.Color.Transparent;
+            this.linkRecuperarContrasena.LinkColor = System.Drawing.Color.White;
+            this.linkRecuperarContrasena.Location = new System.Drawing.Point(64, 406);
+            this.linkRecuperarContrasena.Name = "linkRecuperarContrasena";
+            this.linkRecuperarContrasena.Size = new System.Drawing.Size(214, 17);
+            this.linkRecuperarContrasena.TabIndex = 21;
+            this.linkRecuperarContrasena.TabStop = true;
+            this.linkRecuperarContrasena.Text = "¿Desea Recuperar Contraseña?";
+            this.linkRecuperarContrasena.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRecuperarContrasena_LinkClicked);
             // 
             // lbPassword
             // 
@@ -351,5 +369,6 @@ namespace InterfazGrafica4._7
         private Bunifu.UI.WinForms.BunifuCheckBox chxOcultarPassword;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.LinkLabel linkRecuperarContrasena;
     }
 }

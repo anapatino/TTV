@@ -104,8 +104,8 @@ namespace Datos
                 command.Parameters.Add("TOTAL_LICENCIAS", OracleDbType.Int32, ParameterDirection.Output);
                 command.Parameters.Add("SIN_LICENCIA", OracleDbType.Int32, ParameterDirection.Output);
                 command.ExecuteNonQuery();
-                lic.Add(command.Parameters["TOTAL_LICENCIAS"]);
-                lic.Add(command.Parameters["SIN_LICENCIA"]);
+                lic.Add(int.Parse(command.Parameters["TOTAL_LICENCIAS"].Value.ToString()));
+                lic.Add(int.Parse(command.Parameters["SIN_LICENCIA"].Value.ToString()));
             }
             return lic;
         }

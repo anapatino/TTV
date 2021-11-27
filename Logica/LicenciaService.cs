@@ -32,7 +32,10 @@ namespace Logica
             {
                 return $"Error de la Aplicacion: {e.Message}";
             }
-            finally { connectionManager.Close(); }
+            finally 
+            {
+                connectionManager.Close();
+            }
         }
 
         public ComboxConsultasResponse AñadirCategorias()

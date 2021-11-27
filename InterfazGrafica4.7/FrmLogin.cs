@@ -15,11 +15,13 @@ namespace InterfazGrafica4._7
     public partial class FrmLogin : Form
     {
         CuentaService cuentaService;
+        EmailService emailService;
 
         public FrmLogin()
         {
             InitializeComponent();
             cuentaService = new CuentaService(ConfigConnection.ConnectionString);
+            emailService=new EmailService();
         }
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -65,6 +67,16 @@ namespace InterfazGrafica4._7
             {
                 txtPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void linkRecuperarContrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var (mensaje,cuenta) =cuentaService.RecuperarCuenta(txtUsername.Text);
+            if (cuenta != null)
+            {
+                string mens = emailService.RecuperarContrasena(cuenta);
+                MessageBox.Show(mens);
+            } 
         }
     }
 }

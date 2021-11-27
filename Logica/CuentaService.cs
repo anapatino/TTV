@@ -19,7 +19,7 @@ namespace Logica
             cuentaRepository = new CuentaRepository(connectionManager.Connection);
         }
 
-        public (string mensaje, Cuenta usuarioMulta) VerificarCuenta(string usuario,string password)
+        public (string mensaje, Cuenta usuario) VerificarCuenta(string usuario,string password)
         {
             try
             {
@@ -34,6 +34,28 @@ namespace Logica
             catch (Exception e)
             {
                 return ($"Error inesperado al Buscar Usuario y/o Password: {e.Message}", null);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+        public (string mensaje, Cuenta usuario) RecuperarCuenta(string usuario)
+        {
+            try
+            {
+                connectionManager.Open();
+                var usuarioEncontrado = cuentaRepository.VerificarIngresoCuenta(usuario);
+                if (usuarioEncontrado == null)
+                {
+                    return ("Usuario Ingresados Incorrectamente", null);
+                }
+                return ("Usuario Registrado", usuarioEncontrado);
+            }
+            catch (Exception e)
+            {
+                return ($"Error inesperado al Buscar Usuario: {e.Message}", null);
             }
             finally
             {

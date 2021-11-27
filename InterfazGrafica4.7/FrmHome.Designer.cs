@@ -52,7 +52,6 @@ namespace InterfazGrafica4._7
             this.lbUsuarioPrincipal = new System.Windows.Forms.Label();
             this.pnEspacio = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnBusqueda = new Bunifu.UI.WinForms.BunifuPanel();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnEspacioo = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnSuperior = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnMultasPendientes = new Bunifu.UI.WinForms.BunifuPanel();
@@ -61,7 +60,7 @@ namespace InterfazGrafica4._7
             this.pnMultasPagadas = new Bunifu.UI.WinForms.BunifuPanel();
             this.lbNroMultasPagadas = new System.Windows.Forms.Label();
             this.lbMultasPagadas = new System.Windows.Forms.Label();
-            this.graficoLicencia = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnMultasRegistradas.SuspendLayout();
             this.pnPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImage)).BeginInit();
@@ -75,7 +74,7 @@ namespace InterfazGrafica4._7
             this.pnBusqueda.SuspendLayout();
             this.pnMultasPendientes.SuspendLayout();
             this.pnMultasPagadas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graficoLicencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grafico)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -134,10 +133,10 @@ namespace InterfazGrafica4._7
             this.pnPrincipal.Controls.Add(this.lbUsuario);
             this.pnPrincipal.Controls.Add(this.lbBienvenida);
             this.pnPrincipal.Controls.Add(this.pcImage);
-            this.pnPrincipal.Location = new System.Drawing.Point(24, 83);
+            this.pnPrincipal.Location = new System.Drawing.Point(24, 73);
             this.pnPrincipal.Name = "pnPrincipal";
             this.pnPrincipal.ShowBorders = true;
-            this.pnPrincipal.Size = new System.Drawing.Size(709, 170);
+            this.pnPrincipal.Size = new System.Drawing.Size(709, 151);
             this.pnPrincipal.TabIndex = 2;
             // 
             // lbUsuario
@@ -146,7 +145,7 @@ namespace InterfazGrafica4._7
             this.lbUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbUsuario.Location = new System.Drawing.Point(22, 76);
+            this.lbUsuario.Location = new System.Drawing.Point(22, 66);
             this.lbUsuario.Name = "lbUsuario";
             this.lbUsuario.Size = new System.Drawing.Size(350, 56);
             this.lbUsuario.TabIndex = 27;
@@ -168,7 +167,7 @@ namespace InterfazGrafica4._7
             // 
             this.pcImage.BackColor = System.Drawing.Color.Transparent;
             this.pcImage.Image = global::InterfazGrafica4._7.Properties.Resources.Telecommuting_pana;
-            this.pcImage.Location = new System.Drawing.Point(313, -54);
+            this.pcImage.Location = new System.Drawing.Point(313, -62);
             this.pcImage.Name = "pcImage";
             this.pcImage.ShadowDecoration.Parent = this.pcImage;
             this.pcImage.Size = new System.Drawing.Size(440, 282);
@@ -316,7 +315,6 @@ namespace InterfazGrafica4._7
             this.pnBusqueda.BorderColor = System.Drawing.Color.Transparent;
             this.pnBusqueda.BorderRadius = 3;
             this.pnBusqueda.BorderThickness = 1;
-            this.pnBusqueda.Controls.Add(this.guna2TextBox1);
             this.pnBusqueda.Controls.Add(this.pnEspacioo);
             this.pnBusqueda.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnBusqueda.Location = new System.Drawing.Point(0, 0);
@@ -324,34 +322,6 @@ namespace InterfazGrafica4._7
             this.pnBusqueda.ShowBorders = true;
             this.pnBusqueda.Size = new System.Drawing.Size(377, 36);
             this.pnBusqueda.TabIndex = 0;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2TextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.IconLeft = global::InterfazGrafica4._7.Properties.Resources.edit_find_symbolic_36205;
-            this.guna2TextBox1.Location = new System.Drawing.Point(77, 0);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(300, 36);
-            this.guna2TextBox1.TabIndex = 1;
             // 
             // pnEspacioo
             // 
@@ -463,24 +433,25 @@ namespace InterfazGrafica4._7
             this.lbMultasPagadas.TabIndex = 27;
             this.lbMultasPagadas.Text = "Multas Pagadas";
             // 
-            // graficoLicencia
+            // grafico
             // 
             chartArea1.Name = "ChartArea1";
-            this.graficoLicencia.ChartAreas.Add(chartArea1);
+            this.grafico.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.graficoLicencia.Legends.Add(legend1);
-            this.graficoLicencia.Location = new System.Drawing.Point(38, 287);
-            this.graficoLicencia.Name = "graficoLicencia";
-            this.graficoLicencia.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            this.grafico.Legends.Add(legend1);
+            this.grafico.Location = new System.Drawing.Point(12, 259);
+            this.grafico.Name = "grafico";
+            this.grafico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsXValueIndexed = true;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 2;
-            this.graficoLicencia.Series.Add(series1);
-            this.graficoLicencia.Size = new System.Drawing.Size(369, 292);
-            this.graficoLicencia.TabIndex = 36;
+            series1.Name = "grafico";
+            this.grafico.Series.Add(series1);
+            this.grafico.Size = new System.Drawing.Size(413, 352);
+            this.grafico.TabIndex = 36;
+            this.grafico.Text = "chart1";
             // 
             // FrmHome
             // 
@@ -488,7 +459,7 @@ namespace InterfazGrafica4._7
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(780, 614);
-            this.Controls.Add(this.graficoLicencia);
+            this.Controls.Add(this.grafico);
             this.Controls.Add(this.pnMultasPagadas);
             this.Controls.Add(this.pnMultasPendientes);
             this.Controls.Add(this.pnMultasRegistradas);
@@ -519,7 +490,7 @@ namespace InterfazGrafica4._7
             this.pnMultasPendientes.PerformLayout();
             this.pnMultasPagadas.ResumeLayout(false);
             this.pnMultasPagadas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graficoLicencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grafico)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -539,7 +510,6 @@ namespace InterfazGrafica4._7
         private Bunifu.UI.WinForms.BunifuPanel pnEspacio;
         private Bunifu.UI.WinForms.BunifuPanel pnBusqueda;
         private Bunifu.UI.WinForms.BunifuPanel pnEspacioo;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label lbUsuarioPrincipal;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox bnNotificaciones;
@@ -552,6 +522,6 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label lbNroMultasPagadas;
         private System.Windows.Forms.Label lbNroMultasPendientes;
         private System.Windows.Forms.Label lbNroMultasRegistradas;
-        private System.Windows.Forms.DataVisualization.Charting.Chart graficoLicencia;
+        private System.Windows.Forms.DataVisualization.Charting.Chart grafico;
     }
 }

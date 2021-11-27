@@ -13,15 +13,18 @@ namespace Entidad
 
         }
 
-        public Cuenta(string codigo,string nombre,string usuario,string password)
+        public Cuenta(string codigo,string nombre,string correo,string usuario,string password)
         {
             Codigo = codigo;
+            Correo = correo;
             NombreUsuario = nombre;
             Usuario = usuario;
             Password = password;
         }
 
         public string Codigo { get; set; }
+
+        public string Correo { get; set; }
 
         public string NombreUsuario { get; set; }
 

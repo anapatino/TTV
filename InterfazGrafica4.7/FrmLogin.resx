@@ -120,8 +120,8 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAU0AAAGsCAYAAABZ6PXjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAhhSURBVHhe7d0tkxzlGoDhlTiondkCBxKJRK48LswsqcLB
+        iVBORw0KGgoAAAANSUhEUgAAAU0AAAHACAYAAAAm3jrCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAiiSURBVHhe7d0tkxzlGoDhlTiondkCBxKJRK48LswsqcLB
         T4hErkMij4xEHonkJyCRU7tJFTIyEvrd6ZCENEnukOzZ7FxP1VWppHp6Wt319vRHjowxxtyQebA5/vLB
         2er0Ynvy3fTnOcC7MnfmdJgTdLPn4d2TL/YHfvzrg7P1HwD/b5dn698enq1+vDEh3d35+LPL7fq/0wHt
         lg4Y4AZ5NLXq/ljgzQm7vtnd+fCjq3pvjh8vHBjAzbY9/ml39+STOWnvdi62q++nL52KvXAgAO+LadH3
@@ -150,14 +150,15 @@
         RBMgEE2AQDQBAtEECEQTIBBNgEA0AQLRBAhEEyAQTYBANAEC0QQIRBMgEE2AQDQBAtEECEQTIBBNgEA0
         AQLRBAhEEyAQTYBANAEC0QQIRBMgEE2AQDQBAtEECEQTIBBNgEA0AQLRBAhEEyAQTYBANAEC0QQIRBMg
         EE2AQDQBAtEECEQTIBBNgEA0AQLRBAhEEyAQTYBANAEC0QQIRBMgEE2AQDQBAtEECEQTIBBNgEA0AQLR
-        BAhEEyAQTYBANAEC0QQIRBMgEE2AQDQBAtEECJ6J5sV29f3yRgDsPRPNy6/X3yxvBMAwFpdzMq9Oz0+X
-        NgJg72J78t2czKOj3Z2PP1vaCIAnVqdzMqdofvvpB8sbATDstqvP52TuZ/rHR3/fCIC93Z0PP5pzuZ9p
-        6Xl/aUOAQ3exWf8yp/LpuIIOsOy5K+dP5up3zc3x46UPAByycbF8TuXzM52i/7z0AYBDdXm2/m1O5Itz
-        uV19tfQhgEN1sVnfmxO5PFabAHtjlTl+upzzuDwP7558sfRhgEMzzr7nNL583H4EHLqL7fGvcxJfPeMm
-        zimcu6UdAdx6m+PH46x7TuLrzXhkyC1IwCF67dPyv4+r6cChWbyRvYwXFAOHY3V/Tt+/m6tHLJ2qA7fa
-        M29mfxszRfPLacfehATcLtOCcCwM59S93RnPX463fSx+McB7ZtxWlK+Sv8mMC0Tjy5YOAuDmW+2e++8r
-        rmvGknY8ZrR8UAA3zRTLzfreKx+NfNczn7bfc+oO3DT7s+LV+bWchr/JzE8TnQ7725VW5wDX7KpBu7sn
-        n8xpMsYYc/1zdPQnaI5r8V7ARdoAAAAASUVORK5CYII=
+        BAhEEyAQTYBANAEC0QQIRBMgEE2AQDQBAtEECEQTIBBNgEA0AQLRBAhEEyAQTYBANAEC0QQIRBMgEE2A
+        QDQBAtEECEQTIBBNgEA0AQLRBAhEEyAQTYBANAEC0QQInonmxXb1/fJGAOw9E83Lr9ffLG8EwDAWl3My
+        r07PT5c2AmDvYnvy3ZzMo6PdnY8/W9oIgCdWp3Myp2h+++kHyxsBMOy2q8/nZO5n+sdHf98IgL3dnQ8/
+        mnO5n2npeX9pQ4BDd7FZ/zKn8um4gg6w7Lkr50/m6nfNzfHjpQ8AHLJxsXxO5fMznaL/vPQBgEN1ebb+
+        bU7ki3O5XX219CGAQ3WxWd+bE7k8VpsAe2OVOX66nPO4PA/vnnyx9GGAQzPOvuc0vnzcfgQcuovt8a9z
+        El894ybOKZy7pR0B3Hqb48fjrHtO4uvNeGTILUjAIXrt0/K/j6vpwKFZvJG9jBcUA4djdX9O37+bq0cs
+        naoDt9ozb2Z/GzNF88tpx96EBNwu04JwLAzn1L3dGc9fjrd9LH4xwHtm3FaUr5K/yYwLROPLlg4C4OZb
+        7Z777yuua8aSdjxmtHxQADfNFMvN+t4rH4181zOftt9z6g7cNPuz4tX5tZyGv8nMTxOdDvvblVbnANfs
+        qkG7uyefzGkyxhhz/XN09CcyUnMilIHO6wAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="chxOcultarPassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
