@@ -31,20 +31,16 @@ namespace InterfazGrafica4._7
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHome));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.bunifuPanel5 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuCheckBox3 = new Bunifu.UI.WinForms.BunifuCheckBox();
-            this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuCheckBox2 = new Bunifu.UI.WinForms.BunifuCheckBox();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.pnMultasRegistradas = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lbNroMultasRegistradas = new System.Windows.Forms.Label();
+            this.lbMultasRegistradas = new System.Windows.Forms.Label();
             this.pnPrincipal = new Bunifu.UI.WinForms.BunifuPanel();
-            this.lbMulta = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbUsuario = new System.Windows.Forms.Label();
+            this.lbBienvenida = new System.Windows.Forms.Label();
             this.pcImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnSuperiorBusqueda = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnMensaje = new Bunifu.UI.WinForms.BunifuPanel();
@@ -53,15 +49,19 @@ namespace InterfazGrafica4._7
             this.bnNotificaciones = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnUsuario = new Bunifu.UI.WinForms.BunifuPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbUsuarioPrincipal = new System.Windows.Forms.Label();
             this.pnEspacio = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnBusqueda = new Bunifu.UI.WinForms.BunifuPanel();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnEspacioo = new Bunifu.UI.WinForms.BunifuPanel();
             this.pnSuperior = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel3.SuspendLayout();
-            this.bunifuPanel2.SuspendLayout();
-            this.bunifuPanel1.SuspendLayout();
+            this.pnMultasPendientes = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lbNroMultasPendientes = new System.Windows.Forms.Label();
+            this.lbMultasPendientes = new System.Windows.Forms.Label();
+            this.pnMultasPagadas = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lbNroMultasPagadas = new System.Windows.Forms.Label();
+            this.lbMultasPagadas = new System.Windows.Forms.Label();
+            this.grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pnMultasRegistradas.SuspendLayout();
             this.pnPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImage)).BeginInit();
             this.pnSuperiorBusqueda.SuspendLayout();
@@ -72,6 +72,9 @@ namespace InterfazGrafica4._7
             this.pnUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnBusqueda.SuspendLayout();
+            this.pnMultasPendientes.SuspendLayout();
+            this.pnMultasPagadas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grafico)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -79,261 +82,45 @@ namespace InterfazGrafica4._7
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // label2
+            // pnMultasRegistradas
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(43, 289);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 19);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Citas Agendadas";
+            this.pnMultasRegistradas.BackgroundColor = System.Drawing.Color.Orange;
+            this.pnMultasRegistradas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnMultasRegistradas.BackgroundImage")));
+            this.pnMultasRegistradas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnMultasRegistradas.BorderColor = System.Drawing.Color.Transparent;
+            this.pnMultasRegistradas.BorderRadius = 30;
+            this.pnMultasRegistradas.BorderThickness = 1;
+            this.pnMultasRegistradas.Controls.Add(this.lbNroMultasRegistradas);
+            this.pnMultasRegistradas.Controls.Add(this.lbMultasRegistradas);
+            this.pnMultasRegistradas.Location = new System.Drawing.Point(431, 277);
+            this.pnMultasRegistradas.Name = "pnMultasRegistradas";
+            this.pnMultasRegistradas.ShowBorders = true;
+            this.pnMultasRegistradas.Size = new System.Drawing.Size(302, 93);
+            this.pnMultasRegistradas.TabIndex = 29;
             // 
-            // label3
+            // lbNroMultasRegistradas
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(43, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 19);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Notificaciones";
+            this.lbNroMultasRegistradas.AutoSize = true;
+            this.lbNroMultasRegistradas.BackColor = System.Drawing.Color.Transparent;
+            this.lbNroMultasRegistradas.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNroMultasRegistradas.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbNroMultasRegistradas.Location = new System.Drawing.Point(46, 28);
+            this.lbNroMultasRegistradas.Name = "lbNroMultasRegistradas";
+            this.lbNroMultasRegistradas.Size = new System.Drawing.Size(25, 28);
+            this.lbNroMultasRegistradas.TabIndex = 28;
+            this.lbNroMultasRegistradas.Text = "1";
             // 
-            // bunifuPanel5
+            // lbMultasRegistradas
             // 
-            this.bunifuPanel5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(141)))), ((int)(((byte)(30)))));
-            this.bunifuPanel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel5.BackgroundImage")));
-            this.bunifuPanel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel5.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel5.BorderRadius = 25;
-            this.bunifuPanel5.BorderThickness = 1;
-            this.bunifuPanel5.Location = new System.Drawing.Point(47, 524);
-            this.bunifuPanel5.Name = "bunifuPanel5";
-            this.bunifuPanel5.ShowBorders = true;
-            this.bunifuPanel5.Size = new System.Drawing.Size(455, 66);
-            this.bunifuPanel5.TabIndex = 33;
-            // 
-            // bunifuPanel4
-            // 
-            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
-            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel4.BorderRadius = 30;
-            this.bunifuPanel4.BorderThickness = 1;
-            this.bunifuPanel4.Location = new System.Drawing.Point(535, 327);
-            this.bunifuPanel4.Name = "bunifuPanel4";
-            this.bunifuPanel4.ShowBorders = true;
-            this.bunifuPanel4.Size = new System.Drawing.Size(125, 152);
-            this.bunifuPanel4.TabIndex = 31;
-            // 
-            // bunifuPanel3
-            // 
-            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(33)))));
-            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
-            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel3.BorderRadius = 30;
-            this.bunifuPanel3.BorderThickness = 1;
-            this.bunifuPanel3.Controls.Add(this.bunifuCheckBox3);
-            this.bunifuPanel3.Location = new System.Drawing.Point(374, 327);
-            this.bunifuPanel3.Name = "bunifuPanel3";
-            this.bunifuPanel3.ShowBorders = true;
-            this.bunifuPanel3.Size = new System.Drawing.Size(125, 152);
-            this.bunifuPanel3.TabIndex = 30;
-            // 
-            // bunifuCheckBox3
-            // 
-            this.bunifuCheckBox3.AllowBindingControlAnimation = true;
-            this.bunifuCheckBox3.AllowBindingControlColorChanges = false;
-            this.bunifuCheckBox3.AllowBindingControlLocation = true;
-            this.bunifuCheckBox3.AllowCheckBoxAnimation = false;
-            this.bunifuCheckBox3.AllowCheckmarkAnimation = true;
-            this.bunifuCheckBox3.AllowOnHoverStates = true;
-            this.bunifuCheckBox3.AutoCheck = true;
-            this.bunifuCheckBox3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCheckBox3.BackgroundImage")));
-            this.bunifuCheckBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bunifuCheckBox3.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
-            this.bunifuCheckBox3.BorderRadius = 12;
-            this.bunifuCheckBox3.Checked = true;
-            this.bunifuCheckBox3.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
-            this.bunifuCheckBox3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuCheckBox3.CustomCheckmarkImage = null;
-            this.bunifuCheckBox3.Location = new System.Drawing.Point(19, 19);
-            this.bunifuCheckBox3.MinimumSize = new System.Drawing.Size(17, 17);
-            this.bunifuCheckBox3.Name = "bunifuCheckBox3";
-            this.bunifuCheckBox3.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox3.OnCheck.BorderRadius = 12;
-            this.bunifuCheckBox3.OnCheck.BorderThickness = 2;
-            this.bunifuCheckBox3.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox3.OnCheck.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox3.OnCheck.CheckmarkThickness = 2;
-            this.bunifuCheckBox3.OnDisable.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox3.OnDisable.BorderRadius = 12;
-            this.bunifuCheckBox3.OnDisable.BorderThickness = 2;
-            this.bunifuCheckBox3.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox3.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox3.OnDisable.CheckmarkThickness = 2;
-            this.bunifuCheckBox3.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox3.OnHoverChecked.BorderRadius = 12;
-            this.bunifuCheckBox3.OnHoverChecked.BorderThickness = 2;
-            this.bunifuCheckBox3.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox3.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox3.OnHoverChecked.CheckmarkThickness = 2;
-            this.bunifuCheckBox3.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox3.OnHoverUnchecked.BorderRadius = 12;
-            this.bunifuCheckBox3.OnHoverUnchecked.BorderThickness = 1;
-            this.bunifuCheckBox3.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox3.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
-            this.bunifuCheckBox3.OnUncheck.BorderRadius = 12;
-            this.bunifuCheckBox3.OnUncheck.BorderThickness = 1;
-            this.bunifuCheckBox3.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox3.Size = new System.Drawing.Size(21, 21);
-            this.bunifuCheckBox3.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
-            this.bunifuCheckBox3.TabIndex = 1;
-            this.bunifuCheckBox3.ThreeState = false;
-            this.bunifuCheckBox3.ToolTipText = null;
-            // 
-            // bunifuPanel2
-            // 
-            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(33)))));
-            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
-            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel2.BorderRadius = 30;
-            this.bunifuPanel2.BorderThickness = 1;
-            this.bunifuPanel2.Controls.Add(this.bunifuCheckBox2);
-            this.bunifuPanel2.Location = new System.Drawing.Point(211, 327);
-            this.bunifuPanel2.Name = "bunifuPanel2";
-            this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(125, 152);
-            this.bunifuPanel2.TabIndex = 29;
-            // 
-            // bunifuCheckBox2
-            // 
-            this.bunifuCheckBox2.AllowBindingControlAnimation = true;
-            this.bunifuCheckBox2.AllowBindingControlColorChanges = false;
-            this.bunifuCheckBox2.AllowBindingControlLocation = true;
-            this.bunifuCheckBox2.AllowCheckBoxAnimation = false;
-            this.bunifuCheckBox2.AllowCheckmarkAnimation = true;
-            this.bunifuCheckBox2.AllowOnHoverStates = true;
-            this.bunifuCheckBox2.AutoCheck = true;
-            this.bunifuCheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCheckBox2.BackgroundImage")));
-            this.bunifuCheckBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bunifuCheckBox2.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
-            this.bunifuCheckBox2.BorderRadius = 12;
-            this.bunifuCheckBox2.Checked = true;
-            this.bunifuCheckBox2.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
-            this.bunifuCheckBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuCheckBox2.CustomCheckmarkImage = null;
-            this.bunifuCheckBox2.Location = new System.Drawing.Point(21, 19);
-            this.bunifuCheckBox2.MinimumSize = new System.Drawing.Size(17, 17);
-            this.bunifuCheckBox2.Name = "bunifuCheckBox2";
-            this.bunifuCheckBox2.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox2.OnCheck.BorderRadius = 12;
-            this.bunifuCheckBox2.OnCheck.BorderThickness = 2;
-            this.bunifuCheckBox2.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox2.OnCheck.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox2.OnCheck.CheckmarkThickness = 2;
-            this.bunifuCheckBox2.OnDisable.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox2.OnDisable.BorderRadius = 12;
-            this.bunifuCheckBox2.OnDisable.BorderThickness = 2;
-            this.bunifuCheckBox2.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox2.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox2.OnDisable.CheckmarkThickness = 2;
-            this.bunifuCheckBox2.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox2.OnHoverChecked.BorderRadius = 12;
-            this.bunifuCheckBox2.OnHoverChecked.BorderThickness = 2;
-            this.bunifuCheckBox2.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox2.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox2.OnHoverChecked.CheckmarkThickness = 2;
-            this.bunifuCheckBox2.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox2.OnHoverUnchecked.BorderRadius = 12;
-            this.bunifuCheckBox2.OnHoverUnchecked.BorderThickness = 1;
-            this.bunifuCheckBox2.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox2.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
-            this.bunifuCheckBox2.OnUncheck.BorderRadius = 12;
-            this.bunifuCheckBox2.OnUncheck.BorderThickness = 1;
-            this.bunifuCheckBox2.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox2.Size = new System.Drawing.Size(21, 21);
-            this.bunifuCheckBox2.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
-            this.bunifuCheckBox2.TabIndex = 1;
-            this.bunifuCheckBox2.ThreeState = false;
-            this.bunifuCheckBox2.ToolTipText = null;
-            // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(33)))));
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 30;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.bunifuCheckBox1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(47, 327);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(125, 152);
-            this.bunifuPanel1.TabIndex = 28;
-            // 
-            // bunifuCheckBox1
-            // 
-            this.bunifuCheckBox1.AllowBindingControlAnimation = true;
-            this.bunifuCheckBox1.AllowBindingControlColorChanges = false;
-            this.bunifuCheckBox1.AllowBindingControlLocation = true;
-            this.bunifuCheckBox1.AllowCheckBoxAnimation = false;
-            this.bunifuCheckBox1.AllowCheckmarkAnimation = true;
-            this.bunifuCheckBox1.AllowOnHoverStates = true;
-            this.bunifuCheckBox1.AutoCheck = true;
-            this.bunifuCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCheckBox1.BackgroundImage")));
-            this.bunifuCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bunifuCheckBox1.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
-            this.bunifuCheckBox1.BorderRadius = 12;
-            this.bunifuCheckBox1.Checked = true;
-            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
-            this.bunifuCheckBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuCheckBox1.CustomCheckmarkImage = null;
-            this.bunifuCheckBox1.Location = new System.Drawing.Point(16, 19);
-            this.bunifuCheckBox1.MinimumSize = new System.Drawing.Size(17, 17);
-            this.bunifuCheckBox1.Name = "bunifuCheckBox1";
-            this.bunifuCheckBox1.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox1.OnCheck.BorderRadius = 12;
-            this.bunifuCheckBox1.OnCheck.BorderThickness = 2;
-            this.bunifuCheckBox1.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox1.OnCheck.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox1.OnCheck.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnDisable.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox1.OnDisable.BorderRadius = 12;
-            this.bunifuCheckBox1.OnDisable.BorderThickness = 2;
-            this.bunifuCheckBox1.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
-            this.bunifuCheckBox1.OnDisable.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox1.OnHoverChecked.BorderRadius = 12;
-            this.bunifuCheckBox1.OnHoverChecked.BorderThickness = 2;
-            this.bunifuCheckBox1.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox1.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
-            this.bunifuCheckBox1.OnHoverChecked.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(80)))), ((int)(((byte)(8)))));
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderRadius = 12;
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderThickness = 1;
-            this.bunifuCheckBox1.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
-            this.bunifuCheckBox1.OnUncheck.BorderRadius = 12;
-            this.bunifuCheckBox1.OnUncheck.BorderThickness = 1;
-            this.bunifuCheckBox1.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.bunifuCheckBox1.Size = new System.Drawing.Size(21, 21);
-            this.bunifuCheckBox1.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
-            this.bunifuCheckBox1.TabIndex = 0;
-            this.bunifuCheckBox1.ThreeState = false;
-            this.bunifuCheckBox1.ToolTipText = null;
+            this.lbMultasRegistradas.AutoSize = true;
+            this.lbMultasRegistradas.BackColor = System.Drawing.Color.Transparent;
+            this.lbMultasRegistradas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMultasRegistradas.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbMultasRegistradas.Location = new System.Drawing.Point(144, 34);
+            this.lbMultasRegistradas.Name = "lbMultasRegistradas";
+            this.lbMultasRegistradas.Size = new System.Drawing.Size(127, 17);
+            this.lbMultasRegistradas.TabIndex = 27;
+            this.lbMultasRegistradas.Text = "Multas Registradas";
             // 
             // pnPrincipal
             // 
@@ -343,46 +130,47 @@ namespace InterfazGrafica4._7
             this.pnPrincipal.BorderColor = System.Drawing.Color.Transparent;
             this.pnPrincipal.BorderRadius = 40;
             this.pnPrincipal.BorderThickness = 1;
-            this.pnPrincipal.Controls.Add(this.lbMulta);
-            this.pnPrincipal.Controls.Add(this.label1);
+            this.pnPrincipal.Controls.Add(this.lbUsuario);
+            this.pnPrincipal.Controls.Add(this.lbBienvenida);
             this.pnPrincipal.Controls.Add(this.pcImage);
-            this.pnPrincipal.Location = new System.Drawing.Point(24, 76);
+            this.pnPrincipal.Location = new System.Drawing.Point(24, 73);
             this.pnPrincipal.Name = "pnPrincipal";
             this.pnPrincipal.ShowBorders = true;
-            this.pnPrincipal.Size = new System.Drawing.Size(729, 186);
+            this.pnPrincipal.Size = new System.Drawing.Size(709, 151);
             this.pnPrincipal.TabIndex = 2;
             // 
-            // lbMulta
+            // lbUsuario
             // 
-            this.lbMulta.AutoSize = true;
-            this.lbMulta.BackColor = System.Drawing.Color.Transparent;
-            this.lbMulta.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMulta.ForeColor = System.Drawing.Color.White;
-            this.lbMulta.Location = new System.Drawing.Point(190, 86);
-            this.lbMulta.Name = "lbMulta";
-            this.lbMulta.Size = new System.Drawing.Size(252, 41);
-            this.lbMulta.TabIndex = 27;
-            this.lbMulta.Text = "Administrador";
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuario.ForeColor = System.Drawing.Color.White;
+            this.lbUsuario.Location = new System.Drawing.Point(22, 66);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(350, 56);
+            this.lbUsuario.TabIndex = 27;
+            this.lbUsuario.Text = "Administrador";
             // 
-            // label1
+            // lbBienvenida
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 42);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Bienvenido usuario";
+            this.lbBienvenida.AutoSize = true;
+            this.lbBienvenida.BackColor = System.Drawing.Color.Transparent;
+            this.lbBienvenida.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBienvenida.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbBienvenida.Location = new System.Drawing.Point(25, 24);
+            this.lbBienvenida.Name = "lbBienvenida";
+            this.lbBienvenida.Size = new System.Drawing.Size(208, 42);
+            this.lbBienvenida.TabIndex = 26;
+            this.lbBienvenida.Text = "Bienvenido";
             // 
             // pcImage
             // 
             this.pcImage.BackColor = System.Drawing.Color.Transparent;
             this.pcImage.Image = global::InterfazGrafica4._7.Properties.Resources.Telecommuting_pana;
-            this.pcImage.Location = new System.Drawing.Point(282, -64);
+            this.pcImage.Location = new System.Drawing.Point(313, -62);
             this.pcImage.Name = "pcImage";
             this.pcImage.ShadowDecoration.Parent = this.pcImage;
-            this.pcImage.Size = new System.Drawing.Size(583, 319);
+            this.pcImage.Size = new System.Drawing.Size(440, 282);
             this.pcImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcImage.TabIndex = 0;
             this.pcImage.TabStop = false;
@@ -472,7 +260,7 @@ namespace InterfazGrafica4._7
             this.pnUsuario.BorderRadius = 3;
             this.pnUsuario.BorderThickness = 1;
             this.pnUsuario.Controls.Add(this.guna2PictureBox1);
-            this.pnUsuario.Controls.Add(this.label4);
+            this.pnUsuario.Controls.Add(this.lbUsuarioPrincipal);
             this.pnUsuario.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnUsuario.Location = new System.Drawing.Point(558, 0);
             this.pnUsuario.Name = "pnUsuario";
@@ -492,17 +280,17 @@ namespace InterfazGrafica4._7
             this.guna2PictureBox1.TabIndex = 34;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // label4
+            // lbUsuarioPrincipal
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(34, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 20);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Administrador";
+            this.lbUsuarioPrincipal.AutoSize = true;
+            this.lbUsuarioPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.lbUsuarioPrincipal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuarioPrincipal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbUsuarioPrincipal.Location = new System.Drawing.Point(34, 10);
+            this.lbUsuarioPrincipal.Name = "lbUsuarioPrincipal";
+            this.lbUsuarioPrincipal.Size = new System.Drawing.Size(109, 20);
+            this.lbUsuarioPrincipal.TabIndex = 28;
+            this.lbUsuarioPrincipal.Text = "Administrador";
             // 
             // pnEspacio
             // 
@@ -527,7 +315,6 @@ namespace InterfazGrafica4._7
             this.pnBusqueda.BorderColor = System.Drawing.Color.Transparent;
             this.pnBusqueda.BorderRadius = 3;
             this.pnBusqueda.BorderThickness = 1;
-            this.pnBusqueda.Controls.Add(this.guna2TextBox1);
             this.pnBusqueda.Controls.Add(this.pnEspacioo);
             this.pnBusqueda.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnBusqueda.Location = new System.Drawing.Point(0, 0);
@@ -535,34 +322,6 @@ namespace InterfazGrafica4._7
             this.pnBusqueda.ShowBorders = true;
             this.pnBusqueda.Size = new System.Drawing.Size(377, 36);
             this.pnBusqueda.TabIndex = 0;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2TextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.IconLeft = global::InterfazGrafica4._7.Properties.Resources.edit_find_symbolic_36205;
-            this.guna2TextBox1.Location = new System.Drawing.Point(77, 0);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(300, 36);
-            this.guna2TextBox1.TabIndex = 1;
             // 
             // pnEspacioo
             // 
@@ -594,30 +353,127 @@ namespace InterfazGrafica4._7
             this.pnSuperior.Size = new System.Drawing.Size(780, 19);
             this.pnSuperior.TabIndex = 0;
             // 
+            // pnMultasPendientes
+            // 
+            this.pnMultasPendientes.BackgroundColor = System.Drawing.Color.DarkOrange;
+            this.pnMultasPendientes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnMultasPendientes.BackgroundImage")));
+            this.pnMultasPendientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnMultasPendientes.BorderColor = System.Drawing.Color.Transparent;
+            this.pnMultasPendientes.BorderRadius = 30;
+            this.pnMultasPendientes.BorderThickness = 1;
+            this.pnMultasPendientes.Controls.Add(this.lbNroMultasPendientes);
+            this.pnMultasPendientes.Controls.Add(this.lbMultasPendientes);
+            this.pnMultasPendientes.Location = new System.Drawing.Point(431, 393);
+            this.pnMultasPendientes.Name = "pnMultasPendientes";
+            this.pnMultasPendientes.ShowBorders = true;
+            this.pnMultasPendientes.Size = new System.Drawing.Size(302, 93);
+            this.pnMultasPendientes.TabIndex = 34;
+            // 
+            // lbNroMultasPendientes
+            // 
+            this.lbNroMultasPendientes.AutoSize = true;
+            this.lbNroMultasPendientes.BackColor = System.Drawing.Color.Transparent;
+            this.lbNroMultasPendientes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNroMultasPendientes.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbNroMultasPendientes.Location = new System.Drawing.Point(46, 30);
+            this.lbNroMultasPendientes.Name = "lbNroMultasPendientes";
+            this.lbNroMultasPendientes.Size = new System.Drawing.Size(25, 28);
+            this.lbNroMultasPendientes.TabIndex = 29;
+            this.lbNroMultasPendientes.Text = "1";
+            // 
+            // lbMultasPendientes
+            // 
+            this.lbMultasPendientes.AutoSize = true;
+            this.lbMultasPendientes.BackColor = System.Drawing.Color.Transparent;
+            this.lbMultasPendientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMultasPendientes.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbMultasPendientes.Location = new System.Drawing.Point(148, 35);
+            this.lbMultasPendientes.Name = "lbMultasPendientes";
+            this.lbMultasPendientes.Size = new System.Drawing.Size(123, 17);
+            this.lbMultasPendientes.TabIndex = 27;
+            this.lbMultasPendientes.Text = "Multas Pendientes";
+            // 
+            // pnMultasPagadas
+            // 
+            this.pnMultasPagadas.BackgroundColor = System.Drawing.Color.Orange;
+            this.pnMultasPagadas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnMultasPagadas.BackgroundImage")));
+            this.pnMultasPagadas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnMultasPagadas.BorderColor = System.Drawing.Color.Transparent;
+            this.pnMultasPagadas.BorderRadius = 30;
+            this.pnMultasPagadas.BorderThickness = 1;
+            this.pnMultasPagadas.Controls.Add(this.lbNroMultasPagadas);
+            this.pnMultasPagadas.Controls.Add(this.lbMultasPagadas);
+            this.pnMultasPagadas.Location = new System.Drawing.Point(431, 509);
+            this.pnMultasPagadas.Name = "pnMultasPagadas";
+            this.pnMultasPagadas.ShowBorders = true;
+            this.pnMultasPagadas.Size = new System.Drawing.Size(302, 93);
+            this.pnMultasPagadas.TabIndex = 35;
+            // 
+            // lbNroMultasPagadas
+            // 
+            this.lbNroMultasPagadas.AutoSize = true;
+            this.lbNroMultasPagadas.BackColor = System.Drawing.Color.Transparent;
+            this.lbNroMultasPagadas.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNroMultasPagadas.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbNroMultasPagadas.Location = new System.Drawing.Point(46, 32);
+            this.lbNroMultasPagadas.Name = "lbNroMultasPagadas";
+            this.lbNroMultasPagadas.Size = new System.Drawing.Size(25, 28);
+            this.lbNroMultasPagadas.TabIndex = 29;
+            this.lbNroMultasPagadas.Text = "1";
+            // 
+            // lbMultasPagadas
+            // 
+            this.lbMultasPagadas.AutoSize = true;
+            this.lbMultasPagadas.BackColor = System.Drawing.Color.Transparent;
+            this.lbMultasPagadas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMultasPagadas.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbMultasPagadas.Location = new System.Drawing.Point(148, 38);
+            this.lbMultasPagadas.Name = "lbMultasPagadas";
+            this.lbMultasPagadas.Size = new System.Drawing.Size(111, 17);
+            this.lbMultasPagadas.TabIndex = 27;
+            this.lbMultasPagadas.Text = "Multas Pagadas";
+            // 
+            // grafico
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.grafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.grafico.Legends.Add(legend1);
+            this.grafico.Location = new System.Drawing.Point(12, 259);
+            this.grafico.Name = "grafico";
+            this.grafico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "grafico";
+            this.grafico.Series.Add(series1);
+            this.grafico.Size = new System.Drawing.Size(413, 352);
+            this.grafico.TabIndex = 36;
+            this.grafico.Text = "chart1";
+            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(780, 614);
-            this.Controls.Add(this.bunifuPanel5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.bunifuPanel4);
-            this.Controls.Add(this.bunifuPanel3);
-            this.Controls.Add(this.bunifuPanel2);
-            this.Controls.Add(this.bunifuPanel1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.grafico);
+            this.Controls.Add(this.pnMultasPagadas);
+            this.Controls.Add(this.pnMultasPendientes);
+            this.Controls.Add(this.pnMultasRegistradas);
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnSuperiorBusqueda);
             this.Controls.Add(this.pnSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.bunifuPanel3.ResumeLayout(false);
-            this.bunifuPanel2.ResumeLayout(false);
-            this.bunifuPanel1.ResumeLayout(false);
+            this.pnMultasRegistradas.ResumeLayout(false);
+            this.pnMultasRegistradas.PerformLayout();
             this.pnPrincipal.ResumeLayout(false);
             this.pnPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImage)).EndInit();
@@ -630,8 +486,12 @@ namespace InterfazGrafica4._7
             this.pnUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.pnBusqueda.ResumeLayout(false);
+            this.pnMultasPendientes.ResumeLayout(false);
+            this.pnMultasPendientes.PerformLayout();
+            this.pnMultasPagadas.ResumeLayout(false);
+            this.pnMultasPagadas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grafico)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -641,28 +501,27 @@ namespace InterfazGrafica4._7
         private Bunifu.UI.WinForms.BunifuPanel pnSuperiorBusqueda;
         private Bunifu.UI.WinForms.BunifuPanel pnSuperior;
         private Guna.UI2.WinForms.Guna2PictureBox pcImage;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel5;
-        private System.Windows.Forms.Label label3;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
-        private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbMulta;
-        private System.Windows.Forms.Label label1;
+        private Bunifu.UI.WinForms.BunifuPanel pnMultasRegistradas;
+        private System.Windows.Forms.Label lbUsuario;
+        private System.Windows.Forms.Label lbBienvenida;
         private Bunifu.UI.WinForms.BunifuPanel pnMensaje;
         private Bunifu.UI.WinForms.BunifuPanel pnNotificacion;
         private Bunifu.UI.WinForms.BunifuPanel pnUsuario;
         private Bunifu.UI.WinForms.BunifuPanel pnEspacio;
         private Bunifu.UI.WinForms.BunifuPanel pnBusqueda;
         private Bunifu.UI.WinForms.BunifuPanel pnEspacioo;
-        private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox3;
-        private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbUsuarioPrincipal;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox bnNotificaciones;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Bunifu.UI.WinForms.BunifuPanel pnMultasPagadas;
+        private System.Windows.Forms.Label lbMultasPagadas;
+        private Bunifu.UI.WinForms.BunifuPanel pnMultasPendientes;
+        private System.Windows.Forms.Label lbMultasPendientes;
+        private System.Windows.Forms.Label lbMultasRegistradas;
+        private System.Windows.Forms.Label lbNroMultasPagadas;
+        private System.Windows.Forms.Label lbNroMultasPendientes;
+        private System.Windows.Forms.Label lbNroMultasRegistradas;
+        private System.Windows.Forms.DataVisualization.Charting.Chart grafico;
     }
 }

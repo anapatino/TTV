@@ -15,28 +15,36 @@ namespace Entidad
         }
 
 
-        public Multa_Usuario(string codigo,string pri_nombre, string pri_apellido,string multa_id,string multa_descripcion,  string estado)
-
+        public Multa_Usuario(Usuario usuario, Multa multa, string codigo, string idVehiculo, string nombreVehiculo, string estado, DateTime fecha)
         {
-            Codigo = codigo;
-            Pri_nombre = pri_nombre;
-            Pri_Apellido = pri_apellido;
-            Multa_id = multa_id;
-            Multa_descripcion = multa_descripcion;
+            Usuario = usuario;
+            Multa = multa;
+            CodigoMultaUsuario = codigo;
+            Vehiculo_Id = idVehiculo;
+            VehiculoNombre = nombreVehiculo;
             Estado = estado;
-            Fecha_expedicion = fechaexpedicion;
-            Mul_valor = mul_valor;
+            FechaExpedicion = fecha;
         }
 
-        public string Codigo { get; set; }
-        public string Pri_nombre { get; set; }
-        public string Pri_Apellido { get; set; }
-        public string Multa_id { get; set; }
-        public string Multa_descripcion { get; set; }
-        public string Estado { get; set; }
-        public DateTime Fecha_expedicion { get; set; }
-        public decimal Mul_valor { get; set; }
 
+        public Usuario Usuario { get; set; }
+
+        public Multa Multa { get; set; }
+
+        public string CodigoMultaUsuario { get; set; }
+        public string Vehiculo_Id { get; set; }
+
+        public string VehiculoNombre { get; set; }
+
+        public string Estado { get; set; }
+
+        public DateTime FechaExpedicion { get; set; }
+
+        public int GenerarCodigo()
+        {
+            Random r = new Random();
+            return r.Next(1, 9999);
+        }
 
     }
 }

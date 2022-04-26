@@ -30,6 +30,7 @@ namespace InterfazGrafica4._7
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCargando));
             this.pcImagenLogin = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Progress = new Bunifu.UI.WinForms.BunifuCircleProgress();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -126,6 +127,7 @@ namespace InterfazGrafica4._7
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pcImagenLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCargando";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCargando";

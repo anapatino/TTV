@@ -13,19 +13,27 @@ namespace Entidad
 
         }
 
-        public Licencia(string codigo, string categoria, decimal precio, string organismo, DateTime fechaexpedicion)
+        public Licencia(string codigo, string organismo, DateTime fechaexp, string codcat)
         {
             Codigo = codigo;
-            Categoria = categoria;
-            Precio = precio;
             Organismo = organismo;
-            FechaExpedicion = fechaexpedicion;
+            FechaExp = fechaexp;
+            CodCat = codcat;
         }
 
         public string Codigo { get; set; }
-        public string Categoria { get; set; }
-        public decimal Precio { get; set; }
+
         public string Organismo { get; set; }
-        public DateTime FechaExpedicion { get; set; }
+
+        public DateTime FechaExp { get; set; }
+
+        public string CodCat { get; set; }
+
+        public int GenerarCodigo()
+        {
+            Random r = new Random();
+            return r.Next(1, 9999);
+        }
+
     }
 }

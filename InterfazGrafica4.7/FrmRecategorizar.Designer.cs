@@ -30,9 +30,21 @@ namespace InterfazGrafica4._7
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecategorizar));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.dgvTabla = new System.Windows.Forms.DataGridView();
+            this.cmCodigoLicencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmOrganismo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnFechaExpedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +53,15 @@ namespace InterfazGrafica4._7
             this.lbFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lbCategoria = new System.Windows.Forms.Label();
+            this.bnGuardar = new Guna.UI2.WinForms.Guna2Button();
+            this.bnLimpiar = new Guna.UI2.WinForms.Guna2Button();
+            this.txtCodigoLicencia = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lbCodigo = new System.Windows.Forms.Label();
+            this.lbPrecio = new System.Windows.Forms.Label();
+            this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImage)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +73,108 @@ namespace InterfazGrafica4._7
             // 
             // bunifuElipse2
             // 
-            this.bunifuElipse2.ElipseRadius = 20;
+            this.bunifuElipse2.ElipseRadius = 23;
+            this.bunifuElipse2.TargetControl = this.dgvTabla;
+            // 
+            // dgvTabla
+            // 
+            this.dgvTabla.AllowUserToAddRows = false;
+            this.dgvTabla.AllowUserToDeleteRows = false;
+            this.dgvTabla.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvTabla.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTabla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTabla.ColumnHeadersHeight = 36;
+            this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmCodigoLicencia,
+            this.cmCedula,
+            this.cmNombre,
+            this.cmApellido,
+            this.cmGrupo,
+            this.cmOrganismo,
+            this.cmCategoria,
+            this.cnFechaExpedicion});
+            this.dgvTabla.EnableHeadersVisualStyles = false;
+            this.dgvTabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            this.dgvTabla.Location = new System.Drawing.Point(45, 247);
+            this.dgvTabla.Name = "dgvTabla";
+            this.dgvTabla.ReadOnly = true;
+            this.dgvTabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTabla.RowHeadersVisible = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTabla.Size = new System.Drawing.Size(678, 177);
+            this.dgvTabla.TabIndex = 55;
+            this.dgvTabla.Visible = false;
+            // 
+            // cmCodigoLicencia
+            // 
+            this.cmCodigoLicencia.HeaderText = "Codigo Licencia";
+            this.cmCodigoLicencia.Name = "cmCodigoLicencia";
+            this.cmCodigoLicencia.ReadOnly = true;
+            // 
+            // cmCedula
+            // 
+            this.cmCedula.HeaderText = "Cedula";
+            this.cmCedula.Name = "cmCedula";
+            this.cmCedula.ReadOnly = true;
+            // 
+            // cmNombre
+            // 
+            this.cmNombre.HeaderText = "Nombre";
+            this.cmNombre.Name = "cmNombre";
+            this.cmNombre.ReadOnly = true;
+            // 
+            // cmApellido
+            // 
+            this.cmApellido.HeaderText = "Apellido";
+            this.cmApellido.Name = "cmApellido";
+            this.cmApellido.ReadOnly = true;
+            // 
+            // cmGrupo
+            // 
+            this.cmGrupo.HeaderText = "Grupo";
+            this.cmGrupo.Name = "cmGrupo";
+            this.cmGrupo.ReadOnly = true;
+            // 
+            // cmOrganismo
+            // 
+            this.cmOrganismo.HeaderText = "Organismo";
+            this.cmOrganismo.Name = "cmOrganismo";
+            this.cmOrganismo.ReadOnly = true;
+            // 
+            // cmCategoria
+            // 
+            this.cmCategoria.HeaderText = "Categoria";
+            this.cmCategoria.Name = "cmCategoria";
+            this.cmCategoria.ReadOnly = true;
+            // 
+            // cnFechaExpedicion
+            // 
+            this.cnFechaExpedicion.HeaderText = "Fecha Expedicion";
+            this.cnFechaExpedicion.Name = "cnFechaExpedicion";
+            this.cnFechaExpedicion.ReadOnly = true;
             // 
             // bunifuPanel1
             // 
@@ -122,6 +244,14 @@ namespace InterfazGrafica4._7
             this.cmFiltro.FormattingEnabled = true;
             this.cmFiltro.HoverState.Parent = this.cmFiltro;
             this.cmFiltro.ItemHeight = 30;
+            this.cmFiltro.Items.AddRange(new object[] {
+            "TODO",
+            "IDENTIFICACION",
+            "CODIGO LICENCIA",
+            "NOMBRE",
+            "CATEGORIA",
+            "ORGANISMO",
+            "ANIO"});
             this.cmFiltro.ItemsAppearance.Parent = this.cmFiltro;
             this.cmFiltro.Location = new System.Drawing.Point(144, 180);
             this.cmFiltro.Name = "cmFiltro";
@@ -155,7 +285,7 @@ namespace InterfazGrafica4._7
             this.txtFiltro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.FocusedState.Parent = this.txtFiltro;
             this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.ForeColor = System.Drawing.Color.LightGray;
+            this.txtFiltro.ForeColor = System.Drawing.Color.Black;
             this.txtFiltro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.HoverState.Parent = this.txtFiltro;
             this.txtFiltro.Location = new System.Drawing.Point(325, 181);
@@ -185,6 +315,163 @@ namespace InterfazGrafica4._7
             this.btnBuscar.ShadowDecoration.Parent = this.btnBuscar;
             this.btnBuscar.Size = new System.Drawing.Size(45, 35);
             this.btnBuscar.TabIndex = 42;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.cmbCategoria.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbCategoria.BorderRadius = 15;
+            this.cmbCategoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbCategoria.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbCategoria.FocusedState.Parent = this.cmbCategoria;
+            this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.HoverState.Parent = this.cmbCategoria;
+            this.cmbCategoria.ItemHeight = 30;
+            this.cmbCategoria.ItemsAppearance.Parent = this.cmbCategoria;
+            this.cmbCategoria.Location = new System.Drawing.Point(366, 473);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.ShadowDecoration.Parent = this.cmbCategoria;
+            this.cmbCategoria.Size = new System.Drawing.Size(131, 36);
+            this.cmbCategoria.TabIndex = 53;
+            this.cmbCategoria.Visible = false;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
+            // 
+            // lbCategoria
+            // 
+            this.lbCategoria.AutoSize = true;
+            this.lbCategoria.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategoria.Location = new System.Drawing.Point(285, 482);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(75, 17);
+            this.lbCategoria.TabIndex = 52;
+            this.lbCategoria.Text = "Categoria";
+            this.lbCategoria.Visible = false;
+            // 
+            // bnGuardar
+            // 
+            this.bnGuardar.BorderRadius = 15;
+            this.bnGuardar.CheckedState.Parent = this.bnGuardar;
+            this.bnGuardar.CustomImages.Parent = this.bnGuardar;
+            this.bnGuardar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(33)))));
+            this.bnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnGuardar.ForeColor = System.Drawing.Color.White;
+            this.bnGuardar.HoverState.Parent = this.bnGuardar;
+            this.bnGuardar.Location = new System.Drawing.Point(454, 553);
+            this.bnGuardar.Name = "bnGuardar";
+            this.bnGuardar.ShadowDecoration.Parent = this.bnGuardar;
+            this.bnGuardar.Size = new System.Drawing.Size(114, 30);
+            this.bnGuardar.TabIndex = 54;
+            this.bnGuardar.Text = "Guardar";
+            this.bnGuardar.Visible = false;
+            this.bnGuardar.Click += new System.EventHandler(this.bnGuardar_Click);
+            // 
+            // bnLimpiar
+            // 
+            this.bnLimpiar.BorderRadius = 15;
+            this.bnLimpiar.CheckedState.Parent = this.bnLimpiar;
+            this.bnLimpiar.CustomImages.Parent = this.bnLimpiar;
+            this.bnLimpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(46)))));
+            this.bnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.bnLimpiar.HoverState.Parent = this.bnLimpiar;
+            this.bnLimpiar.Location = new System.Drawing.Point(584, 553);
+            this.bnLimpiar.Name = "bnLimpiar";
+            this.bnLimpiar.ShadowDecoration.Parent = this.bnLimpiar;
+            this.bnLimpiar.Size = new System.Drawing.Size(114, 30);
+            this.bnLimpiar.TabIndex = 56;
+            this.bnLimpiar.Text = "Limpiar";
+            this.bnLimpiar.Visible = false;
+            this.bnLimpiar.Click += new System.EventHandler(this.bnLimpiar_Click);
+            // 
+            // txtCodigoLicencia
+            // 
+            this.txtCodigoLicencia.BackColor = System.Drawing.Color.Transparent;
+            this.txtCodigoLicencia.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigoLicencia.BorderRadius = 15;
+            this.txtCodigoLicencia.BorderThickness = 2;
+            this.txtCodigoLicencia.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodigoLicencia.DefaultText = "";
+            this.txtCodigoLicencia.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCodigoLicencia.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCodigoLicencia.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCodigoLicencia.DisabledState.Parent = this.txtCodigoLicencia;
+            this.txtCodigoLicencia.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCodigoLicencia.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigoLicencia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCodigoLicencia.FocusedState.Parent = this.txtCodigoLicencia;
+            this.txtCodigoLicencia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoLicencia.ForeColor = System.Drawing.Color.Black;
+            this.txtCodigoLicencia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCodigoLicencia.HoverState.Parent = this.txtCodigoLicencia;
+            this.txtCodigoLicencia.Location = new System.Drawing.Point(123, 473);
+            this.txtCodigoLicencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCodigoLicencia.Name = "txtCodigoLicencia";
+            this.txtCodigoLicencia.PasswordChar = '\0';
+            this.txtCodigoLicencia.PlaceholderText = "";
+            this.txtCodigoLicencia.SelectedText = "";
+            this.txtCodigoLicencia.ShadowDecoration.Parent = this.txtCodigoLicencia;
+            this.txtCodigoLicencia.Size = new System.Drawing.Size(131, 36);
+            this.txtCodigoLicencia.TabIndex = 58;
+            this.txtCodigoLicencia.Visible = false;
+            // 
+            // lbCodigo
+            // 
+            this.lbCodigo.AutoSize = true;
+            this.lbCodigo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCodigo.Location = new System.Drawing.Point(43, 482);
+            this.lbCodigo.Name = "lbCodigo";
+            this.lbCodigo.Size = new System.Drawing.Size(79, 17);
+            this.lbCodigo.TabIndex = 59;
+            this.lbCodigo.Text = "Codigo Lic";
+            this.lbCodigo.Visible = false;
+            // 
+            // lbPrecio
+            // 
+            this.lbPrecio.AutoSize = true;
+            this.lbPrecio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrecio.Location = new System.Drawing.Point(528, 483);
+            this.lbPrecio.Name = "lbPrecio";
+            this.lbPrecio.Size = new System.Drawing.Size(48, 17);
+            this.lbPrecio.TabIndex = 61;
+            this.lbPrecio.Text = "Precio";
+            this.lbPrecio.Visible = false;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrecio.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecio.BorderRadius = 15;
+            this.txtPrecio.BorderThickness = 2;
+            this.txtPrecio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrecio.DefaultText = "";
+            this.txtPrecio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrecio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrecio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrecio.DisabledState.Parent = this.txtPrecio;
+            this.txtPrecio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPrecio.FocusedState.Parent = this.txtPrecio;
+            this.txtPrecio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPrecio.HoverState.Parent = this.txtPrecio;
+            this.txtPrecio.Location = new System.Drawing.Point(577, 473);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.PasswordChar = '\0';
+            this.txtPrecio.PlaceholderText = "";
+            this.txtPrecio.SelectedText = "";
+            this.txtPrecio.ShadowDecoration.Parent = this.txtPrecio;
+            this.txtPrecio.Size = new System.Drawing.Size(131, 36);
+            this.txtPrecio.TabIndex = 60;
+            this.txtPrecio.Visible = false;
             // 
             // FrmRecategorizar
             // 
@@ -192,6 +479,15 @@ namespace InterfazGrafica4._7
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 614);
+            this.Controls.Add(this.lbPrecio);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.lbCodigo);
+            this.Controls.Add(this.txtCodigoLicencia);
+            this.Controls.Add(this.bnLimpiar);
+            this.Controls.Add(this.dgvTabla);
+            this.Controls.Add(this.bnGuardar);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.lbCategoria);
             this.Controls.Add(this.cmFiltro);
             this.Controls.Add(this.lbFiltro);
             this.Controls.Add(this.txtFiltro);
@@ -200,6 +496,7 @@ namespace InterfazGrafica4._7
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRecategorizar";
             this.Text = "FrmRecategorizar";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImage)).EndInit();
@@ -219,5 +516,22 @@ namespace InterfazGrafica4._7
         private System.Windows.Forms.Label lbFiltro;
         private Guna.UI2.WinForms.Guna2TextBox txtFiltro;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbCategoria;
+        private System.Windows.Forms.Label lbCategoria;
+        private Guna.UI2.WinForms.Guna2Button bnGuardar;
+        private System.Windows.Forms.DataGridView dgvTabla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCodigoLicencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmGrupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmOrganismo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnFechaExpedicion;
+        private Guna.UI2.WinForms.Guna2Button bnLimpiar;
+        private System.Windows.Forms.Label lbCodigo;
+        private Guna.UI2.WinForms.Guna2TextBox txtCodigoLicencia;
+        private System.Windows.Forms.Label lbPrecio;
+        private Guna.UI2.WinForms.Guna2TextBox txtPrecio;
     }
 }
